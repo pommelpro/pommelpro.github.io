@@ -68,7 +68,7 @@ $(document).ready(
 	        fillgrid();     //execute fill grid
 	        whosturn();
 	    });
-	    $('#reload').click(location.reload());
+	//    $('#reload').click(location.reload());
 	    $("#pic0").click(function () {					//on click, add to score and change picture
 	        if (count0 != 1) {
 	            if (turns == 0) {
