@@ -202,12 +202,14 @@ $(document).ready(
 	                count7 = 1;
 	                changeColor();
 	                turns = 1;
+	                whosturn();
 	            }
 	            else {
 	                $('#pic7').attr('src', buswait[9]);
 	                count7 = 1;
 	                changeColor();
 	                turns = 0;
+	                whosturn();
 	            }
 	        }
 	    });
@@ -218,12 +220,14 @@ $(document).ready(
 	                count8 = 1;
 	                changeColor();
 	                turns = 1;
+	                whosturn();
 	            }
 	            else {
 	                $('#pic8').attr('src', buswait[9]);
 	                count8 = 1;
 	                changeColor();
 	                turns = 0;
+	                whosturn();
 	            }
 	        }
 	    });
