@@ -1,5 +1,6 @@
 var buswait = new Array();
 var titles = new Array();
+var complete = 0;
 
 var count0 = 0;
 var count1 = 0;
@@ -46,6 +47,9 @@ buswait[8] = "img/starbucks.jpg";
 buswait[9] = "img/redX.jpg";
 buswait[10] = "img/greenO.jpg";
 
+
+var endgame = "img/catgame.jpg";
+
 titles[0] = "Baby";
 titles[1] = "Child on Leash";
 titles[2] = "Man Wearing a Suit";
@@ -72,8 +76,14 @@ function whosturn() {
 
 var winner = 0;
 function WinGame() {
-
-    if (zeroA && oneA && twoA ||
+    if (complete == 9) {
+        for (var j = 0; j < buswait.length; j++) {
+            $('#pic' + j).attr('src', endgame);
+            $('#title' + j).html("Cat's Game");
+        }
+        $('#switcher').html("Cat's Game");
+    }
+    else if (zeroA && oneA && twoA ||
         threeA && fourA && fiveA ||
         sixA && sevenA && eightA ||
         zeroA && threeA && sixA ||
@@ -88,8 +98,7 @@ function WinGame() {
         oneB && fourB && sevenB ||
         twoB && fiveB && eightB ||
         zeroB && fourB && eightB ||
-        twoB && fourB && sixB)
-    {
+        twoB && fourB && sixB) {
         if (turns == 0) { winner = 10; }
         else { winner = 9; }
         for (var i = 0; i < buswait.length; i++) {
@@ -108,7 +117,7 @@ function WinGame() {
         count7 = 1;
         count8 = 1;
     }
-
+    turns = 10;
 }
 
 
@@ -121,12 +130,7 @@ _6_|_7_|_8_
 $(document).ready(
 
 	function () {
-//	    if (navigator.geolocation) {
-//	        navigator.geolocation.getCurrentPosition(showPosition);
-//	    }
-//	    else {
-//	        $('#trackloc').html("Geolocation is not supported by this browser.");
-//	    }
+
 
 	    $('body').hide().fadeIn(1000);
 	    
@@ -134,25 +138,26 @@ $(document).ready(
 	        fillgrid();     //execute fill grid
 	        whosturn();
 	    });
-	    $('#reload').click(function () { location.reload() });
-	    $("#pic0").click(function () {					//on click, add to score and change picture
+	    $("#pic0").click(function () {
 	        if (count0 != 1) {
 	            if (turns == 0) {
 	                $('#pic0').attr('src', buswait[10]);
 	                turns = 1;
 	                count0 = 1;
 	                zeroA = true;
+	                complete++;
 	                WinGame();
 	                whosturn();
-
 	            }
 	            else {
 	                $('#pic0').attr('src', buswait[9]);
 	                count0 = 1;
 	                zeroB = true;
+	                complete++;
 	                WinGame();
 	                turns = 0;
 	                whosturn();
+	                
 	            }
             }
 	    });
@@ -163,17 +168,21 @@ $(document).ready(
 	                $('#pic1').attr('src', buswait[10]);
 	                count1 = 1;
 	                oneA = true;
+	                complete++;
 	                WinGame();
 	                turns = 1;
 	                whosturn();
+	                
 	            }
 	            else {
 	                $('#pic1').attr('src', buswait[9]);
 	                count1 = 1;
 	                oneB = true;
+	                complete++;
 	                WinGame();
 	                turns = 0;
 	                whosturn();
+	                
 	            }
 	        }
 	    });
@@ -183,17 +192,21 @@ $(document).ready(
 	                $('#pic2').attr('src', buswait[10]);
 	                count2 = 1;
 	                twoA = true;
+	                complete++;
 	                WinGame();
 	                turns = 1;
 	                whosturn();
+	               
 	            }
 	            else {
 	                $('#pic2').attr('src', buswait[9]);
 	                count2 = 1;
 	                twoB = true;
+	                complete++;
 	                WinGame();
 	                turns = 0;
 	                whosturn();
+	                
 	            }
 	        }
 	    });
@@ -203,17 +216,21 @@ $(document).ready(
 	                $('#pic3').attr('src', buswait[10]);
 	                count3 = 1;
 	                threeA = true;
+	                complete++;
 	                WinGame();
 	                turns = 1;
 	                whosturn();
+	               
 	            }
 	            else {
 	                $('#pic3').attr('src', buswait[9]);
 	                count3 = 1;
 	                threeB = true;
+	                complete++;
 	                WinGame();
 	                turns = 0;
 	                whosturn();
+	                
 	            }
 	        }
 	    });
@@ -224,38 +241,46 @@ $(document).ready(
 	                $('#pic4').attr('src', buswait[10]);
 	                count4 = 1;
 	                fourA = true;
+	                complete++;
 	                WinGame();
 	                turns = 1;
 	                whosturn();
+	              
 	            }
 	            else {
 	                $('#pic4').attr('src', buswait[9]);
 	                count4 = 1;
 	                fourB = true;
+	                complete++;
 	                WinGame();
 	                turns = 0;
 	                whosturn();
+	                
 	            }
 	        }
 	    });
 	    $("#pic5").click(function () {
-;
+
 	        if (count5 != 1) {
 	            if (turns == 0) {
 	                $('#pic5').attr('src', buswait[10]);
 	                count5 = 1;
 	                fiveA = true;
+	                complete++;
 	                WinGame()
 	                turns = 1;
 	                whosturn();
+	                
 	            }
 	            else {
 	                $('#pic5').attr('src', buswait[9]);
 	                count5 = 1;
 	                fiveB = true;
+	                complete++;
 	                WinGame()
 	                turns = 0;
 	                whosturn();
+	                
 	            }
 	        }
 	    });
@@ -266,17 +291,21 @@ $(document).ready(
 	                $('#pic6').attr('src', buswait[10]);
 	                count6 = 1;
 	                sixA = true;
+	                complete++;
 	                WinGame();
 	                turns = 1;
 	                whosturn();
+	                
 	            }
 	            else {
 	                $('#pic6').attr('src', buswait[9]);
 	                count6 = 1;
 	                sixB = true;
+	                complete++;
 	                WinGame();;
 	                turns = 0;
 	                whosturn();
+	               
 	            }
 	        }
 	    });
@@ -287,17 +316,21 @@ $(document).ready(
 	                $('#pic7').attr('src', buswait[10]);
 	                count7 = 1;
 	                sevenA = true;
+	                complete++;
 	                WinGame();
 	                turns = 1;
 	                whosturn();
+	               
 	            }
 	            else {
 	                $('#pic7').attr('src', buswait[9]);
 	                count7 = 1;
 	                sevenB = true;
+	                complete++;
 	                WinGame();
 	                turns = 0;
 	                whosturn();
+	                
 	            }
 	        }
 	    });
@@ -308,21 +341,23 @@ $(document).ready(
 	                $('#pic8').attr('src', buswait[10]);
 	                count8 = 1;
 	                eightA = true;
+	                complete++;
 	                WinGame();
 	                turns = 1;
 	                whosturn();
+	               
 	            }
 	            else {
 	                $('#pic8').attr('src', buswait[9]);
 	                count8 = 1;
 	                eightB = true;
+	                complete++;
 	                WinGame();
 	                turns = 0;
 	                whosturn();
+	                
 	            }
 	        }
 	    });
-
-
 
 	});
