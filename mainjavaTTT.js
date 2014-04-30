@@ -133,7 +133,7 @@ $(document).ready(
 
 
 	    $('body').hide().fadeIn(1000);
-	    Parse.initialize("TohTpNrTgJf0MTUkm5Ax9LtzfXoyaEOmSaQKnGRl", "p7CQveFxWDaYln4pNawiV8qkXiRuda9iR3zBqw8v");
+	    
 	    $(function () {
 	        fillgrid();     //execute fill grid
 	        whosturn();
