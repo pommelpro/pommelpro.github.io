@@ -132,8 +132,8 @@ $(document).ready(
 	function () {
 
 
-	    $(".spyTarget").click(function () { // triggers open file menu 
-	        $('#takePicture').trigger('click');
+	    $(".spyTarget").click(function (event) { // triggers open file menu 
+	        $('#takePicture').trigger('click', [event.target.id]);
 	    });
 
 
