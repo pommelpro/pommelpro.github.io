@@ -62,7 +62,7 @@ titles[8] = "Diabetes Bear";
 
 function fillgrid() {
     for (var i = 0; i < buswait.length; i++) {
-        $('#pic' + i).attr('src', buswait[i]);
+   //     $('#pic' + i).attr('src', buswait[i]);
         $('#title' + i).html(titles[i]);
     }
 }
