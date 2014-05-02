@@ -155,7 +155,8 @@ $(document).ready(
 	        var activeTarget = getActiveTarget();
 	        var imgURL = URL.createObjectURL(imageFile);
 	        activeTarget.attr('src', imgURL);
-            activeTarget.removeClass('activeTarget');
+	        activeTarget.removeClass('activeTarget');
+	        $(this).parent().css("background", "yellow");
 	    });
 
 
