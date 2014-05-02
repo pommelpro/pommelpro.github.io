@@ -142,6 +142,7 @@ $(document).ready(
 	    $(".spyTarget").click(function (event) { // triggers open file menu 
 	        $(this).addClass("activeTarget");
 	        $('#takePicture').trigger('click');
+	        return false;
 
 	    });
 
