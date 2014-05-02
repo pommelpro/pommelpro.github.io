@@ -132,6 +132,12 @@ $(document).ready(
 	function () {
 
 
+	    $(".spyTarget").click(function () { // triggers open file menu 
+	        $('#takePicture').trigger('click');
+	    });
+
+
+
 	    $('body').hide().fadeIn(1000);
 	    
 	    $(function () {
