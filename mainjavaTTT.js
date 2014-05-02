@@ -120,6 +120,12 @@ function WinGame() {
     turns = 10;
 }
 
+function getActiveTarget() {
+    //find which cell has the class active target
+    return $('.activeTarget').first();
+
+}
+
 
 /*
 _0_|_1_|_2_
@@ -133,14 +139,17 @@ $(document).ready(
 
 
 	    $(".spyTarget").click(function (event) { // triggers open file menu 
-	        $('#takePicture').trigger('click', [event.target.id]);
+	        $('this').addClass("activeTarget");
+	        $('#takePicture').trigger('click');
+
 	    });
 
-	    $('#takePicture').on('change', function(e, targetID) {
+	    $('#takePicture').on('change', function(e) {
 	        e.preventDefault();
 	        if(this.files.length === 0) return;
 	        var imageFile = this.files[0];
-	        $('#' + targetID).attr('src', URL.createObjectURL(imageFile));
+	        var activeTarget = getActiveTarget();
+	        activeTarget.attr('src', URL.createObjectURL(imageFile));
 	    });
 
 
