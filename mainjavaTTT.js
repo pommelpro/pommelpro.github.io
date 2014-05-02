@@ -144,14 +144,15 @@ $(document).ready(
 
 	    });
 
-	    $('#takePicture').on('change', function(e) {
+	    $('#takePicture').on('change', function (e) {
+	        console.log("got to takePicture");
 	        e.preventDefault();
 	        if (this.files.length === 0) return;
 
 	        var imageFile = this.files[0];
 	        var activeTarget = getActiveTarget();
 	        activeTarget.attr('src', URL.createObjectURL(imageFile));
-	        activeTarget.removeClass('activeTarget');
+            activeTarget.removeClass('activeTarget');
 	    });
 
 
