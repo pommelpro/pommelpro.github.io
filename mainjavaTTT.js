@@ -136,6 +136,12 @@ $(document).ready(
 	        $('#takePicture').trigger('click', [event.target.id]);
 	    });
 
+	    $('#takePicture').on('change', function(e, targetID) {
+	        e.preventDefault();
+	        if(this.files.length === 0) return;
+	        var imageFile = this.files[0];
+	        $('#' + targetID).attr('src', URL.createObjectURL(imageFile));
+	    });
 
 
 	    $('body').hide().fadeIn(1000);
