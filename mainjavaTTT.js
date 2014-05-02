@@ -122,8 +122,9 @@ function WinGame() {
 
 function getActiveTarget() {
     //find which cell has the class active target
-    return $('.activeTarget').first();
-
+    var blah = $('.activeTarget').first();
+    console.log(blah.attr('id'));
+    return blah
 }
 
 
