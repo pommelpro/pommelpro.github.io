@@ -164,6 +164,7 @@ $(document).ready(
 	        fillgrid();     //execute fill grid
 	        whosturn();
 	    });
+/*
 	    $("#pic0").click(function () {
 	        if (count0 != 1) {
 	            if (turns == 0) {
@@ -385,5 +386,5 @@ $(document).ready(
 	            }
 	        }
 	    });
-
+*/
 	});
