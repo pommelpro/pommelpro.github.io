@@ -146,10 +146,12 @@ $(document).ready(
 
 	    $('#takePicture').on('change', function(e) {
 	        e.preventDefault();
-	        if(this.files.length === 0) return;
+	        if (this.files.length === 0) return;
+
 	        var imageFile = this.files[0];
 	        var activeTarget = getActiveTarget();
 	        activeTarget.attr('src', URL.createObjectURL(imageFile));
+	        activeTarget.removeClass('activeTarget');
 	    });
 
 
