@@ -151,7 +151,8 @@ $(document).ready(
 
 	        var imageFile = this.files[0];
 	        var activeTarget = getActiveTarget();
-	        activeTarget.attr('src', URL.createObjectURL(imageFile));
+	        var imgURL = URL.createObjectURL(imageFile);
+	        activeTarget.attr('src', imgURL);
             activeTarget.removeClass('activeTarget');
 	    });
 
