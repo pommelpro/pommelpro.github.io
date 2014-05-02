@@ -50,15 +50,15 @@ buswait[10] = "img/greenO.jpg";
 
 var endgame = "img/catgame.jpg";
 
-titles[0] = "Baby";
-titles[1] = "Child on Leash";
-titles[2] = "Man Wearing a Suit";
-titles[3] = "Dog";
-titles[4] = "Full Dumpster";
-titles[5] = "Foodtruck";
-titles[6] = "Elderly Man";
-titles[7] = "School Bus";
-titles[8] = "Starbucks Coffeehouse";
+titles[0] = "Windows Computer";
+titles[1] = "TV";
+titles[2] = "Haoqi";
+titles[3] = "Undergraduate";
+titles[4] = "Clock";
+titles[5] = "Red Chair";
+titles[6] = "Mac Computer";
+titles[7] = "Blue Ball";
+titles[8] = "Diabetes Bear";
 
 function fillgrid() {
     for (var i = 0; i < buswait.length; i++) {
