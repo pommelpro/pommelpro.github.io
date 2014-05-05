@@ -17,17 +17,12 @@ function fillgrid() {
     for (var i = 0; i < titles.length; i++) {
         $('#title' + i).html(titles[i]);
     }
-    alert(titles.length);
 }
 
 
 
 function winner() {
     
-
-
-
-
 
 
 
