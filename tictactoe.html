@@ -15,16 +15,22 @@
         body {
             font-family: "Lucida Bright", Georgia, serif;
         }
-        img
-        {
-      	    width:100px;
-      	    height:100px;
-        }
         table
         {
             width:75%;
             border: 1px solid black;
             text-align:center;
+        }
+        img {
+            position: relative;
+            width: 200px;
+            height: 200px;
+            overflow: hidden;
+            border: 1px red solid;
+            clip: rect(10px,10px,10px,10px);
+        }
+        .spyTarget {
+
         }
         h1, h2, h3 {text-align:center;}
     </style>
