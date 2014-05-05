@@ -17,7 +17,34 @@ function fillgrid() {
     for (var i = 0; i < titles.length; i++) {
         $('#title' + i).html(titles[i]);
     }
+    alert(titles.length);
 }
+
+
+
+function winner() {
+    
+
+
+
+
+
+
+
+}
+
+/*
+
+_0_|_1_|_2_
+_3_|_4_|_5_
+_6_|_7_|_8_
+
+*/
+function getClass(picClass) {
+    var Classes = $("#" + picClass).attr('class');
+    return Classes;
+}
+
 
 
 
