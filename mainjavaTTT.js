@@ -43,10 +43,17 @@ $(document).ready(
 	        var parid = $(this).parent().attr('id');
 	        if (switcher == 0) {
 	            $('#' + parid).css('background-color', 'red');
+	            $(this).parent().removeClass("Player1");
+	            $(this).parent().removeClass("Player2");
+	            $(this).parent().addClass("Player1");
+	            
 	            switcher = 1;
 	        }
 	        else {
 	            $('#' + parid).css('background-color', 'green');
+	            $(this).parent().removeClass("Player1");
+	            $(this).parent().removeClass("Player2");
+	            $(this).parent().addClass("Player2");
 	            switcher = 0;
 	        }
 	            $('#takePicture').trigger('click');
