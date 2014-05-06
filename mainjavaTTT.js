@@ -17,12 +17,14 @@ function fillgrid() {
     for (var i = 0; i < titles.length; i++) {
         $('#title' + i).html(titles[i]);
     }
+    $('#switcher').html("Turn: Player 1");
+    $('#switcher').css('color', 'red');
 }
 
 
 
 function winner() {
-    
+
 
 
 
@@ -51,6 +53,31 @@ function getActiveTarget() {
     return blah
 }
 
+/*
+function whichChecked() {
+	var check = new Array();
+	var values = new Array();
+	var totalcheck = 0;
+	var fillList = 0;
+	for(var i = 0; i < 9; i++) {
+		check[i] = document.getElementById("check"+i).checked;
+		if(check[i] == true)
+			totalcheck++;
+	}
+	if (totalcheck != 9) {
+        for(var ii=)
+	    document.getElementById("check").checked = true
+
+	}
+	for(var j = 0; j < check.length; j++) {
+		if(check[j] == true){
+			$('#title' + fillList).html(document.getElementById("check"+j).value);
+		    //console.log(document.getElementById("check"+j).value);
+			fillList++;
+		}
+	}
+}
+*/
 
 $(document).ready(
 
@@ -60,7 +87,7 @@ $(document).ready(
 ///////////////////////////////////////////////////////////////////////////////////
 ////////////////Take picture and put it in cell////////////////////////////////////
 ///////////////////////////////////////////////////////////////////////////////////
-	    $(".spyTarget").click(function (event) { // triggers open file menu 
+	    $(".spyTarget").click(function (event) { // triggers open file menu
 	        $(this).addClass("activeTarget");
 	        var parid = $(this).parent().attr('id');
 	        if (switcher == 0) {
@@ -68,7 +95,9 @@ $(document).ready(
 	            $(this).parent().removeClass("Player1");
 	            $(this).parent().removeClass("Player2");
 	            $(this).parent().addClass("Player1");
-	            
+	            $('#switcher').html("Turn: Player 2");
+	            $('#switcher').css('color', 'green');
+
 	            switcher = 1;
 	        }
 	        else {
@@ -76,6 +105,8 @@ $(document).ready(
 	            $(this).parent().removeClass("Player1");
 	            $(this).parent().removeClass("Player2");
 	            $(this).parent().addClass("Player2");
+	            $('#switcher').html("Turn: Player 1");
+	            $('#switcher').css('color', 'red');
 	            switcher = 0;
 	        }
 	            $('#takePicture').trigger('click');
@@ -93,7 +124,7 @@ $(document).ready(
 	        var imgURL = URL.createObjectURL(imageFile);
 	        activeTarget.attr('src', imgURL);
 	        activeTarget.removeClass('activeTarget');
-	        
+
 	    });
 ///////////////////////////////////////////////////////////////////////////////////
 ///////////////////////////////////////////////////////////////////////////////////
@@ -101,12 +132,14 @@ $(document).ready(
 ///////////////////////////////////////////////////////////////////////////////////
 
 	    $('body').hide().fadeIn(1000);
-	    
+
 	    $(function () {
 	        fillgrid();     //execute fill grid
 	    });
 
-
+		$('#submit').click(function() {
+//			whichChecked();
+		});
 
 
 
