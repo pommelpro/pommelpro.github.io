@@ -171,7 +171,7 @@ $(document).ready(
 		    window.location.href = "tictactoe2.html";
 		});
 		$('#oneplayer').click(function () {
-		    window.location.href = "#";
+		    window.location.href = "tictactoe1.html";
 		});
 		
 
