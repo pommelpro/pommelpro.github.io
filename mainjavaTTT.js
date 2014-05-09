@@ -2,6 +2,16 @@
 
 var endgame = "img/catgame.jpg";
 var switcher = 0;
+var zero;
+var one;
+var two;
+var three;
+var four;
+var five;
+var six;
+var seven;
+var eight;
+
 
 function fillgrid() {
     var titles = new Array();
@@ -37,9 +47,9 @@ _3_|_4_|_5_
 _6_|_7_|_8_
 
 */
-function getClass(picClass) {
-    var Classes = $("#" + picClass).attr('class');
-    return Classes;
+function getClass() {
+    var classes = $(this).attr('class');
+    console.log(classes);
 }
 
 
@@ -97,7 +107,7 @@ $(document).ready(
 	            $(this).parent().addClass("Player1");
 	            $('#switcher').html("Turn: Player 2");
 	            $('#switcher').css('color', 'green');
-
+	            getClass();
 	            switcher = 1;
 	        }
 	        else {
@@ -107,6 +117,7 @@ $(document).ready(
 	            $(this).parent().addClass("Player2");
 	            $('#switcher').html("Turn: Player 1");
 	            $('#switcher').css('color', 'red');
+	            getClass();
 	            switcher = 0;
 	        }
 	            $('#takePicture').trigger('click');
@@ -115,7 +126,6 @@ $(document).ready(
 	    });
 
 	    $('#takePicture').on('change', function (e) {
-	        console.log("got to takePicture");
 	        e.preventDefault();
 	        if (this.files.length === 0) return;
 
