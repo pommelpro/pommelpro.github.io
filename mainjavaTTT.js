@@ -151,7 +151,7 @@ $(document).ready(
 			whichChecked();
 		});
 
-		$('.modal-body').clicked(function () {
+		$('.checkbox').clicked(function () {
 		    howmany();
 
 		});
