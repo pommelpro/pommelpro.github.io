@@ -28,7 +28,7 @@ function fillgrid() {
         $('#title' + i).html(titles[i]);
     }
     $('#switcher').html("Turn: Player 1");
-    $('#switcher').css('color', 'red');
+    $('#switcher').css('color', 'blue');
 }
 
 
@@ -97,7 +97,7 @@ $(document).ready(
 	        $(this).addClass("activeTarget");
 	        var parid = $(this).parent().attr('id');
 	        if (switcher == 0) {
-	            $('#' + parid).css('background-color', 'red');
+	            $('#' + parid).css('background-color', 'blue');
 	            $(this).parent().removeClass("Player1");
 	            $(this).parent().removeClass("Player2");
 	            $(this).parent().addClass("Player1");
@@ -112,7 +112,7 @@ $(document).ready(
 	            $(this).parent().removeClass("Player2");
 	            $(this).parent().addClass("Player2");
 	            $('#switcher').html("Turn: Player 1");
-	            $('#switcher').css('color', 'red');
+	            $('#switcher').css('color', 'blue');
 	            getClass();
 	            switcher = 0;
 	        }
