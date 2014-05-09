@@ -140,11 +140,11 @@ $(document).ready(
 	    $('body').hide().fadeIn(1000);
 
 	    $(function () {
-	        fillgrid();     //execute fill grid
+//	        fillgrid();     //execute fill grid
 	    });
 
 		$('#submit').click(function() {
-//			whichChecked();
+			whichChecked();
 		});
 
 
