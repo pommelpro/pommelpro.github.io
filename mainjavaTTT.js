@@ -57,12 +57,14 @@ function getActiveTarget() {
 }
 
 function howmany() {
+    console.log("got to howmany");
     var totalcheck = 0;
     for (var i = 0; i < 12; i++) {
         check[i] = document.getElementById("check" + i).checked;
         if (check[i] == true)
             totalcheck++;
     }
+    console.log("got to end of howmany");
     $('#CheckedNum').html(totalcheck);
 
 }
@@ -153,7 +155,6 @@ $(document).ready(
 
 		$('.checkbox').clicked(function () {
 		    howmany();
-
 		});
 
 
