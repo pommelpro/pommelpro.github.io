@@ -58,6 +58,7 @@ function getActiveTarget() {
 
 function howmany() {
     console.log("got to howmany");
+    var check = new Array();
     var totalcheck = 0;
     for (var i = 0; i < 12; i++) {
         check[i] = document.getElementById("check" + i).checked;
