@@ -63,22 +63,18 @@ function getActiveTarget() {
     return blah
 }
 
-/*
+
 function whichChecked() {
 	var check = new Array();
 	var values = new Array();
 	var totalcheck = 0;
 	var fillList = 0;
-	for(var i = 0; i < 9; i++) {
+	for(var i = 0; i < 12; i++) {
 		check[i] = document.getElementById("check"+i).checked;
 		if(check[i] == true)
 			totalcheck++;
 	}
-	if (totalcheck != 9) {
-        for(var ii=)
-	    document.getElementById("check").checked = true
-
-	}
+	
 	for(var j = 0; j < check.length; j++) {
 		if(check[j] == true){
 			$('#title' + fillList).html(document.getElementById("check"+j).value);
@@ -87,7 +83,7 @@ function whichChecked() {
 		}
 	}
 }
-*/
+
 
 $(document).ready(
 
