@@ -33,13 +33,6 @@ function fillgrid() {
 
 
 
-function winner() {
-
-
-
-
-}
-
 /*
 
 _0_|_1_|_2_
@@ -61,6 +54,17 @@ function getActiveTarget() {
     var blah = $('.activeTarget').first();
     console.log(blah.attr('id'));
     return blah
+}
+
+function howmany() {
+    var totalcheck = 0;
+    for (var i = 0; i < 12; i++) {
+        check[i] = document.getElementById("check" + i).checked;
+        if (check[i] == true)
+            totalcheck++;
+    }
+    $('#CheckedNum').html(totalcheck);
+
 }
 
 
@@ -147,7 +151,10 @@ $(document).ready(
 			whichChecked();
 		});
 
+		$('.modal-body').clicked(function () {
+		    howmany();
 
+		});
 
 
 	});
