@@ -45,7 +45,11 @@ function getClass() {
     console.log(classes);
 }
 
-
+function addcheck() {
+    var x = document.createElement("INPUT");
+    x.setAttribute("type", "checkbox");
+    document.body.appendChild(x);
+}
 
 
 
@@ -148,7 +152,7 @@ $(document).ready(
 
 	    $(function () {
 	        howmany();
-//	        fillgrid();     //execute fill grid
+	        fillgrid();     //execute fill grid
 	    });
 
 		$('#submit').click(function() {
@@ -159,5 +163,16 @@ $(document).ready(
 		    howmany();
 		});
 
+		$('#addtag').click(function () {
+		    addcheck();
+		});
+
+		$('#twoplayer').click(function () {
+		    window.location.href = "tictactoe2.html";
+		});
+		$('#oneplayer').click(function () {
+		    window.location.href = "#";
+		});
+		
 
 	});
