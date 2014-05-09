@@ -147,7 +147,7 @@ $(document).ready(
 	    $('body').hide().fadeIn(1000);
 
 	    $(function () {
-	        $('CheckedNum').html("0");
+	        howmany();
 //	        fillgrid();     //execute fill grid
 	    });
 
