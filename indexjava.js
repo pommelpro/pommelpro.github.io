@@ -16,7 +16,7 @@ $(document).ready( function() {
 	    window.location.href = "swiper.html";
 	});
 	$('#tictactoe').click(function () {
-	    window.location.href = "tictactoe.html";
+	    window.location.href = "tictactoe12.html";
 	});
 
 });
