@@ -65,7 +65,7 @@ function howmany() {
             totalcheck++;
     }
     console.log("got to end of howmany");
-    $('#CheckedNum').html(totalcheck);
+    $('#CheckedNum').html("You have checked " + totalcheck + " so far");
 
 }
 
@@ -146,6 +146,7 @@ $(document).ready(
 	    $('body').hide().fadeIn(1000);
 
 	    $(function () {
+	        $('CheckedNum').html("0");
 //	        fillgrid();     //execute fill grid
 	    });
 
@@ -153,7 +154,7 @@ $(document).ready(
 			whichChecked();
 		});
 
-		$('.checkbox').clicked(function () {
+		$('.checkbox').click(function () {
 		    howmany();
 		});
 
