@@ -96,6 +96,7 @@ $(document).ready(
 	    $(".spyTarget").click(function (event) { // triggers open file menu
 	        $(this).addClass("activeTarget");
 	        var parid = $(this).parent().attr('id');
+	        $('#takePicture').trigger('click');
 	        if (switcher == 0) {
 	            $('#' + parid).css('background-color', 'blue');
 	            $(this).parent().removeClass("Player1");
@@ -116,7 +117,6 @@ $(document).ready(
 	            getClass();
 	            switcher = 0;
 	        }
-	            $('#takePicture').trigger('click');
 	        return false;
 
 	    });
