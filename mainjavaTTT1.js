@@ -1,18 +1,4 @@
 
-
-var endgame = "img/catgame.jpg";
-var switcher = 0;
-var zero;
-var one;
-var two;
-var three;
-var four;
-var five;
-var six;
-var seven;
-var eight;
-
-
 function fillgrid() {
     var titles = new Array();
     for (var i = 0; i < 12; i++) {
@@ -21,21 +7,11 @@ function fillgrid() {
 }
 
 
-
-/*
-
-_0_|_1_|_2_
-_3_|_4_|_5_
-_6_|_7_|_8_
-
-*/
-
 function addcheck() {
     var x = document.createElement("INPUT");
     x.setAttribute("type", "checkbox");
     document.body.appendChild(x);
 }
-
 
 
 function getActiveTarget() {
@@ -113,7 +89,7 @@ $(document).ready(
 	    ///////////////////////////////////////////////////////////////////////////////////
 
 	    $('body').hide().fadeIn(1000);
-
+	    $('img').attr('src', 'img/white.jpg');
 	    
 	    var titles = new Array();
 	    for (var i = 0; i < 12; i++) {
@@ -123,6 +99,12 @@ $(document).ready(
 	    $('#next').click(function () {
 	        found++;
 	        $('#tag').html(titles[found]);
+	        $('img').attr('src', 'img/white.jpg');
+	    });
+	    $('#skip').click(function () {
+	        found++;
+	        $('#tag').html(titles[found]);
+	        $('img').attr('src', 'img/white.jpg');
 	    });
 	    
 	    console.log(titles);

@@ -15,17 +15,15 @@
             font-family: "Lucida Bright", Georgia, serif;
         }
 
-        img {
-            width: 150px;
-            height: 150px;
-        }
-
         table {
             width: 75%;
             border: 1px solid black;
             text-align: center;
         }
+        img {
+            width:50%;
 
+        }
         h1, h2, h3 {
             text-align: center;
         }
@@ -36,11 +34,15 @@
             top: 50%;
             left: 50%;
         }
+        #tag{
+            font-size:30px;
+        }
     </style>
 </head>
 <body>
     <h1>Time to start Spying</h1>
     <h2>To win the game, fill the table</h2><br />
+    <h3>Click on the image to take a picture</h3>
 
 
     <!-- Modal -->
@@ -79,22 +81,16 @@
 
     <table border="1" align="center" id="pictable">
         <tr style="width:20%;">
-            <td id="tag">Top</td>
+           <td id="tag"></td>
         </tr>
         <tr style="width:20%;">
-            <td id="top">Top</td>
             <td id="pic0"><img class="spyTarget" src="" /><div id="title0"></div></td>
         </tr>
-        <tr style="width:20%;">
-            <td id="middle">Middle</td>
-            <td id="pic1"><img class="spyTarget" src="" /><div id="title1"></div></td>
-        </tr>
-        <tr style="width:20%;">
-            <td id="bottom">Bottom</td>
-            <td id="pic2"><img class="spyTarget" src="" /><div id="title2"></div></td>
-        </tr>
     </table>
-    <p align="center"><br /><button type="button" class="btn btn-success" id="next">Submit</button></p>
+    <p align="center"><br />
+        <button type="button" class="btn btn-success btn-lg" id="next">Submit</button>
+        <button type="button" class="btn btn-warning btn-lg" id="skip">Skip</button>
+    </p>
 
     <p hidden><input type="file" accept="image/*" capture="camera" id="takePicture"></p>
 </body>
