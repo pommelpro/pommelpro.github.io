@@ -80,8 +80,11 @@ $(document).ready(
 	        activeTarget.attr('src', imgURL);
 	        activeTarget.removeClass('activeTarget');
 	        found++;
-	        $('#tag').html(titles[found]);
-	        $('#seeing').text("I spy a " + titles[found]);
+	        if (found < titles.length) {
+	            $('#tag').html(titles[found]);
+	            $('#seeing').text("I spy a " + titles[found]);
+	            console.log(titles[found] + " " + found);
+	        }
 	    });
 	    ///////////////////////////////////////////////////////////////////////////////////
 	    ///////////////////////////////////////////////////////////////////////////////////
@@ -106,8 +109,11 @@ $(document).ready(
 
 	    $('#skip').click(function () {
 	        found++;
-	        $('#tag').html(titles[found]);
-	        $('#seeing').text("I spy a " + titles[found]);
+	        if (found < titles.length) {
+	            $('#tag').html(titles[found]);
+	            $('#seeing').text("I spy a " + titles[found]);
+	            console.log(titles[found] + " " + found);
+	        }
 	    });
 	    
 	});
