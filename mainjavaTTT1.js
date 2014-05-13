@@ -65,11 +65,10 @@ $(document).ready(
 	    ///////////////////////////////////////////////////////////////////////////////////
 	    ////////////////Take picture and put it in cell////////////////////////////////////
 	    ///////////////////////////////////////////////////////////////////////////////////
-	    $(".spyTarget").click(function (event) { // triggers open file menu
-	        $(this).addClass("activeTarget");
+	    $("#seeing").click(function (event) { // triggers open file menu
+	        $('img').addClass("activeTarget");
 	        $('#takePicture').trigger('click');
 	        return false;
-
 	    });
 
 	    $('#takePicture').on('change', function (e) {
@@ -108,7 +107,6 @@ $(document).ready(
 	    });
 	    
 	    console.log(titles);
-
 
 
 	});
