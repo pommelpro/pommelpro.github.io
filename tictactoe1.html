@@ -20,7 +20,7 @@
             text-align: center;
         }
         img {
-            width:60%;
+            width:100%;
         }
         h1, h2, h3 {
             text-align: center;
@@ -33,15 +33,15 @@
             height: 150%;
             width: 90%;
             font-size: 30px;
-            margin-bottom: 10px;
+            margin-top: 20px;
             margin-left: 10px;
             margin-right: 10px;
         }
-        #seeing1 {
+        .btn-warning {
             height: 150%;
             width: 90%;
             font-size: 30px;
-            margin-top: 10px;
+            margin-top: 20px;
             margin-left: 10px;
             margin-right: 10px;
         }
@@ -93,13 +93,10 @@
         <tr style="width:40%;">
             <td id="pic0"><img class="spyTarget" src="" /><div id="title0"></div></td>
         </tr>
-        <tr style="width:40%;">
-            <td><button id="seeing" type="button" class="btn btn-info btn-lg">I see an iPhone</button></td>
-        </tr>
     </table>
     <p align="center"><br />
-        <button id="seeing1" type="button" class="btn btn-success btn-lg" id="next">Submit</button><br />
-        <button id="seeing1" type="button" class="btn btn-warning btn-lg" id="skip">Skip</button>
+        <button id="seeing" type="button" class="btn btn-info btn-lg"></button><br />
+        <button type="button" class="btn btn-warning btn-lg" id="skip">Skip</button>
     </p>
 
     <p hidden><input type="file" accept="image/*" capture="camera" id="takePicture"></p>

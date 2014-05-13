@@ -74,13 +74,14 @@ $(document).ready(
 	    $('#takePicture').on('change', function (e) {
 	        e.preventDefault();
 	        if (this.files.length === 0) return;
-
 	        var imageFile = this.files[0];
 	        var activeTarget = getActiveTarget();
 	        var imgURL = URL.createObjectURL(imageFile);
 	        activeTarget.attr('src', imgURL);
 	        activeTarget.removeClass('activeTarget');
-
+	        found++;
+	        $('#tag').html(titles[found]);
+	        $('#seeing').text("I spy a " + titles[found]);
 	    });
 	    ///////////////////////////////////////////////////////////////////////////////////
 	    ///////////////////////////////////////////////////////////////////////////////////
@@ -88,25 +89,25 @@ $(document).ready(
 	    ///////////////////////////////////////////////////////////////////////////////////
 
 	    $('body').hide().fadeIn(1000);
-	    $('img').attr('src', 'img/white.jpg');
 	    
 	    var titles = new Array();
+
 	    for (var i = 0; i < 12; i++) {
 	        titles[i] = document.getElementById("check" + i).value;
 	    }
+	    $('#seeing').text("I spy a " + titles[found]);
 	    $('#tag').html(titles[found]);
+
 	    $('#next').click(function () {
 	        found++;
 	        $('#tag').html(titles[found]);
 	        $('img').attr('src', 'img/white.jpg');
 	    });
+
 	    $('#skip').click(function () {
 	        found++;
 	        $('#tag').html(titles[found]);
-	        $('img').attr('src', 'img/white.jpg');
+	        $('#seeing').text("I spy a " + titles[found]);
 	    });
 	    
-	    console.log(titles);
-
-
 	});
