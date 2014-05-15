@@ -108,26 +108,6 @@ $(document).ready(
 	        $(this).addClass("activeTarget");
 	        var parid = $(this).parent().attr('id');
 	        $('#takePicture').trigger('click');
-	        if (switcher == 0) {
-	            $('#' + parid).css('background-color', 'blue');
-	            $(this).parent().removeClass("Player1");
-	            $(this).parent().removeClass("Player2");
-	            $(this).parent().addClass("Player1");
-	            $('#switcher').html("Turn: Player 2");
-	            $('#switcher').css('color', 'green');
-	            getClass();
-	            switcher = 1;
-	        }
-	        else {
-	            $('#' + parid).css('background-color', 'green');
-	            $(this).parent().removeClass("Player1");
-	            $(this).parent().removeClass("Player2");
-	            $(this).parent().addClass("Player2");
-	            $('#switcher').html("Turn: Player 1");
-	            $('#switcher').css('color', 'blue');
-	            getClass();
-	            switcher = 0;
-	        }
 	        return false;
 
 	    });
@@ -150,30 +130,4 @@ $(document).ready(
 
 	    $('body').hide().fadeIn(1000);
 
-	    $(function () {
-	        howmany();
-	        fillgrid();     //execute fill grid
-	    });
-
-		$('#submit').click(function() {
-			whichChecked();
-		});
-
-		$('.checkbox').click(function () {
-		    howmany();
-		});
-
-		$('#addtag').click(function () {
-		    addcheck();
-		});
-
-		$('#twoplayer').click(function () {
-		    window.location.href = "tictactoe2.html";
-		});
-		$('#oneplayer').click(function () {
-		    window.location.href = "tictactoe1.html";
-		});
-		$('#ABC').click(function () {
-		    window.location.href = "tictactoeABC.html";
-		});		
 	});

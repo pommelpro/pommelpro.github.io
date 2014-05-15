@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>TicTacToe</title>
+
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="mainjavaTTTABC.js"></script>
+    <style>
+        body {
+            font-family: "Lucida Bright", Georgia, serif;
+        }
+
+        img {
+            width: 100px;
+            height: 200px;
+        }
+
+        table {
+            width: 75%;
+            border: 1px solid black;
+            text-align: center;
+        }
+
+        h1, h2, h3 {
+            text-align: center;
+        }
+
+        #populate {
+        	position:relative;
+        	margin: -75px;
+        	top:50%;
+        	left:50%;
+        }
+
+
+
+    </style>
+</head>
+<body>
+    <h1>Play Some TicTacToe</h1>
+
+	
+    
+
+    <table border="1" align="center" id="pictable">
+        <tr style="width:40%;">
+            <td id="pic0"><img class="spyTarget" src="" /><div id="title0"></div></td>
+            <td id="pic1"><img class="spyTarget" src="" /><div id="title1"></div></td>
+        </tr>
+        <tr style="width:40%;">
+            <td id="pic2"><img class="spyTarget" src="" /><div id="title2"></div></td>
+            <td id="pic3"><img class="spyTarget" src="" /><div id="title3"></div></td>
+        </tr>
+        <tr style="width:40%;">
+            <td id="pic4"><img class="spyTarget" src="" /><div id="title4"></div></td>
+            <td id="pic5"><img class="spyTarget" src="" /><div id="title5"></div></td>
+        </tr>
+        <tr style="width:40%;">
+            <td id="pic6"><img class="spyTarget" src="" /><div id="title6"></div></td>
+            <td id="pic7"><img class="spyTarget" src="" /><div id="title7"></div></td>
+        </tr>
+        <tr style="width:40%;">
+            <td id="pic8"><img class="spyTarget" src="" /><div id="title8"></div></td>
+            <td id="pic9"><img class="spyTarget" src="" /><div id="title9"></div></td>
+        </tr>
+        <tr style="width:40%;">
+            <td id="pic10"><img class="spyTarget" src="" /><div id="title10"></div></td>
+            <td id="pic11"><img class="spyTarget" src="" /><div id="title11"></div></td>
+        </tr>
+        <tr style="width:40%;">
+            <td id="pic12"><img class="spyTarget" src="" /><div id="title12"></div></td>
+            <td id="pic13"><img class="spyTarget" src="" /><div id="title13"></div></td>
+        </tr>
+        <tr style="width:40%;">
+            <td id="pic14"><img class="spyTarget" src="" /><div id="title14"></div></td>
+            <td id="pic15"><img class="spyTarget" src="" /><div id="title15"></div></td>
+        </tr>
+        <tr style="width:40%;">
+            <td id="pic16"><img class="spyTarget" src="" /><div id="title16"></div></td>
+            <td id="pic17"><img class="spyTarget" src="" /><div id="title17"></div></td>
+        </tr>
+        <tr style="width:40%;">
+            <td id="pic18"><img class="spyTarget" src="" /><div id="title18"></div></td>
+            <td id="pic19"><img class="spyTarget" src="" /><div id="title19"></div></td>
+        </tr>
+        <tr style="width:40%;">
+            <td id="pic20"><img class="spyTarget" src="" /><div id="title20"></div></td>
+            <td id="pic21"><img class="spyTarget" src="" /><div id="title21"></div></td>
+        </tr>
+        <tr style="width:40%;">
+            <td id="pic22"><img class="spyTarget" src="" /><div id="title22"></div></td>
+            <td id="pic23"><img class="spyTarget" src="" /><div id="title23"></div></td>
+        </tr>
+        <tr style="width:40%;">
+            <td id="pic24"><img class="spyTarget" src="" /><div id="title24"></div></td>
+            <td id="pic25"><img class="spyTarget" src="" /><div id="title25"></div></td>
+        </tr>
+    </table>
+    <p ><input type="file" accept="image/*" capture="camera" id="takePicture"></p>
+</body>
+</html>
