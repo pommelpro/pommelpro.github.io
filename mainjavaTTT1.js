@@ -57,6 +57,25 @@ function whichChecked() {
 }
 
 
+var seconds = 120;
+function secondPassed() {
+    var minutes = Math.round((seconds - 30) / 60);
+    var remainingSeconds = seconds % 60;
+    if (remainingSeconds < 10) {
+        remainingSeconds = "0" + remainingSeconds;
+    }
+    document.getElementById('countdown').innerHTML = minutes + ":" + remainingSeconds;
+    if (seconds == 0) {
+        clearInterval(countdownTimer);
+        document.getElementById('countdown').innerHTML = "Buzz Buzz";
+    } else {
+        seconds--;
+    }
+}
+
+var countdownTimer = setInterval('secondPassed()', 1000);
+
+
 $(document).ready(
 
 	function () {
@@ -101,11 +120,6 @@ $(document).ready(
 	    $('#seeing').text("I spy a " + titles[found]);
 	    $('#tag').html(titles[found]);
 
-	    $('#next').click(function () {
-	        found++;
-	        $('#tag').html(titles[found]);
-	        $('img').attr('src', 'img/white.jpg');
-	    });
 
 	    $('#skip').click(function () {
 	        found++;
