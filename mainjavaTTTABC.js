@@ -1,45 +1,13 @@
 
-
-var endgame = "img/catgame.jpg";
-var switcher = 0;
-var zero;
-var one;
-var two;
-var three;
-var four;
-var five;
-var six;
-var seven;
-var eight;
-
-
 function fillgrid() {
-    var titles = new Array();
-    titles[0] = "Apple Computer";
-    titles[1] = "iPhone";
-    titles[2] = "Student";
-    titles[3] = "Nicely Dressed Person";
-    titles[4] = "Clock";
-    titles[5] = "Jeans";
-    titles[6] = "Android Phone";
-    titles[7] = "Stuffed Animal";
-    titles[8] = "Shorts";
-    for (var i = 0; i < titles.length; i++) {
-        $('#title' + i).html(titles[i]);
+    for (var ii = 0; ii < 26; ii++) {
+        $('#pic' + ii).attr('src', 'imgABC/letter' + ii + '.png');
     }
-    $('#switcher').html("Turn: Player 1");
-    $('#switcher').css('color', 'blue');
+    console.log("got here");
 }
 
 
 
-/*
-
-_0_|_1_|_2_
-_3_|_4_|_5_
-_6_|_7_|_8_
-
-*/
 function getClass() {
     var classes = $(this).attr('class');
     console.log(classes);
@@ -56,44 +24,10 @@ function addcheck() {
 function getActiveTarget() {
     //find which cell has the class active target
     var blah = $('.activeTarget').first();
-    console.log(blah.attr('id'));
     return blah
 }
 
-function howmany() {
-    console.log("got to howmany");
-    var check = new Array();
-    var totalcheck = 0;
-    for (var i = 0; i < 12; i++) {
-        check[i] = document.getElementById("check" + i).checked;
-        if (check[i] == true)
-            totalcheck++;
-    }
-    console.log("got to end of howmany");
-    $('#CheckedNum').html("You have checked " + totalcheck + " so far");
 
-}
-
-
-function whichChecked() {
-	var check = new Array();
-	var values = new Array();
-	var totalcheck = 0;
-	var fillList = 0;
-	for(var i = 0; i < 12; i++) {
-		check[i] = document.getElementById("check"+i).checked;
-		if(check[i] == true)
-			totalcheck++;
-	}
-	
-	for(var j = 0; j < check.length; j++) {
-		if(check[j] == true){
-			$('#title' + fillList).html(document.getElementById("check"+j).value);
-		    //console.log(document.getElementById("check"+j).value);
-			fillList++;
-		}
-	}
-}
 
 
 $(document).ready(
@@ -129,5 +63,6 @@ $(document).ready(
 ///////////////////////////////////////////////////////////////////////////////////
 
 	    $('body').hide().fadeIn(1000);
-
+	    fillgrid();
+	    
 	});
