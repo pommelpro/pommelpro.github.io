@@ -3,21 +3,8 @@ function fillgrid() {
     for (var ii = 0; ii < 26; ii++) {
         $('#pic' + ii).attr('src', 'imgABC/letter' + ii + '.png');
     }
-    console.log("got here");
 }
 
-
-
-function getClass() {
-    var classes = $(this).attr('class');
-    console.log(classes);
-}
-
-function addcheck() {
-    var x = document.createElement("INPUT");
-    x.setAttribute("type", "checkbox");
-    document.body.appendChild(x);
-}
 
 
 
@@ -39,6 +26,9 @@ $(document).ready(
 ////////////////Take picture and put it in cell////////////////////////////////////
 ///////////////////////////////////////////////////////////////////////////////////
 	    $(".spyTarget").click(function (event) { // triggers open file menu
+	        for (var j = 0; j < 26; j++) {
+	            ('#pic' + j).removeClass("activeTarget");
+	        }
 	        $(this).addClass("activeTarget");
 	        var parid = $(this).parent().attr('id');
 	        $('#takePicture').trigger('click');
