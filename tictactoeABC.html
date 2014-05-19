@@ -17,7 +17,7 @@
             font-family: "Lucida Bright", Georgia, serif;
         }
         img {
-            height: 100px;
+            width: 150px;
         }
         table {
             width: 75%;
@@ -28,7 +28,7 @@
             text-align: center;
         }
         .boxer {
-            width: 5%;
+            width: 50%;
             background-color: #FFCCCC;
         }
         .boxer:focus {
@@ -42,6 +42,9 @@
             margin-top: 10px;
             margin-bottom: 10px;
         }
+        #topimage {
+            width:200px;
+        }
     </style>
 </head>
 <body>
@@ -49,11 +52,11 @@
     <h2>Can you find something starting with a...</h2>
     <h3>Click a letter to log a find</h3>
     <h3>No proper nouns</h3>
-
+    <h2><button id="submit" type="button" class="btn btn-success btn-lg">Submit</button></h2>
 
     <table border="1" align="center" id="pictable">
         <tr style="width:40%;">
-            <td colspan="2"><div id="title0">Your picture starts with the letter &nbsp;<input id="textboxer" class="boxer" value="a" type="text" maxlength="1"></div><img id="topimage" class="spyTarget" src="" /></td>
+            <td colspan="2"><div id="title0">Starts with the letter &nbsp;<input id="textboxer" class="boxer" value="a" type="text" maxlength="1"></div><img id="topimage" class="spyTarget" src="" /></td>
         </tr>
         <tr style="width:40%;">
             <td><img id="pic0" class="spyTarget a" src="" /><div id="title0"></div></td>
@@ -108,7 +111,6 @@
             <td><img id="pic25" class="spyTarget z" src="" /><div id="title25"></div></td>
         </tr>
     </table><br />
-    <h2><button id="submit" type="button" class="btn btn-success">Success</button></h2>
     <h2 id="score"></h2><br />
     <p hidden><input type="file" accept="image/*" capture="camera" id="takePicture"></p>
 </body>
