@@ -1,9 +1,14 @@
-var score = 0;
-
 function fillgrid() {
     for (var ii = 0; ii < 26; ii++) {
         $('#pic' + ii).attr('src', 'imgABC/letter' + ii + '.png');
     }
+}
+
+function addScore(id, score) {
+    var values = new Array();
+    values = [1, 3, 3, 2, 1, 4, 2, 4, 1, 8, 5, 1, 3, 1, 1, 3, 10, 1, 1, 1, 1, 4, 4, 8, 4, 10];
+    id = id.replace("pic", "");
+    return score = score + values[id]; 
 }
 
 
@@ -19,12 +24,15 @@ function getActiveTarget() {
 $(document).ready(
 
 	function () {
-	    $('#score').html("Found: " + score);
+	    var curid;
+	    var score = 0;
+	    $('#score').html("Score: 0");
 ///////////////////////////////////////////////////////////////////////////////////
 ///////////////////////////////////////////////////////////////////////////////////
 ////////////////Take picture and put it in cell////////////////////////////////////
 ///////////////////////////////////////////////////////////////////////////////////
 	    $(".spyTarget").click(function (event) { // triggers open file menu
+	        curid = $(this).attr('id');
 	        for (var jj = 0; jj < 26; jj++) {
 	            $('#pic' + jj).removeClass('activeTarget');
 	        }
@@ -42,8 +50,8 @@ $(document).ready(
 	        var imgURL = URL.createObjectURL(imageFile);
 	        activeTarget.attr('src', imgURL);
 	        activeTarget.removeClass('activeTarget');
-	        score++;
-	        $('#score').html("Found: " + score);
+	        score = addScore(curid, score);
+	        $('#score').html("Score: " + score);
 	    });
 ///////////////////////////////////////////////////////////////////////////////////
 ///////////////////////////////////////////////////////////////////////////////////
