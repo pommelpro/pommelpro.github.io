@@ -1,3 +1,4 @@
+var score = 0;
 
 function fillgrid() {
     for (var ii = 0; ii < 26; ii++) {
@@ -18,7 +19,7 @@ function getActiveTarget() {
 $(document).ready(
 
 	function () {
-
+	    $('#score').html("Found: " + score);
 ///////////////////////////////////////////////////////////////////////////////////
 ///////////////////////////////////////////////////////////////////////////////////
 ////////////////Take picture and put it in cell////////////////////////////////////
@@ -36,13 +37,13 @@ $(document).ready(
 	    $('#takePicture').on('change', function (e) {
 	        e.preventDefault();
 	        if (this.files.length === 0) return;
-
 	        var imageFile = this.files[0];
 	        var activeTarget = getActiveTarget();
 	        var imgURL = URL.createObjectURL(imageFile);
 	        activeTarget.attr('src', imgURL);
 	        activeTarget.removeClass('activeTarget');
-
+	        score++;
+	        $('#score').html("Found: " + score);
 	    });
 ///////////////////////////////////////////////////////////////////////////////////
 ///////////////////////////////////////////////////////////////////////////////////
