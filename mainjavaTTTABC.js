@@ -6,7 +6,6 @@ function fillgrid() {
 }
 
 function addScore(score, id) {
-    console.log(id);
     var values = new Array();
     values = [1, 3, 3, 2, 1, 4, 2, 4, 1, 8, 5, 1, 3, 1, 1, 3, 10, 1, 1, 1, 1, 4, 4, 8, 4, 10];
     id = id.replace("pic", "");
@@ -80,7 +79,7 @@ $(document).ready(function () {
 ///////////////////////////////////////////////////////////////////////////////////
 ////////////////Take picture and put it in cell////////////////////////////////////
 ///////////////////////////////////////////////////////////////////////////////////
-	$(".spyTarget").click(function (event) { // triggers open file menu
+	$(".spyTargetFin").click(function (event) { // triggers open file menu
 	    for (var jj = 0; jj < 26; jj++) {
 	        $('#pic' + jj).removeClass('activeTarget');
 	    }
