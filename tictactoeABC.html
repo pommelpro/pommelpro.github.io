@@ -45,73 +45,72 @@
         #topimage {
             width:200px;
         }
+        #submit {
+            margin-top: 10px;
+        }
     </style>
 </head>
 <body>
     <h1>ABC Finder</h1>
-    <h2>Can you find something starting with a...</h2>
-    <h3>Click a letter to log a find</h3>
-    <h3>No proper nouns</h3>
-    <h2><button id="submit" type="button" class="btn btn-success btn-lg">Submit</button></h2>
-
+    <h2>Can you find something starting with the letter...</h2>
+    <h2 id="score"></h2>
     <table border="1" align="center" id="pictable">
         <tr style="width:40%;">
-            <td colspan="2"><div id="title0">Starts with the letter &nbsp;<input id="textboxer" class="boxer" value="a" type="text" maxlength="1"></div><img id="topimage" class="spyTarget" src="" /></td>
+            <td colspan="2"><button id="submit" type="button" class="btn btn-success btn-lg">Submit</button><div id="title0">Starts with the letter &nbsp;<input id="textboxer" class="boxer" value="a" type="text" maxlength="1"></div><img id="topimage" class="spyTarget" src="" /></td>
         </tr>
         <tr style="width:40%;">
-            <td><img id="pic0" class="spyTarget a" src="" /><div id="title0"></div></td>
-            <td><img id="pic1" class="spyTarget b" src="" /><div id="title1"></div></td>
+            <td><img id="pic0" class="spyTarget a A" src="" /><div id="title0"></div></td>
+            <td><img id="pic1" class="spyTarget b B" src="" /><div id="title1"></div></td>
         </tr>
         <tr style="width:40%;">
-            <td><img id="pic2" class="spyTarget c" src="" /><div id="title2"></div></td>
-            <td><img id="pic3" class="spyTarget d" src="" /><div id="title3"></div></td>
+            <td><img id="pic2" class="spyTarget c C" src="" /><div id="title2"></div></td>
+            <td><img id="pic3" class="spyTarget d D" src="" /><div id="title3"></div></td>
         </tr>
         <tr style="width:40%;">
-            <td><img id="pic4" class="spyTarget e" src="" /><div id="title4"></div></td>
-            <td><img id="pic5" class="spyTarget f" src="" /><div id="title5"></div></td>
+            <td><img id="pic4" class="spyTarget e E" src="" /><div id="title4"></div></td>
+            <td><img id="pic5" class="spyTarget f F" src="" /><div id="title5"></div></td>
         </tr>
         <tr style="width:40%;">
-            <td><img id="pic6" class="spyTarget g" src="" /><div id="title6"></div></td>
-            <td><img id="pic7" class="spyTarget h" src="" /><div id="title7"></div></td>
+            <td><img id="pic6" class="spyTarget g G" src="" /><div id="title6"></div></td>
+            <td><img id="pic7" class="spyTarget h H" src="" /><div id="title7"></div></td>
         </tr>
         <tr style="width:40%;">
-            <td><img id="pic8" class="spyTarget i" src="" /><div id="title8"></div></td>
-            <td><img id="pic9" class="spyTarget j" src="" /><div id="title9"></div></td>
+            <td><img id="pic8" class="spyTarget i I" src="" /><div id="title8"></div></td>
+            <td><img id="pic9" class="spyTarget j J" src="" /><div id="title9"></div></td>
         </tr>
         <tr style="width:40%;">
-            <td><img id="pic10" class="spyTarget k" src="" /><div id="title10"></div></td>
-            <td><img id="pic11" class="spyTarget l" src="" /><div id="title11"></div></td>
+            <td><img id="pic10" class="spyTarget k K" src="" /><div id="title10"></div></td>
+            <td><img id="pic11" class="spyTarget l L" src="" /><div id="title11"></div></td>
         </tr>
         <tr style="width:40%;">
-            <td><img id="pic12" class="spyTarget m" src="" /><div id="title12"></div></td>
-            <td><img id="pic13" class="spyTarget n" src="" /><div id="title13"></div></td>
+            <td><img id="pic12" class="spyTarget m M" src="" /><div id="title12"></div></td>
+            <td><img id="pic13" class="spyTarget n N" src="" /><div id="title13"></div></td>
         </tr>
         <tr style="width:40%;">
-            <td><img id="pic14" class="spyTarget o" src="" /><div id="title14"></div></td>
-            <td><img id="pic15" class="spyTarget p" src="" /><div id="title15"></div></td>
+            <td><img id="pic14" class="spyTarget o O" src="" /><div id="title14"></div></td>
+            <td><img id="pic15" class="spyTarget p P" src="" /><div id="title15"></div></td>
         </tr>
         <tr style="width:40%;">
-            <td><img id="pic16" class="spyTarget q" src="" /><div id="title16"></div></td>
-            <td><img id="pic17" class="spyTarget r" src="" /><div id="title17"></div></td>
+            <td><img id="pic16" class="spyTarget q Q" src="" /><div id="title16"></div></td>
+            <td><img id="pic17" class="spyTarget r R" src="" /><div id="title17"></div></td>
         </tr>
         <tr style="width:40%;">
-            <td><img id="pic18" class="spyTarget s" src="" /><div id="title18"></div></td>
-            <td><img id="pic19" class="spyTarget t" src="" /><div id="title19"></div></td>
+            <td><img id="pic18" class="spyTarget s S" src="" /><div id="title18"></div></td>
+            <td><img id="pic19" class="spyTarget t T" src="" /><div id="title19"></div></td>
         </tr>
         <tr style="width:40%;">
-            <td><img id="pic20" class="spyTarget u" src="" /><div id="title20"></div></td>
-            <td><img id="pic21" class="spyTarget v" src="" /><div id="title21"></div></td>
+            <td><img id="pic20" class="spyTarget u U" src="" /><div id="title20"></div></td>
+            <td><img id="pic21" class="spyTarget v V" src="" /><div id="title21"></div></td>
         </tr>
         <tr style="width:40%;">
-            <td><img id="pic22" class="spyTarget w" src="" /><div id="title22"></div></td>
-            <td><img id="pic23" class="spyTarget x" src="" /><div id="title23"></div></td>
+            <td><img id="pic22" class="spyTarget w W" src="" /><div id="title22"></div></td>
+            <td><img id="pic23" class="spyTarget x X" src="" /><div id="title23"></div></td>
         </tr>
         <tr style="width:40%;">
-            <td><img id="pic24" class="spyTarget y" src="" /><div id="title24"></div></td>
-            <td><img id="pic25" class="spyTarget z" src="" /><div id="title25"></div></td>
+            <td><img id="pic24" class="spyTarget y Y" src="" /><div id="title24"></div></td>
+            <td><img id="pic25" class="spyTarget z Z" src="" /><div id="title25"></div></td>
         </tr>
     </table><br />
-    <h2 id="score"></h2><br />
     <p hidden><input type="file" accept="image/*" capture="camera" id="takePicture"></p>
 </body>
 </html>

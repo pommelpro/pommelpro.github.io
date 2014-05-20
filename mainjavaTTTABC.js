@@ -5,7 +5,7 @@ function fillgrid() {
     }
 }
 
-function addScore(id, score) {
+function addScore(score, id) {
     var values = new Array();
     values = [1, 3, 3, 2, 1, 4, 2, 4, 1, 8, 5, 1, 3, 1, 1, 3, 10, 1, 1, 1, 1, 4, 4, 8, 4, 10];
     id = id.replace("pic", "");
@@ -64,12 +64,11 @@ function upload(myfile) {
 
 
 
-$(document).ready( function () {
+$(document).ready(function () {
 
     Parse.initialize("TohTpNrTgJf0MTUkm5Ax9LtzfXoyaEOmSaQKnGRl", "p7CQveFxWDaYln4pNawiV8qkXiRuda9iR3zBqw8v");
-
-	var curid;
-	var score = 0;
+    var score = 0;
+    $('#score').html('Score: ' + score);
 	var imagepath;
 	$('#score').html("Score: 0");
 ///////////////////////////////////////////////////////////////////////////////////
@@ -77,7 +76,6 @@ $(document).ready( function () {
 ////////////////Take picture and put it in cell////////////////////////////////////
 ///////////////////////////////////////////////////////////////////////////////////
 	$(".spyTarget").click(function (event) { // triggers open file menu
-	    curid = $(this).attr('id');
 	    for (var jj = 0; jj < 26; jj++) {
 	        $('#pic' + jj).removeClass('activeTarget');
 	    }
@@ -97,8 +95,6 @@ $(document).ready( function () {
 	    var imgURL = URL.createObjectURL(imageFile);
 	    activeTarget.attr('src', imgURL);
 	    activeTarget.removeClass('activeTarget');
-	    score = addScore(curid, score);
-	    $('#score').html("Score: " + score);
 	});
 ///////////////////////////////////////////////////////////////////////////////////
 ///////////////////////////////////////////////////////////////////////////////////
@@ -112,6 +108,10 @@ $(document).ready( function () {
 
 	$('#submit').click(function(){
 	    upload(imagepath);
+	    var getID = $('.' + $('#textboxer').val()).attr('id');
+	    addScore(getID);
+	    $('#score').html('Score: ' + score);
+	    $('#topimage').attr('src', 'imgABC/clickhere.jpg');
 	});
 
 
