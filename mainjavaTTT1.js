@@ -1,75 +1,31 @@
-
-function fillgrid() {
-    var titles = new Array();
-    for (var i = 0; i < 12; i++) {
-        titles[i] = document.getElementById("check" + i).checked;
-    }
-}
-
-
-function addcheck() {
-    var x = document.createElement("INPUT");
-    x.setAttribute("type", "checkbox");
-    document.body.appendChild(x);
-}
-
+var found = 0;
+var score = 0;
+var go = false;
 
 function getActiveTarget() {
     //find which cell has the class active target
     var blah = $('.activeTarget').first();
-    console.log(blah.attr('id'));
     return blah
 }
 
-function howmany() {
-    console.log("got to howmany");
-    var check = new Array();
-    var totalcheck = 0;
-    for (var i = 0; i < 12; i++) {
-        check[i] = document.getElementById("check" + i).checked;
-        if (check[i] == true)
-            totalcheck++;
-    }
-    console.log("got to end of howmany");
-    $('#CheckedNum').html("You have checked " + totalcheck + " so far");
-
-}
-
-
-function whichChecked() {
-    var check = new Array();
-    var values = new Array();
-    var totalcheck = 0;
-    var fillList = 0;
-    for (var i = 0; i < 12; i++) {
-        check[i] = document.getElementById("check" + i).checked;
-        if (check[i] == true)
-            totalcheck++;
-    }
-
-    for (var j = 0; j < check.length; j++) {
-        if (check[j] == true) {
-            $('#title' + fillList).html(document.getElementById("check" + j).value);
-            //console.log(document.getElementById("check"+j).value);
-            fillList++;
-        }
-    }
-}
-
-
-var seconds = 120;
+var seconds = 5;
 function secondPassed() {
-    var minutes = Math.round((seconds - 30) / 60);
-    var remainingSeconds = seconds % 60;
-    if (remainingSeconds < 10) {
-        remainingSeconds = "0" + remainingSeconds;
-    }
-    document.getElementById('countdown').innerHTML = minutes + ":" + remainingSeconds;
-    if (seconds == 0) {
-        clearInterval(countdownTimer);
-        document.getElementById('countdown').innerHTML = "Buzz Buzz";
-    } else {
-        seconds--;
+    if (go) {
+        var minutes = Math.round((seconds - 30) / 60);
+        var remainingSeconds = seconds % 60;
+        if (remainingSeconds < 10) {
+            remainingSeconds = "0" + remainingSeconds;
+        }
+        document.getElementById('countdown').innerHTML = minutes + ":" + remainingSeconds;
+        if (seconds == 0) {
+            clearInterval(countdownTimer);
+            $('.buttonclick').hide();
+            $('#pic0').attr('src', 'img/done.jpg');
+            $('#tag').hide();
+            $('#countdown').html('Your score was ' + score);
+        } else {
+            seconds--;
+        }
     }
 }
 
@@ -80,11 +36,12 @@ $(document).ready(
 
 	function () {
 	    var found = 0;
-	    ///////////////////////////////////////////////////////////////////////////////////
-	    ///////////////////////////////////////////////////////////////////////////////////
-	    ////////////////Take picture and put it in cell////////////////////////////////////
-	    ///////////////////////////////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////////////////////////
+////////////////Take picture and put it in cell////////////////////////////////////
+///////////////////////////////////////////////////////////////////////////////////
 	    $("#seeing").click(function (event) { // triggers open file menu
+	        
 	        $('img').addClass("activeTarget");
 	        $('#takePicture').trigger('click');
 	        return false;
@@ -99,35 +56,64 @@ $(document).ready(
 	        activeTarget.attr('src', imgURL);
 	        activeTarget.removeClass('activeTarget');
 	        found++;
+	        score++;
 	        if (found < titles.length) {
 	            $('#tag').html(titles[found]);
 	            $('#seeing').text("I spy a " + titles[found]);
 	            console.log(titles[found] + " " + found);
 	        }
 	    });
-	    ///////////////////////////////////////////////////////////////////////////////////
-	    ///////////////////////////////////////////////////////////////////////////////////
-	    ////////////////Take picture and put it in cell////////////////////////////////////
-	    ///////////////////////////////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////////////////////////
+////////////////Take picture and put it in cell////////////////////////////////////
+///////////////////////////////////////////////////////////////////////////////////
 
 	    $('body').hide().fadeIn(1000);
-	    
-	    var titles = new Array();
+	    $('.buttonclick').hide();
+	    $('#pictable').hide();
 
-	    for (var i = 0; i < 12; i++) {
-	        titles[i] = document.getElementById("check" + i).value;
-	    }
+
+	    $('#start').click(function () {
+	        go = true;
+	        $('.buttonclick').show();
+	        $('#pictable').show();
+	        $('#start').hide();
+	    });
+
+
+	    var titles = new Array();
+	    titles = ["iPhone", "Apple Computer", "Student", "Nicely Dressed Person", "Clock", "Jeans", "Android Phone", "Stuffed Animal", "Shorts", "Headphones", "Rolling Chair", "Bicycle"];
+	    
 	    $('#seeing').text("I spy a " + titles[found]);
 	    $('#tag').html(titles[found]);
 
-
 	    $('#skip').click(function () {
 	        found++;
+	        score--;
 	        if (found < titles.length) {
 	            $('#tag').html(titles[found]);
 	            $('#seeing').text("I spy a " + titles[found]);
-	            console.log(titles[found] + " " + found);
 	        }
 	    });
 	    
 	});
+
+
+/*
+<input type="checkbox" value="iPhone" id="check0">iPhone<br></span>
+<span class="checkbox"><input type="checkbox" value="Mac" id="check1">Apple Computer<br></span>
+<span class="checkbox"><input type="checkbox" value="Student" id="check2">Student<br></span>
+<span class="checkbox"><input type="checkbox" value="Nicely Dressed Person" id="check3">Nicely Dressed Person<br></span>
+<span class="checkbox"><input type="checkbox" value="Clock" id="check4">Clock<br></span>
+<span class="checkbox"><input type="checkbox" value="Jeans" id="check5">Jeans<br></span>
+<span class="checkbox"><input type="checkbox" value="Android Phone" id="check6">Android Phone<br></span>
+<span class="checkbox"><input type="checkbox" value="Stuffed Animal" id="check7">Stuffed Animal<br></span>
+<span class="checkbox"><input type="checkbox" value="Shorts" id="check8">Shorts<br></span>
+<span class="checkbox"><input type="checkbox" value="Headphones" id="check9">Headphones<br></span>
+<span class="checkbox"><input type="checkbox" value="Rolling Chair" id="check10">Rolling Chair<br></span>
+<span class="checkbox"><input type="checkbox" value="Bicycle" id="check11">Bicycle<br></span>
+
+
+["iPhone", "Apple Computer", "Student", "Nicely Dressed Person", "Clock", "Jeans", "Android Phone", "Stuffed Animal", "Shorts", "Headphones", "Rolling Chair", "Bicycle"]
+*/
+
