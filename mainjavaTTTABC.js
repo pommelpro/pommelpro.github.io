@@ -6,15 +6,11 @@ function fillgrid() {
 }
 
 function addScore(score, id) {
+    console.log(id);
     var values = new Array();
     values = [1, 3, 3, 2, 1, 4, 2, 4, 1, 8, 5, 1, 3, 1, 1, 3, 10, 1, 1, 1, 1, 4, 4, 8, 4, 10];
     id = id.replace("pic", "");
     return score = score + values[id]; 
-}
-
-function printText() {
-    var stuff = document.getElementById('textboxer').value;
-    console.log(stuff);
 }
 
 
@@ -24,7 +20,17 @@ function getActiveTarget() {
     return blah
 }
 
+function getLocation() {
+    if (navigator.geolocation) {
+        navigator.geolocation.getCurrentPosition(showPosition);
+    }
+    else { alert("Geolocation is not supported by this browser."); }
+}
 
+function showPosition(position) {
+    $('#location').html("Latitude: " + position.coords.latitude +
+    "<br>Longitude: " + position.coords.longitude);
+}
 
 
 function upload(myfile) {
@@ -50,7 +56,6 @@ function upload(myfile) {
                 upimg.set("urlPath", JSON.parse(xhr.responseText).data.link);
                 upimg.save(null, {
                     success: function (img) {
-                        console.log($('#textboxer').val())
                         $('.' + $('#textboxer').val()).attr('src', JSON.parse(xhr.responseText).data.link);
                     }
                 });
@@ -89,7 +94,6 @@ $(document).ready(function () {
 	    e.preventDefault();
 	    if (this.files.length === 0) return;
 	    var imageFile = this.files[0];
-	    console.log(imageFile);
 	    imagepath = imageFile;
 	    var activeTarget = getActiveTarget();
 	    var imgURL = URL.createObjectURL(imageFile);
@@ -101,15 +105,12 @@ $(document).ready(function () {
 ////////////////Take picture and put it in cell////////////////////////////////////
 ///////////////////////////////////////////////////////////////////////////////////
 
-	$('#title0').click(function () {
-	    printText();
-
-	});
 
 	$('#submit').click(function(){
 	    upload(imagepath);
 	    var getID = $('.' + $('#textboxer').val()).attr('id');
-	    addScore(getID);
+	    score = addScore(score, getID);
+	    getLocation();
 	    $('#score').html('Score: ' + score);
 	    $('#topimage').attr('src', 'imgABC/clickhere.jpg');
 	});

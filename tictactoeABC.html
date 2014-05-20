@@ -24,7 +24,7 @@
             border: 1px solid black;
             text-align: center;
         }
-        h1, h2, h3 {
+        h1, h2, h3, h4 {
             text-align: center;
         }
         .boxer {
@@ -46,6 +46,7 @@
             width:200px;
         }
         #submit {
+            margin-bottom: 10px;
             margin-top: 10px;
         }
     </style>
@@ -54,9 +55,14 @@
     <h1>ABC Finder</h1>
     <h2>Can you find something starting with the letter...</h2>
     <h2 id="score"></h2>
+    <h3 id="location"></h3>
     <table border="1" align="center" id="pictable">
         <tr style="width:40%;">
-            <td colspan="2"><button id="submit" type="button" class="btn btn-success btn-lg">Submit</button><div id="title0">Starts with the letter &nbsp;<input id="textboxer" class="boxer" value="a" type="text" maxlength="1"></div><img id="topimage" class="spyTarget" src="" /></td>
+            <td colspan="2">
+                <img id="topimage" class="spyTarget" src="" />
+                <div id="title0">Starts with the letter &nbsp;<input id="textboxer" class="boxer" value="a" type="text" maxlength="1"></div>
+                <button id="submit" type="button" class="btn btn-success btn-lg">Submit</button>
+            </td>
         </tr>
         <tr style="width:40%;">
             <td><img id="pic0" class="spyTarget a A" src="" /><div id="title0"></div></td>
