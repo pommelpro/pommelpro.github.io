@@ -8,7 +8,15 @@ function getActiveTarget() {
     return blah
 }
 
-var seconds = 5;
+function startGame() {
+    titles = ["iPhone", "Apple Computer", "Student", "Nicely Dressed Person", "Clock", "Jeans", "Android Phone", "Stuffed Animal", "Shorts", "Headphones", "Rolling Chair", "Bicycle"];
+    $('#seeing').text("I spy a " + titles[found]);
+    $('#tag').html(titles[found]);
+    $('#pic0').attr('src', 'img/white.jpg');
+}
+
+
+var seconds = 120;
 function secondPassed() {
     if (go) {
         var minutes = Math.round((seconds - 30) / 60);
@@ -30,18 +38,16 @@ function secondPassed() {
 }
 
 var countdownTimer = setInterval('secondPassed()', 1000);
+var found = 0;
+var titles = new Array();
 
-
-$(document).ready(
-
-	function () {
-	    var found = 0;
+$(document).ready(function () {
+    startGame();
 ///////////////////////////////////////////////////////////////////////////////////
 ///////////////////////////////////////////////////////////////////////////////////
 ////////////////Take picture and put it in cell////////////////////////////////////
 ///////////////////////////////////////////////////////////////////////////////////
 	    $("#seeing").click(function (event) { // triggers open file menu
-	        
 	        $('img').addClass("activeTarget");
 	        $('#takePicture').trigger('click');
 	        return false;
@@ -58,9 +64,11 @@ $(document).ready(
 	        found++;
 	        score++;
 	        if (found < titles.length) {
-	            $('#tag').html(titles[found]);
-	            $('#seeing').text("I spy a " + titles[found]);
-	            console.log(titles[found] + " " + found);
+	            setTimeout(function () { $('#pic0').attr('src', 'img/white.jpg'); }, 1000);
+	            setTimeout(function () { $('#tag').html(titles[found]); }, 1000);
+	            setTimeout(function () { $('#seeing').text("I spy a " + titles[found]); }, 1000); 
+	        } else {
+	            alert("hello");
 	        }
 	    });
 ///////////////////////////////////////////////////////////////////////////////////
@@ -80,19 +88,14 @@ $(document).ready(
 	        $('#start').hide();
 	    });
 
-
-	    var titles = new Array();
-	    titles = ["iPhone", "Apple Computer", "Student", "Nicely Dressed Person", "Clock", "Jeans", "Android Phone", "Stuffed Animal", "Shorts", "Headphones", "Rolling Chair", "Bicycle"];
-	    
-	    $('#seeing').text("I spy a " + titles[found]);
-	    $('#tag').html(titles[found]);
-
 	    $('#skip').click(function () {
 	        found++;
 	        score--;
 	        if (found < titles.length) {
 	            $('#tag').html(titles[found]);
 	            $('#seeing').text("I spy a " + titles[found]);
+	        } else {
+	            alert("hello");
 	        }
 	    });
 	    
