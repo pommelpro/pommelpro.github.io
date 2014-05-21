@@ -104,7 +104,7 @@ $(document).ready(function () {
 ////////////////Take picture and put it in cell////////////////////////////////////
 ///////////////////////////////////////////////////////////////////////////////////
 
-	console.log(matrix);
+
 	$('#submit').click(function(){
 	    upload(imagepath);
 	    var getID = $('.' + $('#textboxer').val()).attr('id');
