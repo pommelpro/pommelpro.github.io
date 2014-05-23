@@ -139,11 +139,11 @@ $(document).ready(function () {
 	$("#showpics").click(function () {
 	    $(".letterpics").slideToggle("slow");
 	    if (picshowval) {
-	        document.getElementById("showpics").value = "Hide Pictures";
+	        document.getElementById("showpics").innerHTML = "Hide Pictures";
 	        picshowval = 0;
 	    }
 	    else {
-	        document.getElementById("showpics").value = "Show Pictures";
+	        document.getElementById("showpics").innerHTML = "Show Pictures";
 	        picshowval = 1;
 	    }
 	});
