@@ -105,6 +105,9 @@ $(document).ready(
 ////////////////Take picture and put it in cell////////////////////////////////////
 ///////////////////////////////////////////////////////////////////////////////////
 	    $(".spyTarget").click(function (event) { // triggers open file menu
+	        for (var jj = 0; jj < 26; jj++) {
+	            $('#pic' + jj).removeClass('activeTarget');
+	        }
 	        $(this).addClass("activeTarget");
 	        var parid = $(this).parent().attr('id');
 	        $('#takePicture').trigger('click');
@@ -135,7 +138,6 @@ $(document).ready(
 	    $('#takePicture').on('change', function (e) {
 	        e.preventDefault();
 	        if (this.files.length === 0) return;
-
 	        var imageFile = this.files[0];
 	        var activeTarget = getActiveTarget();
 	        var imgURL = URL.createObjectURL(imageFile);
@@ -166,6 +168,7 @@ $(document).ready(
 		$('#addtag').click(function () {
 		    addcheck();
 		});
+//////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 		$('#twoplayer').click(function () {
 		    window.location.href = "tictactoe2.html";

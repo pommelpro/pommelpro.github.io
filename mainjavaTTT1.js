@@ -68,7 +68,11 @@ $(document).ready(function () {
 	            setTimeout(function () { $('#tag').html(titles[found]); }, 1000);
 	            setTimeout(function () { $('#seeing').text("I spy a " + titles[found]); }, 1000); 
 	        } else {
-	            alert("hello");
+	            clearInterval(countdownTimer);
+	            $('.buttonclick').hide();
+	            $('#pic0').attr('src', 'img/done.jpg');
+	            $('#tag').hide();
+	            $('#countdown').html('Your score was ' + score);
 	        }
 	    });
 ///////////////////////////////////////////////////////////////////////////////////
@@ -95,7 +99,11 @@ $(document).ready(function () {
 	            $('#tag').html(titles[found]);
 	            $('#seeing').text("I spy a " + titles[found]);
 	        } else {
-	            alert("hello");
+	            clearInterval(countdownTimer);
+	            $('.buttonclick').hide();
+	            $('#pic0').attr('src', 'img/done.jpg');
+	            $('#tag').hide();
+	            $('#countdown').html('Your score was ' + score);
 	        }
 	    });
 	    
