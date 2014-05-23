@@ -55,10 +55,10 @@ function upload(myfile) {
                 var upimg = new upIMG();
                 upimg.set("urlPath", JSON.parse(xhr.responseText).data.link);
                 upimg.set("letterVal", document.getElementById('textboxer').value);
-//                console.log(lat);
-  //              console.log(longi);
-//                upimg.set("latitude", lat);
-//                upimg.set("longitude", longi);
+                console.log(lat);
+                console.log(longi);
+                upimg.set("latitude", lat);
+                upimg.set("longitude", longi);
                 upimg.save(null, {
                     success: function () {
                         $('.' + $('#textboxer').val()).attr('src', JSON.parse(xhr.responseText).data.link);
@@ -79,6 +79,7 @@ function upload(myfile) {
 $(document).ready(function () {
 
     Parse.initialize("TohTpNrTgJf0MTUkm5Ax9LtzfXoyaEOmSaQKnGRl", "p7CQveFxWDaYln4pNawiV8qkXiRuda9iR3zBqw8v");
+    $('#submit').hide();
     var score = 0;
     $('#score').html('Score: ' + score);
 	var imagepath;
@@ -99,6 +100,7 @@ $(document).ready(function () {
 
 	$('#takePicture').on('change', function (e) {
 	    e.preventDefault();
+	    $('#submit').show();
 	    if (this.files.length === 0) return;
 	    var imageFile = this.files[0];
 	    imagepath = imageFile;
@@ -121,6 +123,7 @@ $(document).ready(function () {
 	    score = addScore(score, getID);
 	    $('#score').html('Score: ' + score);
 	    $('#topimage').attr('src', 'imgABC/clickhere.jpg');
+	    $('#submit').hide();
 	});
 
 
