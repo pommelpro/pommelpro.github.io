@@ -135,8 +135,17 @@ $(document).ready(function () {
 	    var stuff = document.getElementById('textboxer').value;
 	});
 
+	var picshowval = 1;
 	$("#showpics").click(function () {
 	    $(".letterpics").slideToggle("slow");
+	    if (picshowval) {
+	        document.getElementById("showpics").value = "Hide Pictures";
+	        picshowval = 0;
+	    }
+	    else {
+	        document.getElementById("showpics").value = "Show Pictures";
+	        picshowval = 1;
+	    }
 	});
 
 	
