@@ -80,6 +80,7 @@ $(document).ready(function () {
 
     Parse.initialize("TohTpNrTgJf0MTUkm5Ax9LtzfXoyaEOmSaQKnGRl", "p7CQveFxWDaYln4pNawiV8qkXiRuda9iR3zBqw8v");
     $('#submit').hide();
+    $('.letterpics').hide();
     var score = 0;
     $('#score').html('Score: ' + score);
 	var imagepath;
@@ -134,5 +135,9 @@ $(document).ready(function () {
 	    var stuff = document.getElementById('textboxer').value;
 	});
 
-
+	$("#showpics").click(function () {
+	    $(".letterpics").slideToggle("slow");
 	});
+
+	
+});
