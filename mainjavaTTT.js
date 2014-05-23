@@ -178,5 +178,11 @@ $(document).ready(
 		});
 		$('#ABC').click(function () {
 		    window.location.href = "tictactoeABC.html";
-		});		
+		});
+		$('#seepics').click(function () {
+		    window.location.href = "picSee.html";
+		});
+
+
+		
 	});

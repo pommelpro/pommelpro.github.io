@@ -25,10 +25,11 @@ function getLocation() {
     }
     else { alert("Geolocation is not supported by this browser."); }
 }
-
+var lat;
+var longi;
 function showPosition(position) {
-    $('#location').html("Latitude: " + position.coords.latitude +
-    "<br>Longitude: " + position.coords.longitude);
+    lat = position.coords.latitude;
+    longi = position.coords.longitude;
 }
 
 
@@ -53,8 +54,13 @@ function upload(myfile) {
                 var upIMG = Parse.Object.extend("stImg");
                 var upimg = new upIMG();
                 upimg.set("urlPath", JSON.parse(xhr.responseText).data.link);
+                upimg.set("letterVal", document.getElementById('textboxer').value);
+//                console.log(lat);
+  //              console.log(longi);
+//                upimg.set("latitude", lat);
+//                upimg.set("longitude", longi);
                 upimg.save(null, {
-                    success: function (img) {
+                    success: function () {
                         $('.' + $('#textboxer').val()).attr('src', JSON.parse(xhr.responseText).data.link);
                     }
                 });
@@ -64,6 +70,8 @@ function upload(myfile) {
     reader.readAsDataURL(myfile)
 
 }
+
+
 
 
 
@@ -94,6 +102,7 @@ $(document).ready(function () {
 	    if (this.files.length === 0) return;
 	    var imageFile = this.files[0];
 	    imagepath = imageFile;
+	    getLocation();
 	    var activeTarget = getActiveTarget();
 	    var imgURL = URL.createObjectURL(imageFile);
 	    activeTarget.attr('src', imgURL);
@@ -105,11 +114,11 @@ $(document).ready(function () {
 ///////////////////////////////////////////////////////////////////////////////////
 
 
-	$('#submit').click(function(){
+	$('#submit').click(function () {
+	    
 	    upload(imagepath);
 	    var getID = $('.' + $('#textboxer').val()).attr('id');
 	    score = addScore(score, getID);
-	    getLocation();
 	    $('#score').html('Score: ' + score);
 	    $('#topimage').attr('src', 'imgABC/clickhere.jpg');
 	});
