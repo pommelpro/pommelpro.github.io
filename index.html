@@ -1,10 +1,10 @@
 ﻿<!DOCTYPE html>
 <html lang="en">
-  <head>
+<head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Index</title>
+    <title>Home</title>
 
     <link href="css/bootstrap.min.css" rel="stylesheet">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
@@ -15,15 +15,49 @@
         body {
             font-family: "Lucida Bright", Georgia, serif;
         }
+        .btn {
+            margin-top:5px;
+            margin-bottom:5px;
+            width:100%;
+        }
     </style>
-  </head>
-  <body>
-    <h1>Which Version Do You Want to Play?</h1>
+</head>
+<body>
+    <nav class="navbar navbar-inverse navbar-static-top" role="navigation">
+        <div class="container-fluid">
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                <ul class="nav navbar-nav">
+                    <li class="active"><a href="index.html">Home</a></li>
+                    <li><a href="check.html">Check Mark</a></li>
+                    <li><a href="heat.html">Heating Up</a></li>
+                    <li><a href="main.html">Flickr</a></li>
+                    <li><a href="swiper.html">Swiper</a></li>
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">Picture Taker <b class="caret"></b></a>
+                        <ul class="dropdown-menu">
+                            <li><a href="tictactoe12.html">Picture Taking</a></li>
+                            <li class="divider"></li>
+                            <li><a href="tictactoe1.html">One Player Timer</a></li>
+                            <li><a href="tictactoeABC.html">ABC Pictures</a></li>
+                            <li><a href="tictactoe2.html">Two Player TicTacToe</a></li>
+                            <li class="divider"></li>
+                            <li><a href="picSee.html">See Pictures</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </div><!-- /.navbar-collapse -->
+        </div><!-- /.container-fluid -->
+    </nav>
 
-    <button id="checkmark" type="button" class="btn btn-primary btn-lg">Check Mark</button><br />
-    <button id="heating" type="button" class="btn btn-primary btn-lg">Heating Up</button><br />
-    <button id="flickr" type="button" class="btn btn-primary btn-lg">Flickr</button><br />
-    <button id="swiper" type="button" class="btn btn-primary btn-lg">Swiper</button><br />
-    <button id="tictactoe" type="button" class="btn btn-primary btn-lg">Tic-Tac-Toe</button>
-  </body>
+    <h1>Which Version Do You Want to Play?</h1>
+    <div id="buttons">
+        <button id="checkmark" type="button" class="btn btn-primary btn-lg">Check Mark</button><br />
+        <button id="heating" type="button" class="btn btn-primary btn-lg">Heating Up</button><br />
+        <button id="flickr" type="button" class="btn btn-primary btn-lg">Flickr</button><br />
+        <button id="swiper" type="button" class="btn btn-primary btn-lg">Swiper</button><br />
+        <button id="tictactoe" type="button" class="btn btn-primary btn-lg">Tic-Tac-Toe</button>
+    </div>
+
+</body>
 </html>

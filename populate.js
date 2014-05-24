@@ -1,15 +1,20 @@
 function filltable() {
     var stImg = Parse.Object.extend('stImg');
     var query = new Parse.Query(stImg);
-    query.limit(22);
+
+    query.limit(20);
     query.descending("createdAt");
     query.find({
         success: function (results) {
             for (var i = 0; i < results.length; i++) {
                 $('#pic' + i).attr('src', results[i].get('urlPath'));
+                $('#letter' + i).html(results[i].get('letterVal'));
             }
         }
     });
+
+
+
 
 }
 
