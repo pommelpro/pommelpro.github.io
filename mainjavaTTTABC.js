@@ -126,7 +126,6 @@ $(document).ready(function () {
 	        $('#score').html('Score: ' + score);
 	        $('#topimage').attr('src', 'imgABC/clickhere.jpg');
 	        $('#submit').hide();
-	        document.getElementById('textboxer').value = "";
 	    } else { $('.boxer').css({ "background-color": "#FF0000" }); }
 	});
 
