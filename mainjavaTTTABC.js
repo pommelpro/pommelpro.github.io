@@ -118,15 +118,17 @@ $(document).ready(function () {
 
 
 	$('#submit').click(function () {
-	    
-	    upload(imagepath);
-	    var getID = $('.' + $('#textboxer').val()).attr('id');
-	    score = addScore(score, getID);
-	    $('#score').html('Score: ' + score);
-	    $('#topimage').attr('src', 'imgABC/clickhere.jpg');
-	    $('#submit').hide();
+	    if (document.getElementById('textboxer').value) {
+	        $('.boxer').css({ "background-color": "#FFCCCC" });
+	        upload(imagepath);
+	        var getID = $('.' + $('#textboxer').val()).attr('id');
+	        score = addScore(score, getID);
+	        $('#score').html('Score: ' + score);
+	        $('#topimage').attr('src', 'imgABC/clickhere.jpg');
+	        $('#submit').hide();
+	        document.getElementById('textboxer').value = "";
+	    } else { $('.boxer').css({ "background-color": "#FF0000" }); }
 	});
-
 
 	$('body').hide().fadeIn(1000);
 	fillgrid();
