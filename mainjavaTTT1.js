@@ -1,4 +1,3 @@
-var found = 0;
 var score = 0;
 var go = false;
 
@@ -41,6 +40,21 @@ var countdownTimer = setInterval('secondPassed()', 1000);
 var found = 0;
 var titles = new Array();
 
+function getLocation() {
+    if (navigator.geolocation) {
+        navigator.geolocation.getCurrentPosition(showPosition);
+    }
+    else { alert("Geolocation is not supported by this browser."); }
+}
+var lat;
+var longi;
+function showPosition(position) {
+    lat = position.coords.latitude;
+    longi = position.coords.longitude;
+    console.log('lat= ' + lat);
+    console.log('longi= ' + longi);
+}
+
 
 
 function upload(myfile) {
@@ -66,6 +80,7 @@ function upload(myfile) {
                 upimg.set("urlPath", JSON.parse(xhr.responseText).data.link);
                 upimg.set("latitude", lat);
                 upimg.set("longitude", longi);
+                upimg.set("letter", titles[found]);
                 upimg.save(null, {
                     success: function () {
 //                      $('.' + $('#textboxer').val()).attr('src', JSON.parse(xhr.responseText).data.link);
@@ -77,23 +92,6 @@ function upload(myfile) {
     reader.readAsDataURL(myfile)
 
 }
-
-
-
-function getLocation() {
-    if (navigator.geolocation) {
-        navigator.geolocation.getCurrentPosition(showPosition);
-    }
-    else { alert("Geolocation is not supported by this browser."); }
-}
-var lat;
-var longi;
-function showPosition(position) {
-    lat = position.coords.latitude;
-    longi = position.coords.longitude;
-}
-
-
 
 $(document).ready(function () {
 
@@ -111,6 +109,7 @@ $(document).ready(function () {
 	    });
 
 	    $('#takePicture').on('change', function (e) {
+	        getLocation();
 	        e.preventDefault();
 	        if (this.files.length === 0) return;
 	        var imageFile = this.files[0];
@@ -121,7 +120,7 @@ $(document).ready(function () {
 	        activeTarget.removeClass('activeTarget');
 	        found++;
 	        score++;
-	        getLocation();
+	        
 	        if (found < titles.length) {
 	            setTimeout(function () { $('#pic0').attr('src', 'img/white.jpg'); }, 1000);
 	            setTimeout(function () { $('#tag').html('Starts with the letter ' + titles[found]); }, 1000);
