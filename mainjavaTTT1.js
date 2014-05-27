@@ -64,7 +64,6 @@ function upload(myfile) {
                 var upIMG = Parse.Object.extend("onePlayer");
                 var upimg = new upIMG();
                 upimg.set("urlPath", JSON.parse(xhr.responseText).data.link);
-//              upimg.set("letterVal", document.getElementById('textboxer').value);
                 upimg.set("latitude", lat);
                 upimg.set("longitude", longi);
                 upimg.save(null, {
