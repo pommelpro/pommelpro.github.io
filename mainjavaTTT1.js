@@ -9,9 +9,9 @@ function getActiveTarget() {
 }
 
 function startGame() {
-    titles = ["iPhone", "Apple Computer", "Student", "Nicely Dressed Person", "Clock", "Jeans", "Android Phone", "Stuffed Animal", "Shorts", "Headphones", "Rolling Chair", "Bicycle"];
-    $('#seeing').text("I spy a " + titles[found]);
-    $('#tag').html(titles[found]);
+    titles = ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z'];
+    $('#seeing').text("Starts with the letter " + titles[found]);
+    $('#tag').html('I Spy something starting with the letter ' + titles[found]);
     $('#pic0').attr('src', 'img/white.jpg');
 }
 
@@ -41,7 +41,65 @@ var countdownTimer = setInterval('secondPassed()', 1000);
 var found = 0;
 var titles = new Array();
 
+
+
+function upload(myfile) {
+    var reader = new FileReader();
+    reader.onload = function (event) {
+        object = {};
+        object.filename = myfile.name;
+        object.data = event.target.result;
+        object.data = object.data.slice(object.data.indexOf('base64') + 7, object.data.length)
+        $.ajax({
+            url: 'https://api.imgur.com/3/image',
+            method: 'POST',
+            headers: {
+                Authorization: 'Client-ID 1b29a07068ab56c',
+            },
+            data: {
+                image: object.data,
+                type: 'base64'
+            },
+            success: function (obj, stat, xhr) {
+                var upIMG = Parse.Object.extend("onePlayer");
+                var upimg = new upIMG();
+                upimg.set("urlPath", JSON.parse(xhr.responseText).data.link);
+//              upimg.set("letterVal", document.getElementById('textboxer').value);
+                upimg.set("latitude", lat);
+                upimg.set("longitude", longi);
+                upimg.save(null, {
+                    success: function () {
+//                      $('.' + $('#textboxer').val()).attr('src', JSON.parse(xhr.responseText).data.link);
+                    }
+                });
+            }
+        });
+    };
+    reader.readAsDataURL(myfile)
+
+}
+
+
+
+function getLocation() {
+    if (navigator.geolocation) {
+        navigator.geolocation.getCurrentPosition(showPosition);
+    }
+    else { alert("Geolocation is not supported by this browser."); }
+}
+var lat;
+var longi;
+function showPosition(position) {
+    lat = position.coords.latitude;
+    longi = position.coords.longitude;
+}
+
+
+
 $(document).ready(function () {
+
+    Parse.initialize("TohTpNrTgJf0MTUkm5Ax9LtzfXoyaEOmSaQKnGRl", "p7CQveFxWDaYln4pNawiV8qkXiRuda9iR3zBqw8v");
+    var imagepath;
     startGame();
 ///////////////////////////////////////////////////////////////////////////////////
 ///////////////////////////////////////////////////////////////////////////////////
@@ -57,16 +115,19 @@ $(document).ready(function () {
 	        e.preventDefault();
 	        if (this.files.length === 0) return;
 	        var imageFile = this.files[0];
+	        imagepath = imageFile;
 	        var activeTarget = getActiveTarget();
 	        var imgURL = URL.createObjectURL(imageFile);
 	        activeTarget.attr('src', imgURL);
 	        activeTarget.removeClass('activeTarget');
 	        found++;
 	        score++;
+	        getLocation();
 	        if (found < titles.length) {
 	            setTimeout(function () { $('#pic0').attr('src', 'img/white.jpg'); }, 1000);
-	            setTimeout(function () { $('#tag').html(titles[found]); }, 1000);
-	            setTimeout(function () { $('#seeing').text("I spy a " + titles[found]); }, 1000); 
+	            setTimeout(function () { $('#tag').html('Starts with the letter ' + titles[found]); }, 1000);
+	            setTimeout(function () { $('#seeing').text("I spy a " + titles[found]); }, 1000);
+	            upload(imagepath);
 	        } else {
 	            clearInterval(countdownTimer);
 	            $('.buttonclick').hide();
@@ -84,19 +145,20 @@ $(document).ready(function () {
 	    $('.buttonclick').hide();
 	    $('#pictable').hide();
 
-
 	    $('#start').click(function () {
 	        go = true;
 	        $('.buttonclick').show();
 	        $('#pictable').show();
 	        $('#start').hide();
+	        $('#skip').show();
+	        $('#seeing').show();
 	    });
 
 	    $('#skip').click(function () {
 	        found++;
 	        score--;
 	        if (found < titles.length) {
-	            $('#tag').html(titles[found]);
+	            $('#tag').html('Starts with the letter ' + titles[found]);
 	            $('#seeing').text("I spy a " + titles[found]);
 	        } else {
 	            clearInterval(countdownTimer);
@@ -109,22 +171,4 @@ $(document).ready(function () {
 	    
 	});
 
-
-/*
-<input type="checkbox" value="iPhone" id="check0">iPhone<br></span>
-<span class="checkbox"><input type="checkbox" value="Mac" id="check1">Apple Computer<br></span>
-<span class="checkbox"><input type="checkbox" value="Student" id="check2">Student<br></span>
-<span class="checkbox"><input type="checkbox" value="Nicely Dressed Person" id="check3">Nicely Dressed Person<br></span>
-<span class="checkbox"><input type="checkbox" value="Clock" id="check4">Clock<br></span>
-<span class="checkbox"><input type="checkbox" value="Jeans" id="check5">Jeans<br></span>
-<span class="checkbox"><input type="checkbox" value="Android Phone" id="check6">Android Phone<br></span>
-<span class="checkbox"><input type="checkbox" value="Stuffed Animal" id="check7">Stuffed Animal<br></span>
-<span class="checkbox"><input type="checkbox" value="Shorts" id="check8">Shorts<br></span>
-<span class="checkbox"><input type="checkbox" value="Headphones" id="check9">Headphones<br></span>
-<span class="checkbox"><input type="checkbox" value="Rolling Chair" id="check10">Rolling Chair<br></span>
-<span class="checkbox"><input type="checkbox" value="Bicycle" id="check11">Bicycle<br></span>
-
-
-["iPhone", "Apple Computer", "Student", "Nicely Dressed Person", "Clock", "Jeans", "Android Phone", "Stuffed Animal", "Shorts", "Headphones", "Rolling Chair", "Bicycle"]
-*/
 
