@@ -82,7 +82,7 @@ function upload(myfile) {
 
 
 
-var seconds = 5;
+var seconds = 120;
 function secondPassed() {
     if (go) {
         var minutes = Math.round((seconds - 30) / 60);
