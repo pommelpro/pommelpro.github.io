@@ -140,11 +140,11 @@ $(document).ready(function () {
 	$("#showpics").click(function () {
 	    $(".letterpics").slideToggle("slow");
 	    if (picshowval) {
-	        document.getElementById("showpics").innerHTML = "Hide Pictures";
+	        document.getElementById("showpics").innerHTML = "See Less";
 	        picshowval = 0;
 	    }
 	    else {
-	        document.getElementById("showpics").innerHTML = "Show Pictures";
+	        document.getElementById("showpics").innerHTML = "See what you spied so far";
 	        picshowval = 1;
 	    }
 	});
