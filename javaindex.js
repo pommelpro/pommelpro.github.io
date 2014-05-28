@@ -10,7 +10,7 @@ $(document).ready( function() {
 
 
     $('#moveon').click(function() {
-        if (ranNum) { window.location.href = "tictactoe1.html"; }
+        if (ranNum) { window.location.href = "timedABC.html"; }
         else { window.location.href = "tictactoeABC.html"; }
     });
 
