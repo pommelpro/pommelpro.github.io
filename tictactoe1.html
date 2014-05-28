@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="utf-8">
@@ -89,12 +89,18 @@
 
     <h1>Time to start Spying</h1>
     <h3>Find as many images as you can to win!</h3>
-    <h3 id="countdown" class="timer"></h3>
+    <h3 id="countdown" class="timer">You will be given two minutes to find as many pictures as you can.<br /></h3>
 
     <p align="center">
         <button id="start" type="button" class="btn btn-success btn-lg btn-block">GO</button>
     </p>
-
+    
+    <p align="center">
+        <br />
+        <button id="seeing" type="button" class="btn btn-info btn-lg buttonclick"></button><br />
+        <button id="skip" type="button" class="btn btn-warning btn-lg buttonclick">Skip</button>
+    </p>
+    
     <table border="0" align="center" id="pictable">
         <tr style="width:20%;">
             <td id="tag"></td>
@@ -103,12 +109,6 @@
             <td><img id="pic0" class="spyTarget" src="" /><div id="title0"></div></td>
         </tr>
     </table>
-
-    <p align="center">
-        <br />
-        <button id="seeing" type="button" class="btn btn-info btn-lg buttonclick"></button><br />
-        <button id="skip" type="button" class="btn btn-warning btn-lg buttonclick">Skip</button>
-    </p>
 
     <p hidden><input type="file" accept="image/*" capture="camera" id="takePicture"></p>
 </body>
