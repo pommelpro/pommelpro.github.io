@@ -10,8 +10,8 @@ $(document).ready( function() {
 
 
     $('#moveon').click(function() {
-        if (ranNum) { window.location.href = "timedABC.html"; }
-        else { window.location.href = "tictactoeABC.html"; }
+        if (ranNum) { window.location.href = "htmlabctimed.html"; }
+        else { window.location.href = "htmlabc.html"; }
     });
 
 });
