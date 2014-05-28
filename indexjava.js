@@ -3,20 +3,15 @@ $(document).ready( function() {
 
 	$('body').hide().fadeIn(1000);
 	
-	$('#checkmark').click(function () {
-	    window.location.href = "check.html";
-	});
-	$('#heating').click(function () {
-	    window.location.href = "heat.html";
-	});
-	$('#flickr').click(function () {
-	    window.location.href = "main.html";
-	});
-	$('#swiper').click(function () {
-	    window.location.href = "swiper.html";
-	});
-	$('#tictactoe').click(function () {
-	    window.location.href = "tictactoe12.html";
-	});
+
+	var ranNum = Math.floor((Math.random() * 2));
+	console.log(ranNum);
+
+
+
+    $('#moveon').click(function() {
+        if (ranNum) { window.location.href = "tictactoe1.html"; }
+        else { window.location.href = "tictactoeABC.html"; }
+    });
 
 });
