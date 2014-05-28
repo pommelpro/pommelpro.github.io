@@ -2,6 +2,12 @@ var go = false;
 
 function startgame() {
     $('#pictable').hide();
+    var titles = ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z'];
+    for (var i = 0; i < 26; i++) {
+        $('#title' + i).html(titles[i]);
+        $('#pic' + i).attr('src', 'imgABC\letter' + i);
+    }
+
 }
 
 
@@ -154,7 +160,7 @@ $(document).ready(function () {
     $('#submit').click(function () {
         if (document.getElementById('textboxer').value) {
             $('.boxer').css({ "background-color": "#FFCCCC" });
-            upload(imagepath);
+   //         upload(imagepath);
             var getID = $('.' + $('#textboxer').val()).attr('id');
             score = addScore(score, getID);
             $('#score').html('Score: ' + score);

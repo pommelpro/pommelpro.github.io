@@ -20,52 +20,37 @@
         img {
             width: 150px;
         }
-
         table {
             width: 75%;
             border: 1px solid black;
             text-align: center;
         }
-
         h1, h2, h3, h4 {
             text-align: center;
         }
-
         .boxer {
             width: 50%;
             background-color: #FFCCCC;
         }
-
-            .boxer:focus {
-                background-color: #FF9966;
-            }
-
-        #title0 {
-            font-size: 19px;
-            margin-top: 10px;
+        .boxer:focus {
+            background-color: #FF9966;
         }
-
         #topimage {
             margin-top: 10px;
             margin-bottom: 10px;
             width: 200px;
         }
-
         #submit {
             margin-bottom: 10px;
             margin-top: 10px;
-        }
-
-        .showtures {
-            margin-left: 10px;
-            margin-top: 10px;
-            margin-bottom: 10px;
-            margin-right: 10px;
         }
         .btn-block {
             margin-top: 5px;
             margin-bottom: 5px;
             width: 100%;
+        }
+        .largetext {
+            font-size:25px;
         }
     </style>
 </head>
@@ -80,7 +65,7 @@
     <table border="0" align="center" id="pictable">
         <tr style="width:40%;">
             <td id="topstuff" colspan="2">
-                <div id="title0">I spy something that starts with the letter &nbsp;<input id="textboxer" class="boxer" value="" type="text" maxlength="1" style="text-transform:uppercase;" onkeyup="javascript:this.value=this.value.toUpperCase();"></div>
+                <div class="largetext">I spy something that starts with the letter &nbsp;<input id="textboxer" class="boxer" value="" type="text" maxlength="1" style="text-transform:uppercase;" onkeyup="javascript:this.value=this.value.toUpperCase();"></div>
                 <button id="submit" type="button" class="btn btn-success btn-lg">Found it!</button><br />
                 <img id="topimage" class="spyTargetFin" src="" />
             </td>
@@ -191,19 +176,6 @@
             <td><img id="pic25" class="spyTarget Z" src="" /></td>
         </tr>
     </table><br />
-
-
-
-
-
-
-
-
-
-
-
-
-
 
     <p hidden><input type="file" accept="image/*" capture="camera" id="takePicture"></p>
 </body>
