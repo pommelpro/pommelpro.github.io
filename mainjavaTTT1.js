@@ -9,7 +9,7 @@ function getActiveTarget() {
 
 function startGame() {
     titles = ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z'];
-    $('#seeing').text("Starts with the letter " + titles[found]);
+    $('#seeing').text("I spy a " + titles[found]);
     $('#tag').html('I Spy something starting with the letter ' + titles[found]);
     $('#pic0').attr('src', 'img/white.jpg');
 }
@@ -156,7 +156,7 @@ $(document).ready(function () {
 	        found++;
 	        score--;
 	        if (found < titles.length) {
-	            $('#tag').html('Starts with the letter ' + titles[found]);
+	            $('#tag').html('This object starts with the letter ' + titles[found]);
 	            $('#seeing').text("I spy a " + titles[found]);
 	        } else {
 	            clearInterval(countdownTimer);
