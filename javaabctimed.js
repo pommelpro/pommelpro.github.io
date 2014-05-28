@@ -76,7 +76,7 @@ function upload(myfile) {
 
 
 
-var seconds = 120;
+var seconds = 5;
 function secondPassed() {
     if (go) {
         var minutes = Math.round((seconds - 30) / 60);
@@ -84,10 +84,13 @@ function secondPassed() {
         if (remainingSeconds < 10) {
             remainingSeconds = "0" + remainingSeconds;
         }
-        document.getElementById('countdown').innerHTML = minutes + ":" + remainingSeconds;
+        document.getElementById('timer').innerHTML = minutes + ":" + remainingSeconds;
         if (seconds == 0) {
             clearInterval(countdownTimer);
-            $('.buttonclick').hide();
+            
+            $('#topstuff').hide();
+            $('.letterpics').show();
+
         } else {
             seconds--;
         }
@@ -163,10 +166,13 @@ $(document).ready(function () {
     $('#starting').click(function () {
         $('#pictable').show();
         $('#starting').hide();
-        $('#instruct').hide();  
+        $('#instruct').hide();
+        $('.letterpics').hide();
+        $('#submit').hide();
+        go = true;
     })
 
     $('body').hide().fadeIn(1000);
-    fillgrid
+    fillgrid();
 
 });
