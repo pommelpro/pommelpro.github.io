@@ -138,6 +138,7 @@ $(document).ready(function () {
 
 	var picshowval = 1;
 	$("#showpics").click(function () {
+	    console.log(document.getElementById('textboxer').value);
 	    $(".letterpics").slideToggle("slow");
 	    if (picshowval) {
 	        document.getElementById("showpics").innerHTML = "See Less";
