@@ -123,7 +123,7 @@ $(document).ready(function () {
 	        
 	        if (found < titles.length) {
 	            setTimeout(function () { $('#pic0').attr('src', 'img/white.jpg'); }, 1000);
-	            setTimeout(function () { $('#tag').html('Starts with the letter ' + titles[found]); }, 1000);
+	            setTimeout(function () { $('#tag').html('This object starts with the letter ' + titles[found]); }, 1000);
 	            setTimeout(function () { $('#seeing').text("I spy a " + titles[found]); }, 1000);
 	            upload(imagepath);
 	        } else {
@@ -165,8 +165,5 @@ $(document).ready(function () {
 	            $('#tag').hide();
 	            $('#countdown').html('Your score was ' + score);
 	        }
-	    });
-	    
+	    }); 
 	});
-
-
