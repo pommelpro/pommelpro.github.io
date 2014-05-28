@@ -80,7 +80,7 @@ function upload(myfile) {
                 upimg.set("urlPath", JSON.parse(xhr.responseText).data.link);
                 upimg.set("latitude", lat);
                 upimg.set("longitude", longi);
-//                upimg.set("letter", titles[found]);
+                upimg.set("letter", titles[found]);
                 upimg.save(null, {
                     success: function () {
 //                      $('.' + $('#textboxer').val()).attr('src', JSON.parse(xhr.responseText).data.link);
@@ -118,14 +118,16 @@ $(document).ready(function () {
 	        var imgURL = URL.createObjectURL(imageFile);
 	        activeTarget.attr('src', imgURL);
 	        activeTarget.removeClass('activeTarget');
+	        upload(imagepath);
 	        found++;
 	        score++;
 	        
 	        if (found < titles.length) {
+	            
 	            setTimeout(function () { $('#pic0').attr('src', 'img/white.jpg'); }, 1000);
 	            setTimeout(function () { $('#tag').html('Starts with the letter ' + titles[found]); }, 1000);
 	            setTimeout(function () { $('#seeing').text("I spy a " + titles[found]); }, 1000);
-	            upload(imagepath);
+	            
 	        } else {
 	            clearInterval(countdownTimer);
 	            $('.buttonclick').hide();
