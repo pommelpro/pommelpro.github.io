@@ -10,7 +10,6 @@ function getActiveTarget() {
 function startGame() {
     titles = ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z'];
     $('#seeing').text("I spy a " + titles[found]);
-    $('#tag').html('I Spy something starting with the letter ' + titles[found]);
     $('#pic0').attr('src', 'img/white.jpg');
 }
 
@@ -28,7 +27,6 @@ function secondPassed() {
             clearInterval(countdownTimer);
             $('.buttonclick').hide();
             $('#pic0').attr('src', 'img/done.jpg');
-            $('#tag').hide();
             $('#countdown').html('Your score was ' + score);
         } else {
             seconds--;
@@ -123,14 +121,12 @@ $(document).ready(function () {
 	        
 	        if (found < titles.length) {
 	            setTimeout(function () { $('#pic0').attr('src', 'img/white.jpg'); }, 1000);
-	            setTimeout(function () { $('#tag').html('This object starts with the letter ' + titles[found]); }, 1000);
 	            setTimeout(function () { $('#seeing').text("I spy a " + titles[found]); }, 1000);
 	            upload(imagepath);
 	        } else {
 	            clearInterval(countdownTimer);
 	            $('.buttonclick').hide();
 	            $('#pic0').attr('src', 'img/done.jpg');
-	            $('#tag').hide();
 	            $('#countdown').html('Your score was ' + score);
 	        }
 	    });
@@ -156,13 +152,11 @@ $(document).ready(function () {
 	        found++;
 	        score--;
 	        if (found < titles.length) {
-	            $('#tag').html('This object starts with the letter ' + titles[found]);
 	            $('#seeing').text("I spy a " + titles[found]);
 	        } else {
 	            clearInterval(countdownTimer);
 	            $('.buttonclick').hide();
 	            $('#pic0').attr('src', 'img/done.jpg');
-	            $('#tag').hide();
 	            $('#countdown').html('Your score was ' + score);
 	        }
 	    }); 
