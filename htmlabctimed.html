@@ -62,14 +62,21 @@
             margin-bottom: 10px;
             margin-right: 10px;
         }
+        .btn-block {
+            margin-top: 5px;
+            margin-bottom: 5px;
+            width: 100%;
+        }
     </style>
 </head>
 <body>
 
     <h1>ABC Finder</h1>
     <h3>Can you capture pictures starting with all the letters of the alphabet?</h3>
-    <h2 id="score"></h2>
-    <h4 id="location"></h4>
+    <h3 id="instruct">You will have two minutes to find as many images as you can</h3>
+    <h2 id="timer"></h2>
+    <button id="starting" type="button" class="btn btn-primary btn-lg btn-block">Go!</button>
+
     <table border="0" align="center" id="pictable">
         <tr style="width:40%;">
             <td colspan="2">
@@ -79,12 +86,6 @@
             </td>
         </tr>
 
-
-        <tr style="width:40%;">
-            <td colspan="2">
-                <button id="showpics" type="button" class="btn btn-primary btn-lg showtures">See what you spied so far</button>
-            </td>
-        </tr>
         <tr class="letterpics" style="width:40%;">
             <td><img id="pic0" class="spyTarget a A" src="" /><div id="title0"></div></td>
             <td><img id="pic1" class="spyTarget b B" src="" /><div id="title1"></div></td>

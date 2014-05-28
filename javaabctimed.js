@@ -1,8 +1,12 @@
+var go = false;
+
+function startgame() {
+    $('#pictable').hide();
+}
+
+
 function fillgrid() {
     $('#topimage').attr('src', 'imgABC/clickhere.jpg');
-    for (var ii = 0; ii < 26; ii++) {
-        $('#pic' + ii).attr('src', 'imgABC/letter' + ii + '.png');
-    }
 }
 
 function addScore(score, id) {
@@ -72,13 +76,42 @@ function upload(myfile) {
 
 
 
+var seconds = 120;
+function secondPassed() {
+    if (go) {
+        var minutes = Math.round((seconds - 30) / 60);
+        var remainingSeconds = seconds % 60;
+        if (remainingSeconds < 10) {
+            remainingSeconds = "0" + remainingSeconds;
+        }
+        document.getElementById('countdown').innerHTML = minutes + ":" + remainingSeconds;
+        if (seconds == 0) {
+            clearInterval(countdownTimer);
+            $('.buttonclick').hide();
+        } else {
+            seconds--;
+        }
+    }
+}
+
+var countdownTimer = setInterval('secondPassed()', 1000);
+
+
+
+
 
 
 $(document).ready(function () {
 
+
     Parse.initialize("TohTpNrTgJf0MTUkm5Ax9LtzfXoyaEOmSaQKnGRl", "p7CQveFxWDaYln4pNawiV8qkXiRuda9iR3zBqw8v");
-    $('#submit').hide();
-    $('.letterpics').hide();
+
+    startgame();
+
+
+
+
+
     var score = 0;
     $('#score').html('Score: ' + score);
     var imagepath;
@@ -127,25 +160,13 @@ $(document).ready(function () {
         } else { $('.boxer').css({ "background-color": "#FF0000" }); }
     });
 
+    $('#starting').click(function () {
+        $('#pictable').show();
+        $('#starting').hide();
+        $('#instruct').hide();  
+    })
+
     $('body').hide().fadeIn(1000);
-    fillgrid();
-    $('#showpics').hide();
-    $('#topimage').click(function () {
-        var stuff = document.getElementById('textboxer').value;
-    });
-
-    var picshowval = 1;
-    $("#showpics").click(function () {
-        $(".letterpics").slideToggle("slow");
-        if (picshowval) {
-            document.getElementById("showpics").innerHTML = "See Less";
-            picshowval = 0;
-        }
-        else {
-            document.getElementById("showpics").innerHTML = "See what you spied so far";
-            picshowval = 1;
-        }
-    });
-
+    fillgrid
 
 });
