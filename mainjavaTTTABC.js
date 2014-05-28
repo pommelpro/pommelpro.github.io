@@ -55,8 +55,6 @@ function upload(myfile) {
                 var upimg = new upIMG();
                 upimg.set("urlPath", JSON.parse(xhr.responseText).data.link);
                 upimg.set("letterVal", document.getElementById('textboxer').value);
-                console.log(lat);
-                console.log(longi);
                 upimg.set("latitude", lat);
                 upimg.set("longitude", longi);
                 upimg.save(null, {
@@ -138,7 +136,6 @@ $(document).ready(function () {
 
 	var picshowval = 1;
 	$("#showpics").click(function () {
-	    console.log(document.getElementById('textboxer').value);
 	    $(".letterpics").slideToggle("slow");
 	    if (picshowval) {
 	        document.getElementById("showpics").innerHTML = "See Less";

@@ -49,8 +49,6 @@ var longi;
 function showPosition(position) {
     lat = position.coords.latitude;
     longi = position.coords.longitude;
-    console.log('lat= ' + lat);
-    console.log('longi= ' + longi);
 }
 
 
