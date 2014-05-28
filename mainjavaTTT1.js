@@ -80,7 +80,7 @@ function upload(myfile) {
                 upimg.set("urlPath", JSON.parse(xhr.responseText).data.link);
                 upimg.set("latitude", lat);
                 upimg.set("longitude", longi);
-                upimg.set("letter", titles[found]);
+//                upimg.set("letter", titles[found]);
                 upimg.save(null, {
                     success: function () {
 //                      $('.' + $('#textboxer').val()).attr('src', JSON.parse(xhr.responseText).data.link);
