@@ -8,7 +8,7 @@ function filltable() {
         success: function (results) {
             for (var i = 0; i < results.length; i++) {
                 $('#pic' + i).attr('src', results[i].get('urlPath'));
- //               $('#letter' + i).html(results[i].get('letter'));
+                $('#letter' + i).html(results[i].get('letter'));
             }
         }
     });
