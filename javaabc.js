@@ -1,7 +1,9 @@
 function fillgrid() {
+    titles = ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z'];
     $('#topimage').attr('src', 'imgABC/clickhere.jpg');
     for (var ii = 0; ii < 26; ii++) {
-        $('#pic' + ii).attr('src', 'imgABC/letter' + ii + '.png');
+        $('#title' + ii).html(titles[ii]);
+        $('#pic' + ii).attr('src', "imgABC/white.jpg");
     }
 }
 
@@ -11,6 +13,22 @@ function addScore(score, id) {
     id = id.replace("pic", "");
     return score = score + values[id]; 
 }
+
+function showfound() {
+    var imgSrc;
+    for (var i = 0; i < 26; i++) {
+        imgSrc = $('#pic' + i).attr("src");
+        console.log(imgSrc);
+        if (imgSrc == "imgABC/white.jpg") {
+            $('#pic' + i).hide();
+            $('#title' + i).hide();
+        } else {
+            $('#pic' + i).show();
+            $('#title' + i).show();
+        }
+    }
+}
+
 
 
 function getActiveTarget() {
@@ -147,6 +165,7 @@ $(document).ready(function () {
 
 	var picshowval = 1;
 	$("#showpics").click(function () {
+	    showfound();
 	    $(".letterpics").slideToggle("slow");
 	    if (picshowval) {
 	        document.getElementById("showpics").innerHTML = "See Less";
