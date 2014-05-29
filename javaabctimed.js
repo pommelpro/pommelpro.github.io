@@ -180,3 +180,6 @@ $(document).ready(function () {
 
 
 });
+
+
+//setTimeout(function () { $('#pic0').attr('src', 'img/white.jpg'); }, 1000);
