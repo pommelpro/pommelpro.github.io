@@ -110,15 +110,15 @@ $(document).ready(function () {
 
 	    setTimeout(function () {
 	        if (document.getElementById('textboxer').value) {
-	            if (document.getElementById('textboxer').value) {
-	                $('.boxer').css({ "background-color": "#FFCCCC" });
-	                upload(imagepath);
-	                var getID = $('.' + $('#textboxer').val()).attr('id');
-	                score = addScore(score, getID);
-	                $('#score').html('Score: ' + score);
-	                $('#topimage').attr('src', 'imgABC/clickhere.jpg');
-	            } else { $('.boxer').css({ "background-color": "#FF0000" }); }
+	            $('.boxer').css({ "background-color": "#FFCCCC" });
+	            upload(imagepath);
+	            var getID = $('.' + $('#textboxer').val()).attr('id');
+	            score = addScore(score, getID);
+	            $('#score').html('Score: ' + score);
+	            $('#topimage').attr('src', 'imgABC/clickhere.jpg');
+	        } else { $('.boxer').css({ "background-color": "#FF0000" }); }
 	    }, 1200);
+
 
 	});
 ///////////////////////////////////////////////////////////////////////////////////
