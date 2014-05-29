@@ -25,6 +25,7 @@ function showfound() {
     }
 }
 
+var score = 0;
 function addScore() {
     score = score + 1;
     $('#score').html('Score: ' + score);
@@ -87,7 +88,8 @@ function upload(myfile) {
 
 }
 var go = false;
-var seconds = 10;
+var seconds = 120;
+var countdownTimer = setInterval('secondPassed()', 1000);
 function secondPassed() {
     if (go) {
         var minutes = Math.round((seconds - 30) / 60);
@@ -104,9 +106,8 @@ function secondPassed() {
         }
     }
 }
-var countdownTimer = setInterval('secondPassed()', 1000);
 
-var score = 0;
+
 $(document).ready(function () {
 
     Parse.initialize("TohTpNrTgJf0MTUkm5Ax9LtzfXoyaEOmSaQKnGRl", "p7CQveFxWDaYln4pNawiV8qkXiRuda9iR3zBqw8v");
