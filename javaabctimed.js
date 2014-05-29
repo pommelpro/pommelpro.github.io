@@ -139,7 +139,6 @@ $(document).ready(function () {
 
     $('#takePicture').on('change', function (e) {
         e.preventDefault();
-        $('#submit').show();
         if (this.files.length === 0) return;
         var imageFile = this.files[0];
         imagepath = imageFile;
@@ -148,6 +147,19 @@ $(document).ready(function () {
         var imgURL = URL.createObjectURL(imageFile);
         activeTarget.attr('src', imgURL);
         activeTarget.removeClass('activeTarget');
+
+        setTimeout(function () {
+            if (document.getElementById('textboxer').value) {
+                $('.boxer').css({ "background-color": "#FFCCCC" });
+                upload(imagepath);
+                addScore();
+                $('#topimage').attr('src', 'imgABC/clickhere.jpg');
+                $('#submit').hide();
+            } else { $('.boxer').css({ "background-color": "#FF0000" }); }
+        }, 1200);
+
+
+
     });
     ///////////////////////////////////////////////////////////////////////////////////
     ///////////////////////////////////////////////////////////////////////////////////
