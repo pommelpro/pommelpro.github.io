@@ -6,7 +6,9 @@ function fillgrid() {
     for (var j = 26; j < 52; j++) {
         $('#pic' + j).attr('src', 'imgABC/white.jpg');
     }
-    $('#pictable').hide();  
+    $('#pictable').hide();
+    $('#seeFinals').hide();
+    $('#seeAllpics').hide();
 }
 
 function showfound() {
@@ -88,7 +90,7 @@ function upload(myfile) {
 
 }
 var go = false;
-var seconds = 120;
+var seconds = 10;
 var countdownTimer = setInterval('secondPassed()', 1000);
 function secondPassed() {
     if (go) {
@@ -100,7 +102,11 @@ function secondPassed() {
         document.getElementById('timer').innerHTML = minutes + ":" + remainingSeconds;
         if (seconds == 0) {
             clearInterval(countdownTimer);
-            showfound();
+            $('#seeFinals').show();
+            $('#seeAllpics').show();
+            $('#inputtop').hide();
+
+            
         } else {
             seconds--;
         }
@@ -173,11 +179,12 @@ $(document).ready(function () {
         }      
     });
 
-    $('#showpics').click(function () {
+    $('#seeFinals').click(function () {
         showfound();
-
     });
-
+    $('#seeAllpics').click(function () {
+        window.location.href = "htmlabcpic.html"
+    });
 
 });
 
