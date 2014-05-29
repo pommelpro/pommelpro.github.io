@@ -185,7 +185,12 @@ $(document).ready(function () {
     $('#seeAllpics').click(function () {
         window.location.href = "htmlabcpic.html"
     });
+    $('#restart').click(function () {
+        window.location.href = "htmlabctimed.html"
+    });
 
+
+    
 });
 
 
