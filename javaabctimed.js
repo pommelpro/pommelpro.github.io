@@ -1,25 +1,33 @@
-var go = false;
-
-function startgame() {
-    $('#pictable').hide();
-    var titles = ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z'];
-    for (var i = 0; i < 26; i++) {
-        $('#title' + i).html(titles[i]);
-        $('#pic' + i).attr('src', 'imgABC\letter' + i);
-    }
-
-}
-
-
 function fillgrid() {
     $('#topimage').attr('src', 'imgABC/clickhere.jpg');
+    for (var ii = 0; ii < 26; ii++) {
+        $('#pic' + ii).attr('src', 'imgABC/letter' + ii + '.png');
+    }
+    for (var j = 26; j < 52; j++) {
+        $('#pic' + j).attr('src', 'imgABC/white.jpg');
+    }
+    $('#pictable').hide();  
 }
 
-function addScore(score, id) {
-    var values = new Array();
-    values = [1, 3, 3, 2, 1, 4, 2, 4, 1, 8, 5, 1, 3, 1, 1, 3, 10, 1, 1, 1, 1, 4, 4, 8, 4, 10];
-    id = id.replace("pic", "");
-    return score = score + values[id];
+function showfound() {
+    var imgSrc;
+    var count = 0;
+    for (var i = 26; i < 52; i++) {
+        imgSrc = $('#pic' + i).attr("src");
+        if (imgSrc == "imgABC/white.jpg") {
+            $('#pic' + i).hide();
+            $('#pic' + count).hide();
+        } else {
+            $('#pic' + i).show();
+            $('#pic' + count).show();
+        }
+        count++;
+    }
+}
+
+function addScore() {
+    score = score + 1;
+    $('#score').html('Score: ' + score);
 }
 
 
@@ -41,18 +49,6 @@ function showPosition(position) {
     lat = position.coords.latitude;
     longi = position.coords.longitude;
 }
-
-
-function showfinal() {
-    for (var i = 0; i < 26; i++) {
-        if ($img.attr("src") == "") {
-            $('#pic' + i).hide();
-            $('#title' + i).hide();
-        }
-    }
-}
-
-
 
 
 function upload(myfile) {
@@ -90,11 +86,8 @@ function upload(myfile) {
     reader.readAsDataURL(myfile)
 
 }
-
-
-
-
-var seconds = 120;
+var go = false;
+var seconds = 10;
 function secondPassed() {
     if (go) {
         var minutes = Math.round((seconds - 30) / 60);
@@ -105,38 +98,22 @@ function secondPassed() {
         document.getElementById('timer').innerHTML = minutes + ":" + remainingSeconds;
         if (seconds == 0) {
             clearInterval(countdownTimer);
-            showfinal();
-            $('#topstuff').hide();
-            $('.letterpics').show();
-
+            showfound();
         } else {
             seconds--;
         }
     }
 }
-
 var countdownTimer = setInterval('secondPassed()', 1000);
 
-
-
-
-
-
+var score = 0;
 $(document).ready(function () {
 
-
     Parse.initialize("TohTpNrTgJf0MTUkm5Ax9LtzfXoyaEOmSaQKnGRl", "p7CQveFxWDaYln4pNawiV8qkXiRuda9iR3zBqw8v");
+    $('#submit').hide();
 
-    startgame();
-
-
-
-
-
-    var score = 0;
     $('#score').html('Score: ' + score);
     var imagepath;
-    $('#score').html("Score: 0");
     ///////////////////////////////////////////////////////////////////////////////////
     ///////////////////////////////////////////////////////////////////////////////////
     ////////////////Take picture and put it in cell////////////////////////////////////
@@ -172,25 +149,33 @@ $(document).ready(function () {
     $('#submit').click(function () {
         if (document.getElementById('textboxer').value) {
             $('.boxer').css({ "background-color": "#FFCCCC" });
-   //         upload(imagepath);
-            var getID = $('.' + $('#textboxer').val()).attr('id');
-            score = addScore(score, getID);
-            $('#score').html('Score: ' + score);
+            upload(imagepath);
+            addScore();
             $('#topimage').attr('src', 'imgABC/clickhere.jpg');
             $('#submit').hide();
         } else { $('.boxer').css({ "background-color": "#FF0000" }); }
     });
 
-    $('#starting').click(function () {
-        $('#pictable').show();
-        $('#starting').hide();
-        $('#instruct').hide();
-        $('.letterpics').hide();
-        $('#submit').hide();
-        go = true;
-    })
-
     $('body').hide().fadeIn(1000);
     fillgrid();
+
+    $('#topimage').click(function () {
+        var stuff = document.getElementById('textboxer').value;
+    });
+
+    $('#getstarted').click(function () {
+        go = true;
+        $('#getstarted').hide();
+        $('#pictable').show();
+        for (var pp = 0; pp < 52; pp++) {
+            $('#pic' + pp).hide();
+        }      
+    });
+
+    $('#showpics').click(function () {
+        showfound();
+
+    });
+
 
 });
