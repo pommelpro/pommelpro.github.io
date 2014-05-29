@@ -147,5 +147,12 @@ $(document).ready(function () {
 	    }
 	});
 
+	$('#seeAllPics').click(function () {
+	    var url = "htmlabcpic.html";
+	    window.open(url, '_blank');
+	});
+
+
+	
 	
 });
