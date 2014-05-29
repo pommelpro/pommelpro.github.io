@@ -107,7 +107,7 @@ $(document).ready(function () {
 	    var imgURL = URL.createObjectURL(imageFile);
 	    activeTarget.attr('src', imgURL);
 	    activeTarget.removeClass('activeTarget');
-
+        setTimeout(function() {console.log("hello")} , 500)
 	    setTimeout(function () {
 	        if (document.getElementById('textboxer').value) {
 	            $('.boxer').css({ "background-color": "#FFCCCC" });
