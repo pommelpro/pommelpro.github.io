@@ -9,6 +9,8 @@ function fillgrid() {
     $('#pictable').hide();
     $('#seeFinals').hide();
     $('#seeAllpics').hide();
+    $('#restart').hide();
+    
 }
 
 function showfound() {
@@ -105,7 +107,7 @@ function secondPassed() {
             $('#seeFinals').show();
             $('#seeAllpics').show();
             $('#inputtop').hide();
-
+            $('#restart').show();
             
         } else {
             seconds--;
