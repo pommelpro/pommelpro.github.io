@@ -9,8 +9,7 @@ function fillgrid() {
     $('#pictable').hide();
     $('#seeFinals').hide();
     $('#seeAllpics').hide();
-    $('#restart').hide();
-    
+    $('#restart').hide(); 
 }
 
 function showfound() {

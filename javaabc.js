@@ -1,5 +1,5 @@
 function fillgrid() {
-    titles = ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z'];
+    var titles = ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z'];
     $('#topimage').attr('src', 'imgABC/clickhere.jpg');
     for (var ii = 0; ii < 26; ii++) {
         $('#title' + ii).html(titles[ii]);
@@ -18,7 +18,6 @@ function showfound() {
     var imgSrc;
     for (var i = 0; i < 26; i++) {
         imgSrc = $('#pic' + i).attr("src");
-        console.log(imgSrc);
         if (imgSrc == "imgABC/white.jpg") {
             $('#pic' + i).hide();
             $('#title' + i).hide();
@@ -136,8 +135,6 @@ $(document).ready(function () {
 	            $('#topimage').attr('src', 'imgABC/clickhere.jpg');
 	        } else { $('.boxer').css({ "background-color": "#FF0000" }); }
 	    }, 1200);
-
-
 	});
 ///////////////////////////////////////////////////////////////////////////////////
 ///////////////////////////////////////////////////////////////////////////////////
