@@ -43,6 +43,18 @@ function showPosition(position) {
 }
 
 
+function showfinal() {
+    for (var i = 0; i < 26; i++) {
+        if ($img.attr("src") == "") {
+            $('#pic' + i).hide();
+            $('#title' + i).hide();
+        }
+    }
+}
+
+
+
+
 function upload(myfile) {
     var reader = new FileReader();
     reader.onload = function (event) {
@@ -93,7 +105,7 @@ function secondPassed() {
         document.getElementById('timer').innerHTML = minutes + ":" + remainingSeconds;
         if (seconds == 0) {
             clearInterval(countdownTimer);
-            
+            showfinal();
             $('#topstuff').hide();
             $('.letterpics').show();
 
