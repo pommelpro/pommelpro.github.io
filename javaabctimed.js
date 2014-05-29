@@ -92,7 +92,7 @@ function upload(myfile) {
 
 }
 var go = false;
-var seconds = 10;
+var seconds = 120;
 var countdownTimer = setInterval('secondPassed()', 1000);
 function secondPassed() {
     if (go) {
@@ -178,7 +178,8 @@ $(document).ready(function () {
         $('#pictable').show();
         for (var pp = 0; pp < 52; pp++) {
             $('#pic' + pp).hide();
-        }      
+        }
+        $('.headtitle').hide();
     });
 
     $('#seeFinals').click(function () {
