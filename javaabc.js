@@ -20,10 +20,10 @@ function showfound() {
         imgSrc = $('#pic' + i).attr("src");
         if (imgSrc == "imgABC/white.jpg") {
             $('#pic' + i).hide();
-            $('#title' + i).hide();
+
         } else {
             $('#pic' + i).show();
-            $('#title' + i).show();
+
         }
     }
 }
@@ -162,7 +162,7 @@ $(document).ready(function () {
 
 	var picshowval = 1;
 	$("#showpics").click(function () {
-	    showfound();
+//	    showfound();
 	    $(".letterpics").slideToggle("slow");
 	    if (picshowval) {
 	        document.getElementById("showpics").innerHTML = "See Less";
