@@ -143,11 +143,6 @@ $(document).ready(function () {
         var imageFile = this.files[0];
         imagepath = imageFile;
         getLocation();
-        var activeTarget = getActiveTarget();
-        var imgURL = URL.createObjectURL(imageFile);
-        activeTarget.attr('src', imgURL);
-        activeTarget.removeClass('activeTarget');
-
         setTimeout(function () {
             if (document.getElementById('textboxer').value) {
                 $('.boxer').css({ "background-color": "#FFCCCC" });
@@ -155,10 +150,11 @@ $(document).ready(function () {
                 addScore();
                 $('#topimage').attr('src', 'imgABC/clickhere.jpg');
             } else { $('.boxer').css({ "background-color": "#FF0000" }); }
-        }, 1200);
-
-
-
+        }, 2000);
+        var activeTarget = getActiveTarget();
+        var imgURL = URL.createObjectURL(imageFile);
+        activeTarget.attr('src', imgURL);
+        activeTarget.removeClass('activeTarget');
     });
     ///////////////////////////////////////////////////////////////////////////////////
     ///////////////////////////////////////////////////////////////////////////////////
