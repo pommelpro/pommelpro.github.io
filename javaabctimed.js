@@ -179,7 +179,8 @@ $(document).ready(function () {
         for (var pp = 0; pp < 52; pp++) {
             $('#pic' + pp).hide();
         }
-        $('.headtitle').hide();
+        $('#headtop').hide();
+        $('#headtitle').hide();
     });
 
     $('#seeFinals').click(function () {
