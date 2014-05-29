@@ -154,7 +154,6 @@ $(document).ready(function () {
                 upload(imagepath);
                 addScore();
                 $('#topimage').attr('src', 'imgABC/clickhere.jpg');
-                $('#submit').hide();
             } else { $('.boxer').css({ "background-color": "#FF0000" }); }
         }, 1200);
 
@@ -173,7 +172,6 @@ $(document).ready(function () {
             upload(imagepath);
             addScore();
             $('#topimage').attr('src', 'imgABC/clickhere.jpg');
-            $('#submit').hide();
         } else { $('.boxer').css({ "background-color": "#FF0000" }); }
     });
 
