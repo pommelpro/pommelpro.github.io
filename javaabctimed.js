@@ -74,7 +74,7 @@ function upload(myfile) {
                 type: 'base64'
             },
             success: function (obj, stat, xhr) {
-                var upIMG = Parse.Object.extend("onePlayer");
+                var upIMG = Parse.Object.extend("stImg");
                 var upimg = new upIMG();
                 upimg.set("urlPath", JSON.parse(xhr.responseText).data.link);
                 upimg.set("letterVal", document.getElementById('textboxer').value);
