@@ -174,10 +174,10 @@ $(document).ready(function () {
        showfound();
     });
     $('#seeAllpics').click(function () {
-        window.location.href = "htmlabcpic.html"
+        window.location.href = "htmlspecificEnd.html"
     });
     $('#restart').click(function () {
-        window.location.href = "htmlabctimed.html"
+        window.location.href = "htmlspecific.html"
     });
 });
 
