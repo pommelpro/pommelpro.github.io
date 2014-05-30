@@ -7,7 +7,13 @@ $(document).ready( function() {
 	console.log(ranNum);
 
     $('#moveon').click(function() {
+        window.location.href = "htmlspecific.html";
+    });
+
+/*
+    $('#moveon').click(function () {
         if (ranNum) { window.location.href = "htmlspecific.html"; }
         else { window.location.href = "htmlabc.html"; }
     });
+    */
 });
