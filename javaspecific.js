@@ -1,46 +1,44 @@
-function fillgrid() {
+var categories = ["red", "blue", "green", "round", "electronic"]
+var randomnumber = Math.floor(Math.random() * categories.length);
+function setupGame() {
+    $('#headtitle').html("Find as many different " + categories[randomnumber] + " things as you can in two minutes!");
+
     $('#topimage').attr('src', 'imgABC/clickhere.jpg');
     for (var ii = 0; ii < 26; ii++) {
-        $('#pic' + ii).attr('src', 'imgABC/letter' + ii + '.png');
-    }
-    for (var j = 26; j < 52; j++) {
-        $('#pic' + j).attr('src', 'imgABC/white.jpg');
+        $('#pic' + ii).attr('src', 'imgABC/white.jpg');
     }
     $('#pictable').hide();
     $('#seeFinals').hide();
     $('#seeAllpics').hide();
-    $('#restart').hide(); 
+    $('#restart').hide();
 }
-
+///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 function showfound() {
     var imgSrc;
-    var count = 0;
     for (var i = 26; i < 52; i++) {
         imgSrc = $('#pic' + i).attr("src");
         if (imgSrc == "imgABC/white.jpg") {
             $('#pic' + i).hide();
-            $('#pic' + count).hide();
         } else {
             $('#pic' + i).show();
-            $('#pic' + count).show();
         }
         count++;
     }
 }
-
+///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 var score = 0;
 function addScore() {
     score = score + 1;
     $('#score').html('Score: ' + score);
 }
-
+///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 function getActiveTarget() {
     //find which cell has the class active target
     var blah = $('.activeTarget').first();
     return blah
 }
-
+///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 function getLocation() {
     if (navigator.geolocation) {
         navigator.geolocation.getCurrentPosition(showPosition);
@@ -53,8 +51,8 @@ function showPosition(position) {
     lat = position.coords.latitude;
     longi = position.coords.longitude;
 }
-
-
+///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+var uploadcount = 0;
 function upload(myfile) {
     var reader = new FileReader();
     reader.onload = function (event) {
@@ -73,15 +71,16 @@ function upload(myfile) {
                 type: 'base64'
             },
             success: function (obj, stat, xhr) {
-                var upIMG = Parse.Object.extend("stImg");
+                var upIMG = Parse.Object.extend("specific");
                 var upimg = new upIMG();
                 upimg.set("urlPath", JSON.parse(xhr.responseText).data.link);
-    //            upimg.set("letterVal", document.getElementById('textboxer').value);
                 upimg.set("latitude", lat);
                 upimg.set("longitude", longi);
+                upimg.set("category", categories[randomnumber]);
                 upimg.save(null, {
                     success: function () {
-                        $('.' + $('#textboxer').val()).attr('src', JSON.parse(xhr.responseText).data.link);
+                        $('#pic' + uploadcount).attr('src', JSON.parse(xhr.responseText).data.link);
+                        uploadcount++;
                     }
                 });
             }
@@ -90,6 +89,7 @@ function upload(myfile) {
     reader.readAsDataURL(myfile)
 
 }
+///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 var go = false;
 var seconds = 120;
 var countdownTimer = setInterval('secondPassed()', 1000);
@@ -107,14 +107,17 @@ function secondPassed() {
             $('#seeAllpics').show();
             $('#inputtop').hide();
             $('#restart').show();
-            
+
         } else {
             seconds--;
         }
     }
 }
-
-
+///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+//////////DOCUMENT.READY PART//////////////////////////////////////////////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 $(document).ready(function () {
 
     Parse.initialize("TohTpNrTgJf0MTUkm5Ax9LtzfXoyaEOmSaQKnGRl", "p7CQveFxWDaYln4pNawiV8qkXiRuda9iR3zBqw8v");
@@ -122,18 +125,14 @@ $(document).ready(function () {
 
     $('#score').html('Score: ' + score);
     var imagepath;
-    ///////////////////////////////////////////////////////////////////////////////////
-    ///////////////////////////////////////////////////////////////////////////////////
-    ////////////////Take picture and put it in cell////////////////////////////////////
-    ///////////////////////////////////////////////////////////////////////////////////
+//////////////////////////////////////////////////////////////////////////////////////////////////
     $(".spyTargetFin").click(function (event) { // triggers open file menu
-        for (var jj = 0; jj < 52; jj++) {
+        for (var jj = 0; jj < 26; jj++) {
             $('#pic' + jj).removeClass('activeTarget');
         }
         $(this).addClass("activeTarget");
         $('#takePicture').trigger('click');
         return false;
-
     });
 
     $('#takePicture').on('change', function (e) {
@@ -143,53 +142,36 @@ $(document).ready(function () {
         imagepath = imageFile;
         getLocation();
         setTimeout(function () {
-            if (document.getElementById('textboxer').value) {
-                $('.boxer').css({ "background-color": "#FFCCCC" });
-                upload(imagepath);
-                addScore();
-                $('#topimage').attr('src', 'imgABC/clickhere.jpg');
-            } else { $('.boxer').css({ "background-color": "#FF0000" }); }
-        }, 2000);
+            upload(imagepath);
+            addScore();
+            $('#topimage').attr('src', 'imgABC/clickhere.jpg');
+            }, 1500);
         var activeTarget = getActiveTarget();
         var imgURL = URL.createObjectURL(imageFile);
         activeTarget.attr('src', imgURL);
         activeTarget.removeClass('activeTarget');
     });
-    ///////////////////////////////////////////////////////////////////////////////////
-    ///////////////////////////////////////////////////////////////////////////////////
-    ////////////////Take picture and put it in cell////////////////////////////////////
-    ///////////////////////////////////////////////////////////////////////////////////
-
-
-    $('#submit').click(function () {
-        if (document.getElementById('textboxer').value) {
-            $('.boxer').css({ "background-color": "#FFCCCC" });
-            upload(imagepath);
-            addScore();
-            $('#topimage').attr('src', 'imgABC/clickhere.jpg');
-        } else { $('.boxer').css({ "background-color": "#FF0000" }); }
-    });
+//////////////////////////////////////////////////////////////////////////////////////////////////
 
     $('body').hide().fadeIn(1000);
-    fillgrid();
-
-    $('#topimage').click(function () {
-        var stuff = document.getElementById('textboxer').value;
-    });
+    setupGame();
 
     $('#getstarted').click(function () {
         go = true;
         $('#getstarted').hide();
         $('#pictable').show();
-        for (var pp = 0; pp < 52; pp++) {
+        for (var pp = 0; pp < 26; pp++) {
             $('#pic' + pp).hide();
         }
         $('#headtop').hide();
         $('#headtitle').hide();
     });
 
+
+
+//////////////////////////////////////////////////////////////////////////////////////////////////
     $('#seeFinals').click(function () {
-        showfound();
+       showfound();
     });
     $('#seeAllpics').click(function () {
         window.location.href = "htmlabcpic.html"
@@ -197,9 +179,6 @@ $(document).ready(function () {
     $('#restart').click(function () {
         window.location.href = "htmlabctimed.html"
     });
-
-
-    
 });
 
 
