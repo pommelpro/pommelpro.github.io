@@ -11,6 +11,7 @@ function setupGame() {
     $('#seeFinals').hide();
     $('#seeAllpics').hide();
     $('#restart').hide();
+    $('#endGame').hide();
 }
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 function showfound() {
@@ -32,7 +33,6 @@ function addScore() {
     $('#score').html('Score: ' + score);
 }
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
 function getActiveTarget() {
     //find which cell has the class active target
     var blah = $('.activeTarget').first();
@@ -107,6 +107,7 @@ function secondPassed() {
             $('#seeAllpics').show();
             $('#inputtop').hide();
             $('#restart').show();
+            $('#endGame').hide();
 
         } else {
             seconds--;
@@ -164,6 +165,7 @@ $(document).ready(function () {
             $('#pic' + pp).hide();
         }
         $('#headtop').hide();
+        $('#endGame').show();
     });
 
 
@@ -178,6 +180,11 @@ $(document).ready(function () {
     $('#restart').click(function () {
         window.location.href = "htmlspecific.html"
     });
+
+    $('#endGame').click(function () {
+        seconds = 0;
+    });
+
 });
 
 

@@ -36,10 +36,18 @@
             margin-bottom: 10px;
             width: 200px;
         }
+        #endGame {
+
+            width: 30%;
+
+            position: relative;
+            top: 50%;
+            left: 35%;
+        }
     </style>
 </head>
 <body>
-
+    
     <h1>Picture Finder</h1>
     <h3 id="headtitle"></h3>
     <h2 id="score"></h2>
@@ -133,6 +141,9 @@
             <td><img id="pic25" src="" /></td>
         </tr>
     </table><br />
+
+    <button id="endGame" type="button" class="btn btn-warning btn-lg btn-block">Give Up</button>
+
     <p hidden><input type="file" accept="image/*" capture="camera" id="takePicture"></p>
 </body>
 </html>
