@@ -164,7 +164,6 @@ $(document).ready(function () {
             $('#pic' + pp).hide();
         }
         $('#headtop').hide();
-        $('#headtitle').hide();
     });
 
 
