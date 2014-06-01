@@ -76,13 +76,13 @@ function upload(myfile) {
                 upimg.set("latitude", lat);
                 upimg.set("longitude", longi);
                 upimg.set("category", categories[randomnumber]);
-                console.log("submitted: " + categories[randomnumber]);
                 upimg.save(null, {
                     success: function () {
                         $('#pic' + uploadcount).attr('src', JSON.parse(xhr.responseText).data.link);
                         uploadcount++;
                         randomnumber = Math.floor(Math.random() * categories.length);
                         $('#headtitle').html("Now spy on something <b><u><i>" + categories[randomnumber] + "</i></u></b>");
+                        $('#topimage').attr('src', 'imgABC/clickhere.jpg');
                     }
                 });
             }
@@ -146,7 +146,6 @@ $(document).ready(function () {
         getLocation();
         upload(imagepath);
         addScore();
-        $('#topimage').attr('src', 'imgABC/clickhere.jpg');
         var activeTarget = getActiveTarget();
         var imgURL = URL.createObjectURL(imageFile);
         activeTarget.attr('src', imgURL);
