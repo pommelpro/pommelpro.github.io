@@ -144,11 +144,9 @@ $(document).ready(function () {
         var imageFile = this.files[0];
         imagepath = imageFile;
         getLocation();
-        setTimeout(function () {
-            upload(imagepath);
-            addScore();
-            $('#topimage').attr('src', 'imgABC/clickhere.jpg');
-        }, 1500);
+        upload(imagepath);
+        addScore();
+        $('#topimage').attr('src', 'imgABC/clickhere.jpg');
         var activeTarget = getActiveTarget();
         var imgURL = URL.createObjectURL(imageFile);
         activeTarget.attr('src', imgURL);
