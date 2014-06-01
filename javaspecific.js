@@ -1,4 +1,4 @@
-var categories = ["red", "blue", "green", "round", "electronic","cars","square","yellow"]
+var categories = ["red", "blue", "green", "round", "electronic","cars","square","yellow","furniture","orange","purple"]
 var randomnumber = Math.floor(Math.random() * categories.length);
 function setupGame() {
     $('#headtitle').html("Find as many different <b><u><i>" + categories[randomnumber] + "</i></u></b> things as you can in two minutes!");
