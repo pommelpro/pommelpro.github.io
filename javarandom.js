@@ -76,13 +76,13 @@ function upload(myfile) {
                 upimg.set("latitude", lat);
                 upimg.set("longitude", longi);
                 upimg.set("category", categories[randomnumber]);
-                console.log("submitted " + categories[randomnumber]);
+                console.log("submitted: " + categories[randomnumber]);
                 upimg.save(null, {
                     success: function () {
                         $('#pic' + uploadcount).attr('src', JSON.parse(xhr.responseText).data.link);
                         uploadcount++;
-                            randomnumber = Math.floor(Math.random() * categories.length);
-                            $('#headtitle').html("Now spy on something <b><u><i>" + categories[randomnumber] + "</i></u></b>");
+                        randomnumber = Math.floor(Math.random() * categories.length);
+                        $('#headtitle').html("Now spy on something <b><u><i>" + categories[randomnumber] + "</i></u></b>");
                     }
                 });
             }
