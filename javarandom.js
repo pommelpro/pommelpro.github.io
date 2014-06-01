@@ -76,6 +76,7 @@ function upload(myfile) {
                 upimg.set("latitude", lat);
                 upimg.set("longitude", longi);
                 upimg.set("category", categories[randomnumber]);
+                console.log("submitted " + categories[randomnumber]);
                 upimg.save(null, {
                     success: function () {
                         $('#pic' + uploadcount).attr('src', JSON.parse(xhr.responseText).data.link);
