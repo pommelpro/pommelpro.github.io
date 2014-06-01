@@ -75,11 +75,13 @@ function upload(myfile) {
                 upimg.set("urlPath", JSON.parse(xhr.responseText).data.link);
                 upimg.set("latitude", lat);
                 upimg.set("longitude", longi);
-                upimg.set("category", tempCat);
+                upimg.set("category", categories[randomnumber]);
                 upimg.save(null, {
                     success: function () {
                         $('#pic' + uploadcount).attr('src', JSON.parse(xhr.responseText).data.link);
                         uploadcount++;
+                        randomnumber = Math.floor(Math.random() * categories.length);
+                        $('#headtitle').html("Now spy on something <b><u><i>" + categories[randomnumber] + "</i></u></b>");
                     }
                 });
             }
@@ -118,7 +120,6 @@ function secondPassed() {
 //////////DOCUMENT.READY PART//////////////////////////////////////////////////////////////////////////////////////////////////
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-var tempCat;
 $(document).ready(function () {
 
     Parse.initialize("TohTpNrTgJf0MTUkm5Ax9LtzfXoyaEOmSaQKnGRl", "p7CQveFxWDaYln4pNawiV8qkXiRuda9iR3zBqw8v");
@@ -128,7 +129,7 @@ $(document).ready(function () {
     var imagepath;
     //////////////////////////////////////////////////////////////////////////////////////////////////
     $(".spyTargetFin").click(function (event) { // triggers open file menu
-        tempCat = categories[randomnumber];
+        
         for (var jj = 0; jj < 26; jj++) {
             $('#pic' + jj).removeClass('activeTarget');
         }
@@ -151,8 +152,6 @@ $(document).ready(function () {
         var activeTarget = getActiveTarget();
         var imgURL = URL.createObjectURL(imageFile);
         activeTarget.attr('src', imgURL);
-            randomnumber = Math.floor(Math.random() * categories.length);
-            $('#headtitle').html("Now spy on something <b><u><i>" + categories[randomnumber] + "</i></u></b>");
         activeTarget.removeClass('activeTarget');
     });
 
