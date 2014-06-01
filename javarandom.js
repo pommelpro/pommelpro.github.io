@@ -1,7 +1,7 @@
 var categories = ["red", "blue", "green", "round", "electronic", "automotive", "square", "yellow", "orange", "purple"]
 var randomnumber = Math.floor(Math.random() * categories.length);
 function setupGame() {
-    $('#headtitle').html("Now spy on something <b><u><i>" + categories[randomnumber] + "</i></u></b>");
+    $('#headtitle').html("Spy on something <b><u><i>" + categories[randomnumber] + "</i></u></b>");
 
     $('#topimage').attr('src', 'imgABC/clickhere.jpg');
     for (var ii = 0; ii < 26; ii++) {
