@@ -25,4 +25,8 @@ $(document).ready(function () {
     filltable();
 
 
+    $('#restart').click(function () {
+        window.location.href = "index.html"
+    });
+
 });

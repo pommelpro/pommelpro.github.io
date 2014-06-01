@@ -34,6 +34,10 @@
         .letterMat {
             font-size: 120%;
         }
+        .btn {
+            margin-top:10px;
+            margin-bottom:10px;
+        }
     </style>
 </head>
 <body>
@@ -41,8 +45,13 @@
 
     <h1>Categories</h1>
 
-
+    <p>
+        
+    </p>
     <table border="1" align="center" id="pictable">
+        <tr style="width:40%;">
+            <td colspan="2"><button id="restart" type="button" class="btn btn-success btn-lg">Play Again?</button></td>
+        </tr>
         <tr style="width:40%;">
             <td><div class="letterMat" id="letter0"></div><img id="pic0" src="" /></td>
             <td><div class="letterMat" id="letter1"></div><img id="pic1" src="" /></td>
