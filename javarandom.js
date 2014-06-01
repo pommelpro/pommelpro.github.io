@@ -1,7 +1,7 @@
 var categories = ["red", "blue", "green", "round", "electronic", "cars", "square", "yellow", "orange", "purple"]
 var randomnumber = Math.floor(Math.random() * categories.length);
 function setupGame() {
-    $('#headtitle').html("Find something that is <b><u><i>" + categories[randomnumber] + "</i></u></b>");
+    $('#headtitle').html("Find something that is <b><u><i>" + categories[randomnumber] + "</i></u></b> and then wait for the next category");
 
     $('#topimage').attr('src', 'imgABC/clickhere.jpg');
     for (var ii = 0; ii < 26; ii++) {
