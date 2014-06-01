@@ -81,17 +81,14 @@ function upload(myfile) {
                     success: function () {
                         $('#pic' + uploadcount).attr('src', JSON.parse(xhr.responseText).data.link);
                         uploadcount++;
-                        setTimeout(function () {
                             randomnumber = Math.floor(Math.random() * categories.length);
                             $('#headtitle').html("Now spy on something <b><u><i>" + categories[randomnumber] + "</i></u></b>");
-                        }, 4000);
                     }
                 });
             }
         });
     };
     reader.readAsDataURL(myfile)
-
 }
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 var go = false;
