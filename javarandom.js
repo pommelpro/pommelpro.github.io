@@ -1,4 +1,4 @@
-var categories = ["red", "blue", "green", "round", "electronic", "cars", "square", "yellow", "orange", "purple"]
+var categories = ["red", "blue", "green", "round", "electronic", "automotive", "square", "yellow", "orange", "purple"]
 var randomnumber = Math.floor(Math.random() * categories.length);
 function setupGame() {
     $('#headtitle').html("Now spy on something <b><u><i>" + categories[randomnumber] + "</i></u></b>");
