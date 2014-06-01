@@ -149,8 +149,10 @@ $(document).ready(function () {
         var activeTarget = getActiveTarget();
         var imgURL = URL.createObjectURL(imageFile);
         activeTarget.attr('src', imgURL);
-        randomnumber = Math.floor(Math.random() * categories.length);
-        $('#headtitle').html("Find as many different <b><u><i>" + categories[randomnumber] + "</i></u></b> things as you can in two minutes!");
+        setTimeout(function () {
+            randomnumber = Math.floor(Math.random() * categories.length);
+            $('#headtitle').html("Now spy on something <b><u><i>" + categories[randomnumber] + "</i></u></b>");
+        }, 2500);
         activeTarget.removeClass('activeTarget');
     });
 
@@ -187,6 +189,12 @@ $(document).ready(function () {
 
     $('#endGame').click(function () {
         seconds = 0;
+    });
+
+    $('#skip').click(function () {
+        randomnumber = Math.floor(Math.random() * categories.length);
+        $('#headtitle').html("Now spy on something <b><u><i>" + categories[randomnumber] + "</i></u></b>");
+//        score--;
     });
 
 });
