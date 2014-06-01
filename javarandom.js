@@ -79,7 +79,6 @@ function upload(myfile) {
                 upimg.save(null, {
                     success: function () {
                         console.log("submitted pictures");
-                        alert("submitted pictures");
                         $('#pic' + uploadcount).attr('src', JSON.parse(xhr.responseText).data.link);
                         uploadcount++;
                         randomnumber = Math.floor(Math.random() * categories.length);
