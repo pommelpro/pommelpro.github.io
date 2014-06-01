@@ -1,7 +1,7 @@
 var categories = ["red", "blue", "green", "round", "electronic", "automotive", "square", "yellow", "orange", "purple"]
 var randomnumber = Math.floor(Math.random() * categories.length);
 function setupGame() {
-    $('#headtitle').html("Spy on something <b><u><i>" + categories[randomnumber] + "</i></u></b>");
+    $('#timer').html("2:00");
 
     $('#topimage').attr('src', 'imgABC/clickhere.jpg');
     for (var ii = 0; ii < 26; ii++) {
@@ -160,6 +160,7 @@ $(document).ready(function () {
     setupGame();
 
     $('#getstarted').click(function () {
+        $('#headtitle').html("Spy on something <b><u><i>" + categories[randomnumber] + "</i></u></b>");
         go = true;
         $('#getstarted').hide();
         $('#pictable').show();
