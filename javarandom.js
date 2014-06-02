@@ -81,9 +81,6 @@ function upload(myfile) {
                         console.log("submitted pictures");
                         $('#pic' + uploadcount).attr('src', JSON.parse(xhr.responseText).data.link);
                         uploadcount++;
-                        randomnumber = Math.floor(Math.random() * categories.length);
-                        $('#headtitle').html("Now spy on something <b><u><i>" + categories[randomnumber] + "</i></u></b>");
-                        $('#topimage').attr('src', 'imgABC/clickhere.jpg');
                     }
                 });
             }
@@ -130,7 +127,6 @@ $(document).ready(function () {
     var imagepath;
     //////////////////////////////////////////////////////////////////////////////////////////////////
     $(".spyTargetFin").click(function (event) { // triggers open file menu
-        
         for (var jj = 0; jj < 26; jj++) {
             $('#pic' + jj).removeClass('activeTarget');
         }
@@ -145,8 +141,12 @@ $(document).ready(function () {
         var imageFile = this.files[0];
         imagepath = imageFile;
         getLocation();
-        upload(imagepath);
-        addScore();
+        setTimeout(function () {
+            upload(imagepath);
+            addScore();
+            $('#topimage').attr('src', 'imgABC/clickhere.jpg');
+            $('#headtitle').html("Now spy on something <b><u><i>" + categories[randomnumber] + "</i></u></b>");
+        }, 1500);
         var activeTarget = getActiveTarget();
         var imgURL = URL.createObjectURL(imageFile);
         activeTarget.attr('src', imgURL);
