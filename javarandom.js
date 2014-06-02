@@ -78,7 +78,6 @@ function upload(myfile) {
                 upimg.set("category", categories[randomnumber]);
                 upimg.save(null, {
                     success: function () {
-                        console.log("submitted pictures");
                         $('#pic' + uploadcount).attr('src', JSON.parse(xhr.responseText).data.link);
                         uploadcount++;
                     }
@@ -144,6 +143,7 @@ $(document).ready(function () {
         setTimeout(function () {
             upload(imagepath);
             addScore();
+            randomnumber = Math.floor(Math.random() * categories.length);
             $('#topimage').attr('src', 'imgABC/clickhere.jpg');
             $('#headtitle').html("Now spy on something <b><u><i>" + categories[randomnumber] + "</i></u></b>");
         }, 1500);
