@@ -8,7 +8,7 @@ $(document).ready( function() {
 
 	$('#moveon').click(function () {
 	    if (ranNum) { window.location.href = "htmlspecific.html" }
-	    else {window.location.href = "htmlrandom.html"}
+	    else { window.location.href = "htmlspecific.html" }
     });
 
 /*
