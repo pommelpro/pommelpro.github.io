@@ -185,6 +185,11 @@ $(document).ready(function () {
         seconds = 0;
     });
 
+    $('#skip').click(function () {
+        randomnumber = Math.floor(Math.random() * categories.length);
+        $('#headtitle').html("Now spy on something <b><u><i>" + categories[randomnumber] + "</i></u></b>");
+        //        score--;
+    });
 });
 
 
