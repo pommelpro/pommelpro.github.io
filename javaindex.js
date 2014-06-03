@@ -8,8 +8,8 @@ $(document).ready( function() {
 
 	$('#moveon').click(function () {
 	    if (ranNum == 1) { window.location.href = "htmlspecific.html" }
-	    else if (ranNum == 2) { window.location.href = "htmlspecific.html" }
-	    else if (ranNum == 3) { window.location.href = "htmlabc.html" }
+//	    else if (ranNum == 2) { window.location.href = "htmlspecific.html" }
+//	    else if (ranNum == 3) { window.location.href = "htmlabc.html" }
     });
 
 /*
