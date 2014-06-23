@@ -1,3 +1,4 @@
+// check comments in javaspecific.js
 var categories = ["red", "blue", "green", "round", "electronic", "automotive", "square", "yellow", "orange", "purple"]
 var randomnumber = Math.floor(Math.random() * categories.length);
 function setupGame() {

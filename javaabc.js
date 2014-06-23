@@ -1,3 +1,4 @@
+// check comments in javaspecific.js
 function fillgrid() {
     var titles = ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z'];
     $('#topimage').attr('src', 'imgABC/clickhere.jpg');
