@@ -50,7 +50,6 @@ function retrieveMovies () {
     query.find().then(function(results) {
         for (var i = 0; i < results.length; i++) {
             newArr[i] = results[i].get("name");
-            newArr.sort();
         }
         fillTable();
     });  
