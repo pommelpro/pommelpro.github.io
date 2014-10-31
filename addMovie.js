@@ -56,7 +56,7 @@ function retrieveMovies () {
 }
 
 function fillTable() {
-    newArr = newArr.sort();
+    newArr.sort();
     var tableCells = newArr.length
     var table = document.getElementById("movieTable");
     for (var j = 1; j < tableCells + 1; j++) {
