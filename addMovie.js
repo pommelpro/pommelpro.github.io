@@ -44,13 +44,13 @@ function saveMovie( inputMovie ) {
 }
 
 function retrieveMovies () {
-    var movieArr = []
     var Movie = Parse.Object.extend("Movies");
     var query = new Parse.Query(Movie);
     query.select("name");
     query.find().then(function(results) {
         for (var i = 0; i < results.length; i++) {
             newArr[i] = results[i].get("name");
+            newArr = newArr.sort();
         }
         fillTable();
     });  
