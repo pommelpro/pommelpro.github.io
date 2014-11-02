@@ -16,10 +16,10 @@ $(document).ready(function() {
             document.getElementById('success-box').value = "You Must Enter A Movie"
         }        
     });
-    $( ".btn-lg" ).click(function() {
-        $('#myModal').modal('show');
-    });   
-    
+//    $( ".btn-lg" ).click(function() {
+//        $('#myModal').modal('show');
+//    });   
+//    
     
     
     
@@ -72,10 +72,10 @@ function fillTable() {
     cell1.innerHTML = ""
 }
 
-function addMovie() {
-    var thisID = this.id;
-    console.log(thisID);
-    $('#deleteMovie').innerHTML = thisID;
-    $('#myModal').modal('show');
-    
-}
+//function addMovie() {
+//    var thisID = this.id;
+//    console.log(thisID);
+//    $('#deleteMovie').innerHTML = thisID;
+//    $('#myModal').modal('show');
+//    
+//}
