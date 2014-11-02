@@ -9,6 +9,7 @@ $(document).ready(function() {
         if (element != "") {
             saveMovie(element);
             document.getElementById('input-box').value = ""
+            alert(element + " was successfully submitted")
             document.getElementById('input-box').placeholder = "Enter Another Movie"
 
         } else {
