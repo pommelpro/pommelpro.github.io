@@ -65,7 +65,7 @@ function fillTable() {
         var cell1 = row1.insertCell(0);
         cell1.innerHTML = newArr[j-1];
         cell1.id = newArr[j-1];
-        cell1.addEventListener("click", addMovie, false);
+//        cell1.addEventListener("click", addMovie, false);
     }
     var row = table.insertRow(tableCells+1);
     var cell1 = row.insertCell(0);
