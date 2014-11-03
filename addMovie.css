@@ -25,3 +25,10 @@
     width: 100%;
     font-size: 40px;
 }
+
+.dropdown {
+    margin-top: 20px;
+    margin-bottom: 20px;
+    margin-left: 10px;
+    margin-right: 10px;
+}
