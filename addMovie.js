@@ -6,31 +6,39 @@ $(document).ready(function() {
     }
     $( "#submit" ).click(function() {
         var element = document.getElementById('input-box').value;
-        if (element != "") {
-            saveMovie(element);
+        var sel = document.getElementById('select-box');
+        var sv = sel.options[sel.selectedIndex].value;
+        if (element != "" && sv != "medium" && element != "You Must Enter A Movie") {
+            saveMovie(element, sv);
             document.getElementById('input-box').value = ""
             alert(element + " was successfully submitted")
             document.getElementById('input-box').placeholder = "Enter Another Movie"
 
         } else {
-            console.log("element is empty");
-            document.getElementById('success-box').value = "You Must Enter A Movie"
+            console.log("element or medium is empty");
+            document.getElementById('input-box').value = "You Must Enter A Movie"
         }        
     });
 //    $( ".btn-lg" ).click(function() {
 //        $('#myModal').modal('show');
-//    });   
-//    
+//    }); 
+    $( "#0" ).click(function() {
+        sortby(newArr, 0)
+    });
+    $( "#1" ).click(function() {
+        sortby(newArr, 1)
+    }); 
     
     
     
 });
 
 
-function saveMovie( inputMovie ) {
+function saveMovie( inputMovie , selectorValue) {
     var Movie = Parse.Object.extend("Movies");
     var movie = new Movie();
     movie.set("name", inputMovie);
+    movie.set("medium", selectorValue);
     movie.save(null, {
         success: function(movie) {
         // Execute any logic that should take place after the object is saved.
@@ -47,31 +55,80 @@ function saveMovie( inputMovie ) {
 function retrieveMovies () {
     var Movie = Parse.Object.extend("Movies");
     var query = new Parse.Query(Movie);
-    query.select("name");
-    query.limit(200);
+    query.select("name", "medium");
+    query.limit(500);
     query.find().then(function(results) {
         for (var i = 0; i < results.length; i++) {
-            newArr[i] = results[i].get("name"); 
+            var newMovie = {name: results[i].get("name"), medium: results[i].get("medium")};
+            newArr[i] = newMovie; 
         }
+    newArr.sort(function (a, b) {
+        if (a.name > b.name) {
+            return 1;
+        }
+        if (a.name < b.name) {
+            return -1;
+        }
+        return 0;
+    });
         fillTable();
     });  
 }
 
 function fillTable() {
-    newArr.sort();
     var tableCells = newArr.length
     var table = document.getElementById("movieTable");
     for (var j = 1; j < tableCells + 1; j++) {
         var row1 = table.insertRow(j);
         var cell1 = row1.insertCell(0);
-        cell1.innerHTML = newArr[j-1];
-        cell1.id = newArr[j-1];
+        var cell2 = row1.insertCell(1)
+        cell1.innerHTML = newArr[j-1].name;
+        cell1.id = newArr[j-1].name;
+        cell1.className = "MovieCell"
+        cell2.innerHTML = newArr[j-1].medium;
+        cell2.id = newArr[j-1].medium;
+        cell2.className = "MovieCell"
+        
 //        cell1.addEventListener("click", addMovie, false);
     }
     var row = table.insertRow(tableCells+1);
     var cell1 = row.insertCell(0);
+    var cell2 = row.insertCell(1);
     cell1.innerHTML = ""
+    cell1.className = "MovieCell"
+    cell2.className = "MovieCell"
+    cell2.innerHTML = ""
 }
+
+function sortby(arrayToSort, input) {
+    if(input == 0) {
+        newArr.sort(function (a, b) {
+            if (a.name > b.name) {
+                return 1;
+            }
+            if (a.name < b.name) {
+                return -1;
+            }
+            return 0;
+        });   
+    }
+    if(input == 1) {
+        newArr.sort(function (a, b) {
+            if (a.medium > b.medium) {
+                return 1;
+            }
+            if (a.medium < b.medium) {
+                return -1;
+            }
+            return 0;
+        });   
+    }
+    $(".MovieCell").remove();
+    fillTable()
+}
+
+
+
 
 //function addMovie() {
 //    var thisID = this.id;

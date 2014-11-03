@@ -20,3 +20,8 @@
 .titles {
     font-size: 30px;
 }
+
+#select-box {
+    width: 100%;
+    font-size: 40px;
+}
