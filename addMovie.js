@@ -7,16 +7,9 @@ $(document).ready(function() {
     $( "#submit" ).click(function() {
         var element = document.getElementById('input-box').value;
         var sel = document.getElementById('select-box');
-        var currentdate = new Date(); 
-        var datetime = currentdate.getDate() + "/"
-                + (currentdate.getMonth()+1)  + "/" 
-                + currentdate.getFullYear() + " @ "  
-                + currentdate.getHours() + ":"  
-                + currentdate.getMinutes() + ":" 
-                + currentdate.getSeconds();
         var sv = sel.options[sel.selectedIndex].value;
         if (element != "" && sv != "medium" && element != "You Must Enter A Movie") {
-            saveMovie(element, sv, datetime);
+            saveMovie(element, sv);
             document.getElementById('input-box').value = ""
             alert(element + " was successfully submitted")
             document.getElementById('input-box').placeholder = "Enter Another Movie"
@@ -41,12 +34,11 @@ $(document).ready(function() {
 });
 
 
-function saveMovie( inputMovie , selectorValue, timestamp) {
+function saveMovie( inputMovie , selectorValue) {
     var Movie = Parse.Object.extend("Movies");
     var movie = new Movie();
     movie.set("name", inputMovie);
     movie.set("medium", selectorValue);
-    movie.set("uploadDate", timestamp);
     movie.save(null, {
         success: function(movie) {
         // Execute any logic that should take place after the object is saved.
