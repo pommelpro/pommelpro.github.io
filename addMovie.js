@@ -62,7 +62,9 @@ function retrieveMovies () {
     query.limit(500);
     query.find().then(function(results) {
         for (var i = 0; i < results.length; i++) {
-            var newMovie = {name: results[i].get("name"), medium: results[i].get("medium"), created: results[i].createdAt.substring(0, results[i].createdAt.length -15)};
+            var created = results[i].createdAt
+            console.log(created);
+            var newMovie = {name: results[i].get("name"), medium: results[i].get("medium"), created: created.substring(0, created.length -15)};
             newArr[i] = newMovie; 
         }
     newArr.sort(function (a, b) {
