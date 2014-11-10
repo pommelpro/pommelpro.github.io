@@ -52,9 +52,6 @@ function saveMovie( inputMovie , selectorValue) {
     });    
 }
 
-
-str = str.substring(0, str.length - 1);
-
 function retrieveMovies () {
     var Movie = Parse.Object.extend("Movies");
     var query = new Parse.Query(Movie);
