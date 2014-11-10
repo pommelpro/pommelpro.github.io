@@ -59,7 +59,7 @@ function retrieveMovies () {
     query.limit(500);
     query.find().then(function(results) {
         for (var i = 0; i < results.length; i++) {
-            var newMovie = {name: results[i].get("name"), medium: results[i].get("medium"), createdAt: 1};
+            var newMovie = {name: results[i].get("name"), medium: results[i].get("medium"), created: 1};
             newArr[i] = newMovie; 
         }
     newArr.sort(function (a, b) {
@@ -89,8 +89,8 @@ function fillTable() {
         cell2.innerHTML = newArr[j-1].medium;
         cell2.id = newArr[j-1].medium;
         cell2.className = "MovieCell"
-        cell3.innerHTML = newArr[j-1].createdAt;
-        cell3.id = newArr[j-1].createdAt;
+        cell3.innerHTML = newArr[j-1].created;
+        cell3.id = newArr[j-1].created;
         cell3.className = "MovieCell"
         
     }
