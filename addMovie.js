@@ -55,7 +55,7 @@ function saveMovie( inputMovie , selectorValue) {
 function retrieveMovies () {
     var Movie = Parse.Object.extend("Movies");
     var query = new Parse.Query(Movie);
-    var createdAt = query.createdAt;
+//    var createdAt = query.createdAt;
     query.select("name", "medium", "createdAt");
     
     query.limit(500);
