@@ -60,7 +60,6 @@ function retrieveMovies () {
     query.find().then(function(results) {
         for (var i = 0; i < results.length; i++) {
             var newMovie = {name: results[i].get("name"), medium: results[i].get("medium"), createdAt: results[i].createdAt};
-            console.log(result[i].createdAt);
             newArr[i] = newMovie; 
         }
     newArr.sort(function (a, b) {
@@ -82,23 +81,29 @@ function fillTable() {
     for (var j = 1; j < tableCells + 1; j++) {
         var row1 = table.insertRow(j);
         var cell1 = row1.insertCell(0);
-        var cell2 = row1.insertCell(1)
+        var cell2 = row1.insertCell(1);
+        var cell3 = row1.insertCell(2);
         cell1.innerHTML = newArr[j-1].name;
         cell1.id = newArr[j-1].name;
         cell1.className = "MovieCell"
         cell2.innerHTML = newArr[j-1].medium;
         cell2.id = newArr[j-1].medium;
         cell2.className = "MovieCell"
+        cell3.innerHTML = newArr[j-1].createdAt;
+        cell3.id = newArr[j-1].createdAt;
+        cell3.className = "MovieCell"
         
-//        cell1.addEventListener("click", addMovie, false);
     }
     var row = table.insertRow(tableCells+1);
     var cell1 = row.insertCell(0);
     var cell2 = row.insertCell(1);
+    var cell3 = row.insertCell(1);
     cell1.innerHTML = ""
     cell1.className = "MovieCell"
     cell2.className = "MovieCell"
     cell2.innerHTML = ""
+    cell3.className = "MovieCell"
+    cell3.innerHTML = ""
 }
 
 function sortby(arrayToSort, input) {
