@@ -55,11 +55,11 @@ function saveMovie( inputMovie , selectorValue) {
 function retrieveMovies () {
     var Movie = Parse.Object.extend("Movies");
     var query = new Parse.Query(Movie);
-    query.select("name", "medium", createdAt);
+    query.select("name", "medium", "createdAt");
     query.limit(500);
     query.find().then(function(results) {
         for (var i = 0; i < results.length; i++) {
-            var newMovie = {name: results[i].get("name"), medium: results[i].get("medium"), created: results[i].createdAt};
+            var newMovie = {name: results[i].get("name"), medium: results[i].get("medium"), created: results[i].get("createdAt")};
             newArr[i] = newMovie; 
         }
     newArr.sort(function (a, b) {
