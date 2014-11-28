@@ -22,12 +22,12 @@ $(document).ready(function() {
 //    $( ".btn-lg" ).click(function() {
 //        $('#myModal').modal('show');
 //    }); 
-    $( "#0" ).click(function() {
-        sortby(newArr, 0)
-    });
-    $( "#1" ).click(function() {
-        sortby(newArr, 1)
-    }); 
+//    $( "#0" ).click(function() {
+//        sortby(newArr, 0)
+//    });
+//    $( "#1" ).click(function() {
+//        sortby(newArr, 1)
+//    }); 
     
     
     
@@ -108,18 +108,18 @@ function fillTable() {
     cell3.innerHTML = ""
 }
 
-function sortby(arrayToSort, input) {
-    if(input == 0) {
-        newArr.sort(function (a, b) {
-            if (a.name > b.name) {
-                return 1;
-            }
-            if (a.name < b.name) {
-                return -1;
-            }
-            return 0;
-        });   
-    }
+//function sortby(arrayToSort, input) {
+//    if(input == 0) {
+//        newArr.sort(function (a, b) {
+//            if (a.name > b.name) {
+//                return 1;
+//            }
+//            if (a.name < b.name) {
+//                return -1;
+//            }
+//            return 0;
+//        });   
+//    }
     if(input == 1) {
         newArr.sort(function (a, b) {
             if (a.medium > b.medium) {
