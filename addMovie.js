@@ -131,7 +131,7 @@ function fillTable() {
             return 0;
         });   
     }
-    $(".MovieCell").remove();
+//    $(".MovieCell").remove();
     fillTable()
 }
 
