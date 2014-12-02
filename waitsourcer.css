@@ -29,7 +29,7 @@ html {
 }
 
 body {
-    text-align: left;
+    text-align: justify;
     height: 100%; /* <------------ */
     background-color: #DBDBDB;
 }
