@@ -9,7 +9,11 @@
 }
 
 #description {
-
+    font-family: Consolas,monaco,monospace;
+    font-size: 100%;
+    text-align: center;
+    background-color: red;
+    height: 100%;
 }
 
 
@@ -23,8 +27,6 @@ a:visited {
 
 body {
 /*    background-color: #DBDBDB;*/
-    background-color: red;
-    font-family: Consolas,monaco,monospace;
-    font-size: 100%;
-    text-align: center;
+    
+
 }
