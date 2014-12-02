@@ -4,8 +4,8 @@
     margin-top: 10px;
     margin-bottom: 10px;
     font-family: Consolas,monaco,monospace;
-/*    font-size: 350%;*/
-/*    width: 97%;*/
+    font-size: 250%;
+    height: 200px;
 }
 
 #description {
