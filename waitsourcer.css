@@ -10,7 +10,6 @@
 #description {
     font-family: Consolas,monaco,monospace;
     font-size: 100%;
-/*    text-align: center;*/
     background-color: #DBDBDB;
     height: 20%;
 }
@@ -30,7 +29,7 @@ html {
 }
 
 body {
-    text-align: center;
+    text-align: left;
     height: 100%; /* <------------ */
     background-color: #DBDBDB;
 }
