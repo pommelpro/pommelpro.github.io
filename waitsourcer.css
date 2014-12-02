@@ -8,9 +8,8 @@
 }
 
 #description {
-    font-family: Consolas,monaco,monospace;
+
     font-size: 100%;
-    background-color: #DBDBDB;
     height: 20%;
 }
 
@@ -29,6 +28,7 @@ html {
 }
 
 body {
+    font-family: Consolas,monaco,monospace;
     text-align: justify;
     height: 100%; /* <------------ */
     background-color: #DBDBDB;
