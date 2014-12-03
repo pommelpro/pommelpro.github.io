@@ -3,13 +3,13 @@
 }
 
 #downloadButton {
-    width: 80%;
+    width: 50%;
     float: left;
     margin-right: 10px;
 }
 
 #appIcon {
-    widows: 20%;
+    widows: 50%;
     float: left;
 }
 
