@@ -1,6 +1,6 @@
 #download {
-    background-color: #33498A;
-    color: #DBDBDB;
+    background-color: #400080 ;
+    color: #fff;
     font-family: Consolas,monaco,monospace;
     font-size: 250%;
     height: 150px;
@@ -24,12 +24,12 @@ a:visited {
 
 html {
     height: 100%; /* <------------ */
-    background-color: #DBDBDB;
+    background-color: #F6B101;
 }
 
 body {
     font-family: Consolas,monaco,monospace;
     text-align: justify;
     height: 100%; /* <------------ */
-    background-color: #DBDBDB;
+    background-color: #F6B101;
 }
