@@ -6,11 +6,13 @@
     width: 50%;
     float: left;
     margin-right: 10px;
+    height: 150%;
 }
 
 #appIcon {
     widows: 50%;
     float: left;
+    height: 150%;
 }
 
 #textPart {
@@ -22,8 +24,8 @@
     background-color: #400080 ;
     color: #fff;
     font-family: Consolas,monaco,monospace;
-    font-size: 250%;
-    height: 150px;
+/*    font-size: 100%;*/
+    height: 150%;
     width: 100%;
     border-color: #000
 }
