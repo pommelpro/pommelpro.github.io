@@ -58,7 +58,8 @@
     text-align: center;
     width: 100%;
     float: left;
-    margin-bottom: 5px;
+    margin-top: 50px
+    margin-bottom: 50px;
 }
 
 #disclaimer {
@@ -67,7 +68,7 @@
     text-align: center;
     width: 100%;
     float: left; 
-    margin-bottom: 10px;
+    margin-bottom: 50px;
     
 }
 
