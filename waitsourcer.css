@@ -29,7 +29,6 @@
 #download {
     width: 100%;
     background-color: #400080 ;
-    font-family: Consolas,monaco,monospace;
     font-size: 100%;
     border: 1px solid;
 
@@ -89,7 +88,7 @@ html {
 }
 
 body {
-    font-family: Consolas,monaco,monospace;
+    font-family: Futura,"Trebuchet MS",Arial,sans-serif
     text-align: justify;
     height: 100%; /* <------------ */
     background: rgba(255,21,0,1);
