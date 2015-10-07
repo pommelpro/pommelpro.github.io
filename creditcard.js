@@ -1,6 +1,7 @@
 $(document).ready(function(){
 	Parse.initialize("UH7MO8P4clCNUjUy0o33gZ7X8NzbXoMc044QkSw9", "QNcLaUAUmLrrmD0sYhqhLcZ9t97tMLr4w3egSvWs");
 	setUpPage();
+
 	$('#firstName').on("change", function () {
 		firstName = document.getElementById("firstName").value;
 		var element = document.getElementById("addressHeader");
@@ -176,14 +177,16 @@ function submit(email, password) {
 
 
 function setUpPage() {
-	var home = [
+	$(function () {
+	  $('[data-toggle="popover"]').popover()
+	})
+	var housingOp = [
 		"Please Select",
 		"Own home",
 		"Rent",
 		"Other"
 	]
-
-	var job = [
+	var profession = [
 		"Please Select",
 		"Agriculture",
 		"Art/Design/Media Entertainment",
@@ -209,8 +212,7 @@ function setUpPage() {
 		"Transportation/Trucking",
 		"Other"
 	]
-
-	var education = [
+	var highestEducation = [
 		"Please Select",
 		"Less than a high school diploma",
 		"High school diploma or GED",
@@ -218,8 +220,7 @@ function setUpPage() {
 		"Bachelor's Degree",
 		"Advanced/Graduate Degree"
 	]
-
-	var suffix= [
+	var ending= [
 		"Suffix (Optional)",
 		"JR",
 		"SR",
@@ -228,7 +229,6 @@ function setUpPage() {
 		"IV",
 		"V"
 	]
-
 	var employment = [
 		"Please Select",
 		"Employed Full-Time",
@@ -239,8 +239,6 @@ function setUpPage() {
 		"Student",
 		"Other"
 	]
-
-
 	var stateNames= [
 		"Alabama",
 		"Alaska",
@@ -293,60 +291,57 @@ function setUpPage() {
 		"Wisconsin",
 		"Wyoming"
 	];
-	for(var i=0;i<suffix.length;i++){
-		$('#suffix').append($('<option></option>').val(suffix[i]).html(suffix[i]));
-	}
-	for(var i=0;i<stateNames.length;i++){
-		$('#states').append($('<option></option>').val(stateNames[i]).html(stateNames[i]));
-	}
-	for(var i=0;i<employment.length;i++){
-		$('#employmentStatus').append($('<option></option>').val(employment[i]).html(employment[i]));
-	}
-	for(var i=0;i<job.length;i++){
-		$('#job').append($('<option></option>').val(job[i]).html(job[i]));
-	}
-	for(var i=0;i<education.length;i++){
-		$('#education').append($('<option></option>').val(education[i]).html(education[i]));
-	}
-	for(var i=0;i<home.length;i++){
-		$('#home').append($('<option></option>').val(home[i]).html(home[i]));
-	}
-	$(function () {
-	  $('[data-toggle="popover"]').popover()
-	})
-	var firstName = document.getElementById("firstName").value;
-	var middleName = document.getElementById("middleName").value;
-	var lastName = document.getElementById("lastName").value;
-	var suffix = document.getElementById("suffix").value;
-	
-	var streetAddress = document.getElementById("streetAddress").value;
-	var aptNumber = document.getElementById("aptNumber").value;
-	var address = streetAddress + " " + aptNumber;
-	var city = document.getElementById("city").value;
-	var states = document.getElementById("states").value;
-	var zip = document.getElementById("zip").value;
-	var monthDOB = document.getElementById("monthDOB").value;
-	var dayDOB = document.getElementById("dayDOB").value;
-	var yearDOB = document.getElementById("yearDOB").value;
-	var employmentStatus = document.getElementById("employmentStatus").value;
-	var income = document.getElementById("income").value + ".00";
-	var rent = document.getElementById("rent").value + ".00";
-	var dateOfBirth = monthDOB + "/" + dayDOB + "/" + yearDOB;
 
-	var job = document.getElementById("job").value;
-	var employerName = document.getElementById("employerName").value;
-	var yearsEmployment = document.getElementById("yearsEmployment").value;
-	var businessPhone = document.getElementById("businessPhone").value;
-	var education = document.getElementById("education").value;
-	var home = document.getElementById("home").value;
-	var residenceNumber = document.getElementById("residenceNumber").value;
-	var residenceUnit = document.getElementById("residenceUnit").value;
-	var yesBank = document.getElementById("yesBank").checked;
-	var noBank = document.getElementById("noBank").checked;
-	var yesSavings = document.getElementById("yesSavings").checked;
-	var noSavings = document.getElementById("noSavings").checked;
+	setDropdown(ending, "suffix");
+	setDropdown(stateNames, "states");
+	setDropdown(employment, "employmentStatus");
+	setDropdown(profession, "job");
+	setDropdown(highestEducation, "education");
+	setDropdown(housingOp, "home");
+
+	var firstName = 0;
+	var middleName = 0;
+	var lastName = 0;
+	var suffix = 0;
+	var streetAddress = 0;
+	var aptNumber = 0;
+	var address = 0;
+	var city = 0;
+	var states = 0;
+	var zip = 0;
+	var monthDOB = 0;
+	var dayDOB = 0;
+	var yearDOB = 0;
+	var employmentStatus = 0;
+	var income = 0;
+	var rent = 0;
+	var dateOfBirth = monthDOB + "/" + dayDOB + "/" + yearDOB;
+	var job = 0;
+	var employerName = 0;
+	var yearsEmployment = 0;
+	var businessPhone = 0;
+	var education = 0;
+	var home = 0;
+	var residenceNumber = 0;
+	var residenceUnit = "Years";
+	var yesBank = false;
+	var noBank = false;
+	var yesSavings = false;
+	var noSavings = false;
 	var bank = null;
 	var savings = null;
+}
+
+function validate() {
+
+}
+
+
+
+function setDropdown(array, name) {
+	for(var i=0;i<array.length;i++){
+		$('#' + name).append($('<option></option>').val(array[i]).html(array[i]));
+	}
 }
 
 
