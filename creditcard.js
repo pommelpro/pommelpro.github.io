@@ -128,6 +128,9 @@ $(document).ready(function(){
 
 
 	$(".submitBtn").click(function(){
+		
+		var hello = validate(firstName);
+		console.log(hello);
 		// if($('#checkbox').is(":checked")) {
 		// 	event.preventDefault();
 		// 	submit(email, password);
@@ -140,31 +143,31 @@ $(document).ready(function(){
 
 
 
-function submit(email, password) {
+// function submit(email, password) {
 
-	var PersonApplication = Parse.Object.extend("PersonApplication");
-	var personApplication = new PersonApplication();
+// 	var PersonApplication = Parse.Object.extend("PersonApplication");
+// 	var personApplication = new PersonApplication();
 
-	personApplication.set("firstName", firstName);
-	personApplication.set("middleName", middleName);
-	personApplication.set("lastName", lastName);
-	personApplication.set("suffix", suffix);
+// 	personApplication.set("firstName", firstName);
+// 	personApplication.set("middleName", middleName);
+// 	personApplication.set("lastName", lastName);
+// 	personApplication.set("suffix", suffix);
 
-	personApplication.save(null, {
-		success: function(personApplication) {
-		// Execute any logic that should take place after the object is saved.
-		location.reload();
-		// alert('New object created with objectId: ' + personAccount.id);
+// 	personApplication.save(null, {
+// 		success: function(personApplication) {
+// 		// Execute any logic that should take place after the object is saved.
+// 		location.reload();
+// 		// alert('New object created with objectId: ' + personAccount.id);
 
-	},
-	error: function(personApplication, error) {
-		// Execute any logic that should take place if the save fails.
-		// error is a Parse.Error with an error code and message.
-		location.reload();
-		// alert('Failed to create new object, with error code: ' + error.message);
-		}
-	});	
-}
+// 	},
+// 	error: function(personApplication, error) {
+// 		// Execute any logic that should take place if the save fails.
+// 		// error is a Parse.Error with an error code and message.
+// 		location.reload();
+// 		// alert('Failed to create new object, with error code: ' + error.message);
+// 		}
+// 	});	
+// }
 
 
 
@@ -240,6 +243,7 @@ function setUpPage() {
 		"Other"
 	]
 	var stateNames= [
+		"Please Select",
 		"Alabama",
 		"Alaska",
 		"Arizona",
@@ -299,41 +303,46 @@ function setUpPage() {
 	setDropdown(highestEducation, "education");
 	setDropdown(housingOp, "home");
 
-	var firstName = 0;
-	var middleName = 0;
-	var lastName = 0;
-	var suffix = 0;
-	var streetAddress = 0;
-	var aptNumber = 0;
-	var address = 0;
-	var city = 0;
-	var states = 0;
-	var zip = 0;
-	var monthDOB = 0;
-	var dayDOB = 0;
-	var yearDOB = 0;
-	var employmentStatus = 0;
-	var income = 0;
-	var rent = 0;
-	var dateOfBirth = monthDOB + "/" + dayDOB + "/" + yearDOB;
-	var job = 0;
-	var employerName = 0;
-	var yearsEmployment = 0;
-	var businessPhone = 0;
-	var education = 0;
-	var home = 0;
-	var residenceNumber = 0;
+	var firstName = "Jonah Ruffer";
+	var middleName = "";
+	var lastName = "";
+	var suffix = "Suffix (Optional)";
+	var streetAddress = "";
+	var aptNumber = "";
+	var address = "";
+	var city = "";
+	var states = "Please Select";
+	var zip = "";
+	var monthDOB = "";
+	var dayDOB = "";
+	var yearDOB = "";
+	var dateOfBirth = "";
+	var employmentStatus = "Please Select";;
+	var income = "";
+	var rent = "";
+	var job = "Please Select";
+	var employerName = "";
+	var yearsEmployment = "";
+	var businessPhone = "";
+	var education = "Please Select";
+	var home = "Please Select";
+	var residenceNumber = "";
 	var residenceUnit = "Years";
 	var yesBank = false;
-	var noBank = false;
+	var noBank = true;
+	document.getElementById("noBank").checked = true;
 	var yesSavings = false;
-	var noSavings = false;
-	var bank = null;
-	var savings = null;
+	var noSavings = true;
+	document.getElementById("noSavings").checked = true;
+	var bank = false;
+	var savings = false;
 }
 
-function validate() {
-
+function checkAlphaNumeric(input) {
+	if (/[^a-zA-Z]/.test(input)){
+		return false;
+	}
+	return true;
 }
 
 
