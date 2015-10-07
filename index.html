@@ -139,7 +139,7 @@
 												<select id="states" class="form-control"></select>
 											</div>
 											<div class="col-xs-12 col-md-6">
-												<input type="number" class="form-control" inputmode="numeric" id="zip" min="10000" max="99999" placeholder="ZIP Code">
+												<input type="number" class="form-control" inputmode="numeric" pattern="[0-9]*" id="zip" min="10000" max="99999" placeholder="ZIP Code">
 											</div>
 										</div>
 									</form>
@@ -151,19 +151,19 @@
 												<label for="yourAddress">Date of Birth</label>
 												<div class="col-xs-12 col-md-12 small-separate">
 													<div class="col-xs-3 col-md-3">
-														<input type="number" inputmode="numeric" class="form-control" id="monthDOB" min="01" max="12" placeholder="MM">
+														<input type="number" inputmode="numeric" pattern="[0-9]*" class="form-control" id="monthDOB" min="01" max="12" placeholder="MM">
 													</div>
 													<div class="col-xs-1 col-md-1">
 														<span class="slash">/</span>
 													</div>
 													<div class="col-xs-3 col-md-3">
-														<input type="number" inputmode="numeric" class="form-control" id="dayDOB" min="01" max="31" placeholder="DD">
+														<input type="number" inputmode="numeric" pattern="[0-9]*" class="form-control" id="dayDOB" min="01" max="31" placeholder="DD">
 													</div>
 													<div class="col-xs-1 col-md-1">
 														<span class="slash">/</span>
 													</div>
 													<div class="col-xs-3 col-md-4">
-														<input type="number" inputmode="numeric" class="form-control" id="yearDOB" min="1900" max="2016" placeholder="YYYY">
+														<input type="number" inputmode="numeric" pattern="[0-9]*" class="form-control" id="yearDOB" min="1900" max="2016" placeholder="YYYY">
 													</div>
 												</div>
 											</div>
@@ -185,7 +185,7 @@
 														<span class="slash">$</span>
 													</div>
 													<div class="col-xs-6 col-md-8">
-														<input type="number" inputmode="numeric" class="form-control" id="income" placeholder="Amount" data-container="body" data-toggle="popover" data-placement="top" data-trigger="focus" data-content="Examples include current or reasonably expected salary, wages, bonus pay, tips, commissions, and income from interest, dividends, retirement benefits and rental property. If you are 21 or over you may include another person's income that is available to you. A spouse/domestic partner is an example.">
+														<input type="number" inputmode="numeric" pattern="[0-9]*" class="form-control" id="income" placeholder="Amount" data-container="body" data-toggle="popover" data-placement="top" data-trigger="focus" data-content="Examples include current or reasonably expected salary, wages, bonus pay, tips, commissions, and income from interest, dividends, retirement benefits and rental property. If you are 21 or over you may include another person's income that is available to you. A spouse/domestic partner is an example.">
 													</div>
 													<div class="col-xs-1 col-md-1">
 														<span class="slash">.00</span>
@@ -204,7 +204,7 @@
 														<span class="slash">$</span>
 													</div>
 													<div class="col-xs-6 col-md-8">
-														<input type="number" inputmode="numeric" class="form-control" id="rent" placeholder="Amount" data-container="body" data-toggle="popover" data-trigger="focus" data-placement="top" data-content="If you have no monthly housing payment, please enter &quot;0&quot;.">
+														<input type="number" inputmode="numeric" pattern="[0-9]*" class="form-control" id="rent" placeholder="Amount" data-container="body" data-toggle="popover" data-trigger="focus" data-placement="top" data-content="If you have no monthly housing payment, please enter &quot;0&quot;.">
 													</div>
 													<div class="col-xs-1 col-md-1">
 														<span class="slash">.00</span>
@@ -253,7 +253,7 @@
 												<label for="yourEmployment">Length of Employment</label>
 											</div>
 											<div class="col-xs-4 col-md-6">
-												<input type="number" inputmode="numeric" class="form-control" id="yearsEmployment" placeholder="XX" data-container="body" data-toggle="popover" data-trigger="focus" data-placement="top" data-content="Please round to whole year.">
+												<input type="number" inputmode="numeric" pattern="[0-9]*" class="form-control" id="yearsEmployment" placeholder="XX" data-container="body" data-toggle="popover" data-trigger="focus" data-placement="top" data-content="Please round to whole year.">
 											</div>
 											<div class="col-xs-2 col-md-4">
 												<span class="years text-left">Years</span>
@@ -264,7 +264,7 @@
 												<label for="businessPhone">Business Phone (Optional)</label>
 											</div>
 											<div class="col-xs-12 col-md-12">
-												<input type="number" inputmode="numeric" class="form-control" id="businessPhone" min="10000000000" max="99999999999" placeholder="XXX-XXX-XXXX">
+												<input type="number" inputmode="numeric" pattern="[0-9]*" class="form-control" id="businessPhone" min="10000000000" max="99999999999" placeholder="XXX-XXX-XXXX">
 											</div>
 										</div>
 									</div>
@@ -292,7 +292,7 @@
 												<label for="yourEmployment" class="noWrap">Length of Time at Current Residence</label>
 											</div>
 											<div class="col-xs-4 col-md-4">
-												<input type="number" inputmode="numeric" class="form-control" id="residenceNumber" placeholder="XX">
+												<input type="number" inputmode="numeric" pattern="[0-9]*" class="form-control" id="residenceNumber" placeholder="XX">
 											</div>
 											<div class="col-xs-8 col-md-8">
 												<span class="years text-left">
