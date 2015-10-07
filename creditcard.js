@@ -122,9 +122,6 @@ $(document).ready(function(){
 			savings = false
 		}
 	});
-	$('#motherName').on("change", function () {
-		motherName = document.getElementById("motherName").value;
-	});
 
 
 
@@ -348,7 +345,6 @@ function setUpPage() {
 	var noBank = document.getElementById("noBank").checked;
 	var yesSavings = document.getElementById("yesSavings").checked;
 	var noSavings = document.getElementById("noSavings").checked;
-	var motherName = document.getElementById("motherName").value;
 	var bank = null;
 	var savings = null;
 }
