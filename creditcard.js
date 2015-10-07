@@ -1,8 +1,45 @@
 $(document).ready(function(){
 	Parse.initialize("UH7MO8P4clCNUjUy0o33gZ7X8NzbXoMc044QkSw9", "QNcLaUAUmLrrmD0sYhqhLcZ9t97tMLr4w3egSvWs");
 	setUpPage();
+	var firstName = "";
+	var middleName = "";
+	var lastName = "";
+	var suffix = "Suffix (Optional)";
+	var streetAddress = "";
+	var aptNumber = "";
+	var address = "";
+	var city = "";
+	var states = "Please Select";
+	var zip = "";
+	var monthDOB = "01";
+	var dayDOB = "01";
+	var yearDOB = "1900";
+	var dateOfBirth = monthDOB + "/" + dayDOB + "/" + yearDOB;
+	var employmentStatus = "Please Select";;
+	var income = "";
+	var fullIncome = "";
+	var rent = "";
+	var fullRent = "";
+	var job = "Please Select";
+	var employerName = "";
+	var yearsEmployment = "";
+	var businessPhone = "";
+	var education = "Please Select";
+	var home = "Please Select";
+	var residenceNumber = "";
+	var residenceUnit = "Years";
+	var yesBank = false;
+	var noBank = true;
+	document.getElementById("noBank").checked = true;
+	var yesSavings = false;
+	var noSavings = true;
+	document.getElementById("noSavings").checked = true;
+	var bank = false;
+	var savings = false;
+
 
 	$('#firstName').on("change", function () {
+		$( ".firstName" ).removeClass( "has-error" );
 		firstName = document.getElementById("firstName").value;
 		var element = document.getElementById("addressHeader");
 		element.innerHTML = "Hi " + firstName + "!";
@@ -10,17 +47,19 @@ $(document).ready(function(){
 		element2.innerHTML = "Thanks " + firstName + "!";
 	});
 	$('#middleName').on("change", function () {
-		middleName = document.getElementById("middleName").value;
+		if (checkAlphaNumeric(middleName) && notEmpty(middleName)) {
+			middleName = document.getElementById("middleName").value;
+		}
 	});
 	$('#lastName').on("change", function () {
+		$( ".lastName" ).removeClass( "has-error" );
 		lastName = document.getElementById("lastName").value;
 	});	
 	$('#suffix').on("change", function () {
 		suffix = document.getElementById("suffix").value;
 	});
-
-
 	$('#streetAddress').on("change", function () {
+		$( ".streetAddress" ).removeClass( "has-error" );
 		streetAddress = document.getElementById("streetAddress").value;
 		address = streetAddress + " " + aptNumber;
 	});	
@@ -29,17 +68,17 @@ $(document).ready(function(){
 		address = streetAddress + " " + aptNumber;
 	});	
 	$('#city').on("change", function () {
+		$( ".city" ).removeClass( "has-error" );
 		city = document.getElementById("city").value;
 	});	
 	$('#states').on("change", function () {
+		$( ".states" ).removeClass( "has-error" );
 		states = document.getElementById("states").value;
 	});	
 	$('#zip').on("change", function () {
+		$( ".zip" ).removeClass( "has-error" );
 		zip = document.getElementById("zip").value;
 	});	
-
-
-
 	$('#monthDOB').on("change", function () {
 		monthDOB = document.getElementById("monthDOB").value;
 		dateOfBirth = monthDOB + "/" + dayDOB + "/" + yearDOB;
@@ -53,35 +92,45 @@ $(document).ready(function(){
 		dateOfBirth = monthDOB + "/" + dayDOB + "/" + yearDOB;
 	});	
 	$('#employmentStatus').on("change", function () {
+		$( ".employmentStatus" ).removeClass( "has-error" );
 		employmentStatus = document.getElementById("employmentStatus").value;
 	});	
 	$('#income').on("change", function () {
-		income = document.getElementById("income").value  + ".00";
+		$( ".income" ).removeClass( "has-error" );
+		income = document.getElementById("income").value
+		fullIncome = document.getElementById("income").value  + ".00";
 	});	
 	$('#rent').on("change", function () {
-		rent = document.getElementById("rent").value  + ".00";
+		$( ".rent" ).removeClass( "has-error" );
+		rent = document.getElementById("rent").value
+		fullRent = document.getElementById("rent").value  + ".00";
 	});	
-
-
 	$('#job').on("change", function () {
+		$( ".job" ).removeClass( "has-error" );
 		job = document.getElementById("job").value;
 	});	
 	$('#employerName').on("change", function () {
+		$( ".employerName" ).removeClass( "has-error" );
 		employerName = document.getElementById("employerName").value;
 	});
 	$('#yearsEmployment').on("change", function () {
 		yearsEmployment = document.getElementById("yearsEmployment").value;
 	});
 	$('#businessPhone').on("change", function () {
-		businessPhone = document.getElementById("businessPhone").value;
+		if(notEmpty(businessPhone) && realNumber(businessPhone)) {
+			businessPhone = document.getElementById("businessPhone").value;
+		}
 	});
-	$('#businessPhone').on("change", function () {
+	$('#education').on("change", function () {
+		$( ".education" ).removeClass( "has-error" );
 		education = document.getElementById("education").value;
 	});
 	$('#home').on("change", function () {
+		$( ".home" ).removeClass( "has-error" );
 		home = document.getElementById("home").value;
 	});
 	$('#residenceNumber').on("change", function () {
+		$( ".residenceNumber" ).removeClass( "has-error" );
 		residenceNumber = document.getElementById("residenceNumber").value;
 	});
 	$('#residenceUnit').on("change", function () {
@@ -128,9 +177,81 @@ $(document).ready(function(){
 
 
 	$(".submitBtn").click(function(){
-		
-		var hello = validate(firstName);
-		console.log(hello);
+		var error = new Array(15).fill(0);
+		if( !(checkAlphaNumeric(firstName) && notEmpty(firstName)) ) {
+			error[0] = "firstName";
+		} else {error[0] = 0;}
+		if( !(checkAlphaNumeric(lastName) && notEmpty(lastName)) ) {
+			error[1] = "lastName";
+		} else {error[1] = 0;}
+		if( !(notEmpty(streetAddress)) ) {
+			error[2] = "streetAddress";
+		} else {error[2] = 0;}
+		if( !(checkAlphaNumeric(city) && notEmpty(city)) ) {
+			error[3] = "city";
+		} else {error[3] = 0;}
+		if( !(notEmpty(zip) && zip.length == 5 && realNumber(zip)) ) {
+			error[4] = "zip";
+		} else {error[4] = 0;}
+		if( !(states != "Please Select") ) {
+			error[5] = "states";
+		} else {error[5] = 0;}
+		if( !(notEmpty(income) && realNumber(income)) ) {
+			error[6] = "income";
+		} else {error[6] = 0;}
+		if( !(notEmpty(rent) && realNumber(rent)) ) {
+			error[7] = "rent";
+		} else {error[7] = 0;}
+		if( !(employmentStatus != "Please Select") ) {
+			error[8] = "employmentStatus";
+		} else {error[8] = 0;}
+		if( !(job != "Please Select") ) {
+			error[9] = "job";
+		} else {error[9] = 0;}
+		if( !(notEmpty(employerName)) ) {
+			error[10] = "employerName";
+		} else {error[10] = 0;}
+		if( !(notEmpty(yearsEmployment) && realNumber(yearsEmployment)) ) {
+			error[11] = "yearsEmployment";
+		} else {error[11] = 0;}
+		if( !(education != "Please Select") ) {
+			error[12] = "education";
+		} else {error[12] = 0;}
+		if( !(home != "Please Select") ) {
+			error[13] = "home";
+		} else {error[13] = 0;}
+		if( !(notEmpty(residenceNumber) && realNumber(residenceNumber))  ) {
+			error[14] = "residenceNumber";
+		} else {error[14] = 0;}
+		console.log(error);
+		checkError(error);
+
+		// if(checkAlphaNumeric(firstName) && notEmpty(firstName) &&
+		// 	checkAlphaNumeric(lastName) && notEmpty(lastName) &&
+		// 	notEmpty(streetAddress) &&
+		// 	checkAlphaNumeric(city) && notEmpty(city) &&
+		// 	notEmpty(zip) && zip.length == 5 && realNumber(zip) &&
+		// 	states != "Please Select" &&
+		// 	notEmpty(income) && realNumber(income) &&
+		// 	notEmpty(rent) && realNumber(rent) &&
+		// 	employmentStatus != "Please Select" &&
+		// 	job != "Please Select" &&
+		// 	notEmpty(employerName) &&
+		// 	notEmpty(yearsEmployment) && realNumber(yearsEmployment) &&
+		// 	education != "Please Select" &&
+		// 	home != "Please Select" &&
+		// 	notEmpty(residenceNumber) && realNumber(residenceNumber)) 
+		// {
+		// 	if(suffix == "Suffix (Optional)") {suffix = "";}
+		// 	if(businessPhone.length != 10) {businessPhone = "";}
+		// 	console.log("passed tests");
+		// } else {
+		// 	console.log("fill out more");
+		// }
+		// 	console.log("entered correctly")
+		// } else {
+		// 	console.log("entered bad")
+		// }
 		// if($('#checkbox').is(":checked")) {
 		// 	event.preventDefault();
 		// 	submit(email, password);
@@ -295,6 +416,24 @@ function setUpPage() {
 		"Wisconsin",
 		"Wyoming"
 	];
+	var monthInput = [
+		"01","02","03","04","05","06","07","08","09","10","11","12"
+	];
+	var dayInput = [
+		"01","02","03","04","05","06","07","08","09"
+	];
+	var yearInput = [];
+	var j;
+	for (var i=9; i<31; i++) {
+		j = i+1;
+		dayInput[i] = j.toString();
+	}
+	j=2016;
+	for (var i=0;i<117;i++){
+		yearInput[i] = j;
+		j--;
+	}
+
 
 	setDropdown(ending, "suffix");
 	setDropdown(stateNames, "states");
@@ -302,49 +441,30 @@ function setUpPage() {
 	setDropdown(profession, "job");
 	setDropdown(highestEducation, "education");
 	setDropdown(housingOp, "home");
+	setDropdown(monthInput, "monthDOB");
+	setDropdown(dayInput, "dayDOB");
+	setDropdown(yearInput, "yearDOB");
 
-	var firstName = "Jonah Ruffer";
-	var middleName = "";
-	var lastName = "";
-	var suffix = "Suffix (Optional)";
-	var streetAddress = "";
-	var aptNumber = "";
-	var address = "";
-	var city = "";
-	var states = "Please Select";
-	var zip = "";
-	var monthDOB = "";
-	var dayDOB = "";
-	var yearDOB = "";
-	var dateOfBirth = "";
-	var employmentStatus = "Please Select";;
-	var income = "";
-	var rent = "";
-	var job = "Please Select";
-	var employerName = "";
-	var yearsEmployment = "";
-	var businessPhone = "";
-	var education = "Please Select";
-	var home = "Please Select";
-	var residenceNumber = "";
-	var residenceUnit = "Years";
-	var yesBank = false;
-	var noBank = true;
-	document.getElementById("noBank").checked = true;
-	var yesSavings = false;
-	var noSavings = true;
-	document.getElementById("noSavings").checked = true;
-	var bank = false;
-	var savings = false;
 }
 
 function checkAlphaNumeric(input) {
-	if (/[^a-zA-Z]/.test(input)){
+	if (/[^a-zA-Z\s]/.test(input)){
 		return false;
 	}
 	return true;
 }
-
+function realNumber(input){
+	if (/[0-9]/.test(input) && input.indexOf('-') === -1 && input % 1 == 0){
+		return true;
+	}
+	return false;
+}
+function notEmpty(input) {
+	if (input == "") {
+		return false;
+	}
+	return true;
+}
 
 
 function setDropdown(array, name) {
@@ -353,4 +473,12 @@ function setDropdown(array, name) {
 	}
 }
 
+
+function checkError(errArr) {
+	for (var i=0; i<errArr.length; i++) {
+		if(errArr[i] != 0){
+			$( "." + errArr[i] ).addClass( "has-error" );
+		}
+	}
+}
 
