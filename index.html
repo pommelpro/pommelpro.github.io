@@ -40,18 +40,18 @@
 				<!-- Collect the nav links, forms, and other content for toggling -->
 				<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
 					<ul class="nav navbar-nav">
-						<li><a href="#">Home</a></li>
-						<li><a href="#">Apply</a></li>
+<!-- 						<li><a href="#">Home</a></li>
+						<li><a href="#">Apply</a></li> -->
 					</ul>
 					<ul class="nav navbar-nav navbar-right">
 						<li class="dropdown">
 							<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Account <span class="caret"></span></a>
 							<ul class="dropdown-menu">
-								<li><a href="#">View Account</a></li>
+<!-- 								<li><a href="#">View Account</a></li>
 								<li><a href="#">Balance</a></li>
 								<li><a href="#">Support</a></li>
 								<li><a href="#">FAQ</a></li>
-								<li role="separator" class="divider"></li>
+								<li role="separator" class="divider"></li> -->
 								<li><a href="logout.html">Log Off</a></li>
 							</ul>
 						</li>
@@ -139,7 +139,7 @@
 												<select id="states" class="form-control"></select>
 											</div>
 											<div class="col-xs-12 col-md-6">
-												<input type="number" class="form-control" id="zip" placeholder="ZIP Code" maxlength="5">
+												<input type="number" class="form-control" id="zip" min="10000" max="99999" placeholder="ZIP Code">
 											</div>
 										</div>
 									</form>
@@ -151,19 +151,19 @@
 												<label for="yourAddress">Date of Birth</label>
 												<div class="col-xs-12 col-md-12 small-separate">
 													<div class="col-xs-3 col-md-3">
-														<input type="number" class="form-control" id="monthDOB" maxlength="2" placeholder="MM">
+														<input type="number" class="form-control" id="monthDOB" min="01" max="12" placeholder="MM">
 													</div>
 													<div class="col-xs-1 col-md-1">
 														<span class="slash">/</span>
 													</div>
 													<div class="col-xs-3 col-md-3">
-														<input type="number" class="form-control" id="dayDOB" maxlength="2" placeholder="DD">
+														<input type="number" class="form-control" id="dayDOB" min="01" max="31" placeholder="DD">
 													</div>
 													<div class="col-xs-1 col-md-1">
 														<span class="slash">/</span>
 													</div>
 													<div class="col-xs-3 col-md-4">
-														<input type="number" class="form-control" id="yearDOB" maxlength="4" placeholder="YYYY">
+														<input type="number" class="form-control" id="yearDOB" min="1900" max="2016" placeholder="YYYY">
 													</div>
 												</div>
 											</div>
@@ -264,7 +264,7 @@
 												<label for="businessPhone">Business Phone (Optional)</label>
 											</div>
 											<div class="col-xs-12 col-md-12">
-												<input type="number" class="form-control" id="businessPhone" maxlength="10" placeholder="XXX-XXX-XXXX">
+												<input type="number" class="form-control" id="businessPhone" min="10000000000" max="99999999999" placeholder="XXX-XXX-XXXX">
 											</div>
 										</div>
 									</div>
