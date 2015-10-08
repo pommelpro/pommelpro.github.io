@@ -14,6 +14,7 @@ function getUser(name) {
 	query.equalTo("name", name);
 	query.first({
 		success: function(object) {
+			document.body.scrollTop = document.documentElement.scrollTop = 0;
 			if(typeof object === "undefined") {
 				document.getElementById("failure").hidden = false;
 			} else { document.getElementById("success").hidden = false; }

@@ -173,6 +173,7 @@ $(document).ready(function(){
 		}
 	});
 	$(".submitBtn").click(function() {
+		$( "#topCollapsable" ).trigger( "click" );
 		document.getElementById("errorAlert").hidden = true;
 		document.getElementById("successAlert").hidden = true;
 		var error = new Array(15).fill(0);
@@ -224,6 +225,7 @@ $(document).ready(function(){
 		var isError = checkError(error);
 		if(isError) {
 			document.getElementById("errorAlert").hidden = false;
+			document.body.scrollTop = document.documentElement.scrollTop = 0;
 		} else {
 			if(suffix == "Suffix (Optional)") {suffix = "";}
 			if( !(notEmpty(aptNumber)) ) {aptNumber = "";}

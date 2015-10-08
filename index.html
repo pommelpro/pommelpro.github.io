@@ -22,11 +22,12 @@
 						<span class="icon-bar"></span>
 						<span class="icon-bar"></span>
 					</button>
-					<a class="navbar-brand" href="#">Credit Cards</a>
+					<a class="navbar-brand">Credit Cards</a>
 				</div>
 				<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
 					<ul class="nav navbar-nav">
-						 <li><a href="index.html">Apply</a></li>
+						 <li class="active"><a href="index.html">Apply</a></li>
+						 <li><a href="status.html">View Status</a></li>
 					</ul>
 					<ul class="nav navbar-nav navbar-right">
 						<li class="dropdown">
@@ -41,6 +42,7 @@
 			</div>
 		</nav>
 		<div class="container-fluid">
+			<h1 class="small-separate">Credit Card Application Form</h1>
 			<div id="errorAlert" class="alert alert-danger text-center" hidden="true" role="alert">Uh Oh! Looks like you forgot to fill out all of the required text fields.</div>
 			<div id="successAlert" class="alert alert-success text-center" hidden="true" role="alert">Success! Thank you for applying for this credit card.</div>
 		</div>
@@ -48,7 +50,7 @@
 			<div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
 				<div class="panel panel-default panelHeading">
 					<div class="panel-heading" role="tab" id="headingOne">
-						<a role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+						<a id="topCollapsable" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
 							<h4 class="panel-title">
 								Personal Information
 							</h4>
