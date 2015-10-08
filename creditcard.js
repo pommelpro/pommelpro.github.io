@@ -1,43 +1,40 @@
+var firstName;
+var middleName;
+var lastName;
+var suffix;
+var streetAddress;
+var aptNumber;
+var address;
+var city;
+var states;
+var zip;
+var monthDOB;
+var dayDOB;
+var yearDOB;
+var dateOfBirth;
+var employmentStatus;
+var income;
+var fullIncome;
+var rent;
+var fullRent;
+var job;
+var employerName;
+var yearsEmployment;
+var businessPhone;
+var education;
+var home;
+var residenceNumber;
+var residenceUnit;
+var residence;
+var yesBank;
+var noBank;
+var yesSavings;
+var noSavings;
+var bank;
+var savings;
 $(document).ready(function(){
 	Parse.initialize("UH7MO8P4clCNUjUy0o33gZ7X8NzbXoMc044QkSw9", "QNcLaUAUmLrrmD0sYhqhLcZ9t97tMLr4w3egSvWs");
 	setUpPage();
-	var firstName = "";
-	var middleName = "";
-	var lastName = "";
-	var suffix = "Suffix (Optional)";
-	var streetAddress = "";
-	var aptNumber = "";
-	var address = "";
-	var city = "";
-	var states = "Please Select";
-	var zip = "";
-	var monthDOB = "01";
-	var dayDOB = "01";
-	var yearDOB = "1900";
-	var dateOfBirth = monthDOB + "/" + dayDOB + "/" + yearDOB;
-	var employmentStatus = "Please Select";;
-	var income = "";
-	var fullIncome = "";
-	var rent = "";
-	var fullRent = "";
-	var job = "Please Select";
-	var employerName = "";
-	var yearsEmployment = "";
-	var businessPhone = "";
-	var education = "Please Select";
-	var home = "Please Select";
-	var residenceNumber = "";
-	var residenceUnit = "Years";
-	var yesBank = false;
-	var noBank = true;
-	document.getElementById("noBank").checked = true;
-	var yesSavings = false;
-	var noSavings = true;
-	document.getElementById("noSavings").checked = true;
-	var bank = false;
-	var savings = false;
-
-
 	$('#firstName').on("change", function () {
 		$( ".firstName" ).removeClass( "has-error" );
 		firstName = document.getElementById("firstName").value;
@@ -114,6 +111,7 @@ $(document).ready(function(){
 		employerName = document.getElementById("employerName").value;
 	});
 	$('#yearsEmployment').on("change", function () {
+		$( ".yearsEmployment" ).removeClass( "has-error" );
 		yearsEmployment = document.getElementById("yearsEmployment").value;
 	});
 	$('#businessPhone').on("change", function () {
@@ -132,9 +130,11 @@ $(document).ready(function(){
 	$('#residenceNumber').on("change", function () {
 		$( ".residenceNumber" ).removeClass( "has-error" );
 		residenceNumber = document.getElementById("residenceNumber").value;
+		residence = residenceNumber + " " + residenceUnit;
 	});
 	$('#residenceUnit').on("change", function () {
 		residenceUnit = document.getElementById("residenceUnit").value;
+		residence = residenceNumber + " " + residenceUnit;
 	});
 	$('#yesBank').on("change", function () {
 		yesBank = document.getElementById("yesBank").checked;
@@ -172,11 +172,9 @@ $(document).ready(function(){
 			savings = false
 		}
 	});
-
-
-
-
-	$(".submitBtn").click(function(){
+	$(".submitBtn").click(function() {
+		document.getElementById("errorAlert").hidden = true;
+		document.getElementById("successAlert").hidden = true;
 		var error = new Array(15).fill(0);
 		if( !(checkAlphaNumeric(firstName) && notEmpty(firstName)) ) {
 			error[0] = "firstName";
@@ -223,84 +221,74 @@ $(document).ready(function(){
 		if( !(notEmpty(residenceNumber) && realNumber(residenceNumber))  ) {
 			error[14] = "residenceNumber";
 		} else {error[14] = 0;}
-		console.log(error);
-		checkError(error);
-
-		// if(checkAlphaNumeric(firstName) && notEmpty(firstName) &&
-		// 	checkAlphaNumeric(lastName) && notEmpty(lastName) &&
-		// 	notEmpty(streetAddress) &&
-		// 	checkAlphaNumeric(city) && notEmpty(city) &&
-		// 	notEmpty(zip) && zip.length == 5 && realNumber(zip) &&
-		// 	states != "Please Select" &&
-		// 	notEmpty(income) && realNumber(income) &&
-		// 	notEmpty(rent) && realNumber(rent) &&
-		// 	employmentStatus != "Please Select" &&
-		// 	job != "Please Select" &&
-		// 	notEmpty(employerName) &&
-		// 	notEmpty(yearsEmployment) && realNumber(yearsEmployment) &&
-		// 	education != "Please Select" &&
-		// 	home != "Please Select" &&
-		// 	notEmpty(residenceNumber) && realNumber(residenceNumber)) 
-		// {
-		// 	if(suffix == "Suffix (Optional)") {suffix = "";}
-		// 	if(businessPhone.length != 10) {businessPhone = "";}
-		// 	console.log("passed tests");
-		// } else {
-		// 	console.log("fill out more");
-		// }
-		// 	console.log("entered correctly")
-		// } else {
-		// 	console.log("entered bad")
-		// }
-		// if($('#checkbox').is(":checked")) {
-		// 	event.preventDefault();
-		// 	submit(email, password);
-		// } else {
-		// 	alert("check the box");
-		// }
+		var isError = checkError(error);
+		if(isError) {
+			document.getElementById("errorAlert").hidden = false;
+		} else {
+			if(suffix == "Suffix (Optional)") {suffix = "";}
+			if( !(notEmpty(aptNumber)) ) {aptNumber = "";}
+			if(businessPhone.length != 10) {businessPhone = "";}
+			document.getElementById("successAlert").hidden = false;
+			var applicant = makeJSON()
+			var fullName = firstName + " " + lastName;
+			event.preventDefault();
+			submit(applicant, fullName);
+		}
 	});
-
 });
-
-
-
-// function submit(email, password) {
-
-// 	var PersonApplication = Parse.Object.extend("PersonApplication");
-// 	var personApplication = new PersonApplication();
-
-// 	personApplication.set("firstName", firstName);
-// 	personApplication.set("middleName", middleName);
-// 	personApplication.set("lastName", lastName);
-// 	personApplication.set("suffix", suffix);
-
-// 	personApplication.save(null, {
-// 		success: function(personApplication) {
-// 		// Execute any logic that should take place after the object is saved.
-// 		location.reload();
-// 		// alert('New object created with objectId: ' + personAccount.id);
-
-// 	},
-// 	error: function(personApplication, error) {
-// 		// Execute any logic that should take place if the save fails.
-// 		// error is a Parse.Error with an error code and message.
-// 		location.reload();
-// 		// alert('Failed to create new object, with error code: ' + error.message);
-// 		}
-// 	});	
-// }
-
-
-
-
-
-
-
-
-
-
-
+function submit(personApplicant, name) {
+	var PersonApplication = Parse.Object.extend("PersonApplication");
+	var personApplication = new PersonApplication();
+	personApplication.set("applicant", personApplicant);
+	personApplication.set("name", name);
+	personApplication.save(null, {
+		success: function(personApplication) {
+			alert('Your information has been successfully submitted!');
+			window.location.replace('status.html');
+	},
+	error: function(personApplication, error) {
+		alert('Sorry we could not submit your information at this time. Please try again later');
+		location.reload();
+		}
+	});	
+}
 function setUpPage() {
+	firstName = "";
+	middleName = "";
+	lastName = "";
+	suffix = "Suffix (Optional)";
+	streetAddress = "";
+	aptNumber = "";
+	address = "";
+	city = "";
+	states = "Please Select";
+	zip = "";
+	monthDOB = "01";
+	dayDOB = "01";
+	yearDOB = "1900";
+	dateOfBirth = monthDOB + "/" + dayDOB + "/" + yearDOB;
+	employmentStatus = "Please Select";
+	income = "";
+	fullIncome = "";
+	rent = "";
+	fullRent = "";
+	job = "Please Select";
+	employerName = "";
+	yearsEmployment = "";
+	businessPhone = "";
+	education = "Please Select";
+	home = "Please Select";
+	residenceNumber = "";
+	residenceUnit = "Years";
+	residence = residenceNumber + " " + residenceUnit;
+	yesBank = false;
+	noBank = true;
+	yesSavings = false;
+	noSavings = true;
+	bank = false;
+	savings = false;
+	document.getElementById("noBank").checked = true;
+	document.getElementById("noSavings").checked = true;
 	$(function () {
 	  $('[data-toggle="popover"]').popover()
 	})
@@ -433,8 +421,6 @@ function setUpPage() {
 		yearInput[i] = j;
 		j--;
 	}
-
-
 	setDropdown(ending, "suffix");
 	setDropdown(stateNames, "states");
 	setDropdown(employment, "employmentStatus");
@@ -444,9 +430,7 @@ function setUpPage() {
 	setDropdown(monthInput, "monthDOB");
 	setDropdown(dayInput, "dayDOB");
 	setDropdown(yearInput, "yearDOB");
-
 }
-
 function checkAlphaNumeric(input) {
 	if (/[^a-zA-Z\s]/.test(input)){
 		return false;
@@ -465,20 +449,50 @@ function notEmpty(input) {
 	}
 	return true;
 }
-
-
 function setDropdown(array, name) {
 	for(var i=0;i<array.length;i++){
 		$('#' + name).append($('<option></option>').val(array[i]).html(array[i]));
 	}
 }
-
-
 function checkError(errArr) {
+	var isError = false;
 	for (var i=0; i<errArr.length; i++) {
 		if(errArr[i] != 0){
 			$( "." + errArr[i] ).addClass( "has-error" );
 		}
 	}
+	for(var i = 0; i < errArr.length; i++) {
+		if(errArr[i] !== 0) {
+			return true;
+		}
+	}
+	return false;
 }
-
+function makeJSON() {
+	var applicant = {
+		"applicant":[
+			{
+				"firstName":firstName, 
+				"middleName":middleName,
+				"lastName":lastName,
+				"suffix":suffix,
+				"address":address,
+				"city":city,
+				"states":states,
+				"zip":zip,
+				"employmentStatus":employmentStatus,
+				"fullRent":fullRent,
+				"employerName":employerName,
+				"yearsEmployment":yearsEmployment,
+				"businessPhone":businessPhone,
+				"education":education,
+				"home":home,
+				"residence":residence,
+				"bank":bank,
+				"savings":savings,
+				"job":job,
+			}
+		]
+	}
+	return applicant;
+}
