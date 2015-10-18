@@ -20,19 +20,12 @@ $( document ).ready(function() {
 		document.getElementById("searchBar").value = "";
 	});
 });
-
-
 function showHide(showTab, hideTab, showTable, hideTable) {
 	$( "." + hideTab ).removeClass( "active" );
 	$( "." + showTab ).addClass( "active" );
 	$( "." + showTable ).show();
 	$( "." + hideTable ).hide();
 }
-
-
-
-
-
 function resort(objClass, objId) {
 	clearTable(moviesArr.length, "table1");
 	var titleSort = false;
