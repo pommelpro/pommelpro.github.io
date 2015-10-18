@@ -88,7 +88,7 @@ function getMovies() {
 	    	var movieCell = {
 	    		name: results[i].get('name'),
 	    		sorting: results[i].get('sorting'),
-	    		tags: results[i].get('tags'),
+	    		tags: results[i].get('tags').split(", "),
 	    		fullDate: results[i].updatedAt,
 	    		addedOn: n
 	    	};
