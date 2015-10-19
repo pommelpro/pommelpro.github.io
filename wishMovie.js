@@ -1,6 +1,5 @@
 $( document ).ready(function() {
 	Parse.initialize("BnOXMP44BepoqYrbvd8a3WmVL4Scxv37SzpvxqKC", "3vrQKZDI2olUgISwF8XxG9wK6rcBGqSlA1HWB3nK");
-	document.getElementsByClassName("wishListMovies").hidden = true;
 	var wishTitle, wishSorting;
 	$( ".cancelWishMovie" ).click(function() {
 		removeText();
