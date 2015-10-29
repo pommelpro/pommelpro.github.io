@@ -27,8 +27,6 @@ $( document ).ready(function() {
 	    	populateInfo(foundMovieInfo);
 	    }
 	});
-
-
 });
 function showMovieInfo(movieName, arr) {
 	for (var i=0; i < arr.length; i++) {
@@ -39,67 +37,11 @@ function showMovieInfo(movieName, arr) {
 	alert("there was an error!");
 }
 function populateInfo(movieObj) {
-	
+	$('#updateTitles').val(movieObj.name);
+	$('#updateSorting').val(movieObj.sorting);
+	$('#updateTags').val(movieObj.tags.join(', '));
+	$('#objIdUpdate').text(movieObj.objId);
 }
-
-
-
-/*
-    <div class="modal fade" id="viewInfo" tabindex="-1" role="dialog" aria-labelledby="movieInfo">
-      <div class="modal-dialog" role="document">
-        <div class="modal-content">
-          <div class="modal-header">
-            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-            <h4 class="modal-title" id="movieInfo"></h4>
-          </div>
-          <div class="modal-body">
-            <form>
-              <div class="form-group">
-                <input type="text" class="form-control" id="updateTitles" placeholder="Movie Title">
-              </div>
-              <div class="form-group">
-                <input type="text" class="form-control" id="updateSorting" placeholder="Sort By">
-              </div>
-              <div class="form-group">
-                <textarea class="form-control" rows="4" id="updateTags" placeholder="Add Tags Here..."></textarea>
-              </div>
-              <div class="modal-footer">
-                <button type="button" class="btn btn-default cancelMovieInfo" data-dismiss="modal">Close</button>
-                <button type="button" class="btn btn-primary addMovieInfo" data-dismiss="modal">Update Movie</button>
-              </div>
-            </form>
-          </div>
-        </div>
-      </div>
-    </div>
-*/
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 function showHide(showTab, hideTab, showTable, hideTable) {
 	$( "." + hideTab ).removeClass( "active" );
 	$( "." + showTab ).addClass( "active" );
@@ -170,7 +112,8 @@ function getMovies() {
 	    		sorting: results[i].get('sorting'),
 	    		tags: results[i].get('tags').split(", "),
 	    		fullDate: results[i].updatedAt,
-	    		addedOn: n
+	    		addedOn: n,
+	    		objId: results[i].id
 	    	};
 	    	moviesArr.push(movieCell);
 	    }
