@@ -1,0 +1,53 @@
+/*
+$dark green: #1d5222;
+$med green: #2a7831;
+$light green: #369f40;
+$darker grey: #848484;
+$lighter grey: #D4D4D4;
+
+
+
+*/
+body {
+   /*font-family: Georgia; */
+   font-family: 'Lato', sans-serif;
+}
+
+#content {
+    margin: 0 10% 0 10%;
+    width:80%;
+    height: 100%;
+    border-left-width: 1px;
+    border-right-width: 1px;
+    border-bottom-width: 1px;
+    border-left-style: solid;
+    border-right-style: solid;
+    border-bottom-style: solid;
+    border-color: #848484;
+    box-shadow: 0px 0px 2px 1000000px #F3F3F7;
+}
+
+#footer { 
+    box-shadow: 0px -1px 5px #848484;
+    background-color: #D4D4D4 ;
+    text-align: center;
+    bottom: 0px;
+    width: 100%;
+    border-top: 100px;
+    margin-top: 40px;
+    padding: 30px 0px 30px 0px;
+}
+
+#main-nav {
+    border-radius: 0px;
+    margin-bottom: 0px;
+}
+#inner-main-nav {
+    width: 100%;
+}
+#inner-main-nav .navbar-inner {
+    margin-left: 0;
+    margin-right: 0;
+    width: 100%;
+}
+

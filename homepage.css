@@ -1,0 +1,20 @@
+body {
+	background-color: #313131;
+}
+.row {
+	height: 150px;
+}
+a {
+	color: #005CAC;
+}
+a:hover {
+	text-decoration: none;
+	background: black;
+	color: #84C6FF;
+}
+.navbar {
+	margin-bottom: 0;
+}
+h2 {
+	margin-top: 60px;
+}
