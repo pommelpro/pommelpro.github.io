@@ -17,4 +17,7 @@ $( document ).ready(function() {
 	$('#web').click(function() {
 		window.location.href = 'movies/movies.html';
 	});
+	$('#cc').click(function() {
+		window.location.href = 'CreditCardApp/index.html';
+	});
 });
