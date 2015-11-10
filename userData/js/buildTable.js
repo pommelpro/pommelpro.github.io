@@ -3,28 +3,12 @@ $( document ).ready(function() {
 	$('body').hide();
 	var prevId = "";
 	$('body').fadeIn(500);
-	var str = window.location.href;
-	str = str.substring(0,1);
-	if (str != "f") {
-		$.when($.ajax(getJSON())).then(function () {
-			if(userdata != "") {
-				buildTable();
-				$('dd').hide();
-			}
-		});
-	} else {
-		if (userdata == "") { userdata = noJSONAvail(); }
-		if(userdata != "") {
-			buildTable();
-			$('dd').hide();
-		}
+	userdata = noJSONAvail();
+	if(userdata != "") {
+		buildTable();
+		$('dd').hide();
 	}
 });
-function getJSON() {
-	$.getJSON( "../userdata.json", function( json ) {
-		userdata = json;
-	});
-}
 function buildTable() {
 	userdata.sort(function(a, b) {
 		return a.name.localeCompare(b.name);
