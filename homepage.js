@@ -5,8 +5,11 @@ $( document ).ready(function() {
 	$('.btn').mouseout(function(){
 		$(this).css('background','#313131');
 	});
+	$('.btn').click(function(){
+		$(this).css('background','#313131');
+	});
 	$('#contact').click(function() {
-		window.location.href = 'userdata/contacts.html';
+		window.location.href = 'userData/contacts.html';
 	});
 	$('#ios').click(function() {
 		window.location.href = 'moviesios/moviesios.html';
