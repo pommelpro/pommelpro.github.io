@@ -21,7 +21,7 @@ $( document ).ready(function() {
 	}
 });
 function getJSON() {
-	$.getJSON( "../userdata.json", function( json ) {
+	$.getJSON( "userdata.json", function( json ) {
 		userdata = json;
 	});
 }
