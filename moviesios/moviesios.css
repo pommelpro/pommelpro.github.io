@@ -11,3 +11,8 @@ h1 {
 .marginRight {
 	margin-bottom:10px;
 }
+/*@media (max-si) {
+	.navbar-right {
+		float: right;
+	}
+}*/
