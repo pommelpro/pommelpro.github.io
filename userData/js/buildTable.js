@@ -6,12 +6,11 @@ $( document ).ready(function() {
 	var str = window.location.href;
 	str = str.substring(0,1);
 	if (str != "f") {
-		$.when($.ajax(getJSON())).then(function () {
-			if(userdata != "") {
-				buildTable();
-				$('dd').hide();
-			}
-		});
+		if (userdata == "") { userdata = noJSONAvail(); }
+		if(userdata != "") {
+			buildTable();
+			$('dd').hide();
+		}
 	} else {
 		if (userdata == "") { userdata = noJSONAvail(); }
 		if(userdata != "") {
