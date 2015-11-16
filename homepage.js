@@ -20,4 +20,10 @@ $( document ).ready(function() {
 	$('#cc').click(function() {
 		window.location.href = 'CreditCardApp/index.html';
 	});
+	$('#email').click(function() {
+		window.location.href = 'emailValid/signup.html';
+	});
+	$('#house').click(function() {
+		window.location.href = 'aptView/aptview.html';
+	});
 });
