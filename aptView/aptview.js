@@ -29,6 +29,7 @@ $( document ).ready(function() {
 		} else {
 			sortedArr = totalList.slice(0);;
 		}
+		sortedArr = sorter(sortedArr);
 		fillPage(sortedArr.reverse());
 	});
 	$('.box').click(function() {
