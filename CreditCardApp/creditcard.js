@@ -33,7 +33,6 @@ var noSavings;
 var bank;
 var savings;
 $(document).ready(function(){
-	Parse.initialize("UH7MO8P4clCNUjUy0o33gZ7X8NzbXoMc044QkSw9", "QNcLaUAUmLrrmD0sYhqhLcZ9t97tMLr4w3egSvWs");
 	setUpPage();
 	$('#firstName').on("change", function () {
 		$( ".firstName" ).removeClass( "has-error" );
