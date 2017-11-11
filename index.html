@@ -1,21 +1,47 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 	<head>
+		<title>Tie Bar</title>
 		<meta charset="utf-8">
-		<meta http-equiv="X-UA-Compatible" content="IE=edge">
-		<meta name="viewport" content="width=device-width, initial-scale=1">
-		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css" integrity="sha512-dTfge/zgoMYpP7QbHy4gWMEGsbsdZeCXz7irItjcC3sPUFtf0kuFbDz/ixG7ArTxmDjLXDmezHubeNikyKGVyQ==" crossorigin="anonymous">
-		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js" integrity="sha512-K1qjQ+NcF2TYO/eI3M6v8EiNYZfA95pQumfvcVrTHtwQVDG+aHRqLi/ETn2uB+1JqwYqVG3LIvdm9lj6imS/pQ==" crossorigin="anonymous"></script>
-		<link rel="stylesheet" type="text/css" href="homepage.css">
-		<script src="homepage.js"></script>
-		<title>Jonah Ruffer Portfolio</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+		<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.3/umd/popper.min.js" integrity="sha384-vFJXuSJphROIrBnz7yo7oB41mKfc8JzQZiCq4NCceLEaO4IHwicKwpJf9c9IpFgh" crossorigin="anonymous"></script>
+		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js" integrity="sha384-alpBpkh1PFOepccYVYDB4do5UnbKysX5WZXm3XxPqe5iKTfUKjNkCk9SaVuEZflJ" crossorigin="anonymous"></script>
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css" integrity="sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb" crossorigin="anonymous">
+		<link rel="stylesheet" href="main.css">
 	</head>
 	<body>
-		<button type="button" id="contact" class="btn btn-primary btn-lg btn-block">Contact List</button>
-		<button type="button" id="cc" class="btn btn-primary btn-lg btn-block">Credit Card Application</button>
-		<button type="button" id="ios" class="btn btn-primary btn-lg btn-block">Movies (iOS)</button>
-		<button type="button" id="email" class="btn btn-primary btn-lg btn-block">Email Validator</button>
-		<button type="button" id="house" class="btn btn-primary btn-lg btn-block">Houses Viewer</button>
+		<div style="position: absolute; border-left: 1px solid black; left: 50%; height: 100%;" />
+		<div class="navbar">
+			<div class="top">
+				<div>
+					<input class="searchbox" placeholder="Search" type="text" />
+				</div>
+				<div style="display: inline-flex;">
+					<img class="logo" src="assets/Logo.png" alt="Logo" />
+					<h1>The Tie Bar</h1>
+				</div>
+				<div>
+					<span class="checkout"><img src="assets/Account.png" alt="Account" />Account</span>
+					<span class="checkout"><img src="assets/WishList.png" alt="Wish List" />Wish List</span>
+					<span class="checkout"><img src="assets/Cart.png" alt="Cart" /><span style="width: 40px; padding-left: 10px;">Cart</span></span>
+				</div>
+			</div>
+			<div class="options">
+				<span>Shirts</span>
+				<span>Pants</span>
+				<span>Ties</span>
+				<span>Bow Ties</span>
+				<span>Pocket Squares</span>
+				<span>Socks & Underwear</span>
+				<span>Accessories</span>
+				<span>The Wedding Shop</span>
+			</div>
+		</div>
+		<div class="promo">
+			<span class="maincode">ALL SHIRTS SHIP FREE</span>
+			<span class="subcode">No Code Required. Shop Now.</span>
+		</div>
 	</body>
 </html>
