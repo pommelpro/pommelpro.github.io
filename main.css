@@ -96,6 +96,14 @@
 h1 {
 	color: #11303C;
 	white-space: nowrap;
+	text-transform: uppercase;
+}
+
+.row {
+	margin-bottom: 30px;
+	margin-right: 0;
+	margin-left: 0;
+	width: 100%;
 }
 
 .row1 {
@@ -118,26 +126,158 @@ h1 {
 	text-align: center;
 }
 
-.column40 .horizontalRule {
+.horizontalRule {
 	border-width: 3px;
 	border-color: #11303C;
+}
+
+.row1 .horizontalRule {
 	margin: 10px 165px 5px;
 }
 
-.column40 div {
+.subheader {
+	color: #11303C;
 	font-size: 12px;
 }
 
-.column40 .shopButton {
+.shopButton {
 	margin: 10px 0 20px;
 	background-color: #11303C;
 	color: #FFFFFF;
-	padding: 8px 45px;
-	border: none;
+	padding: 6px 42px;
+	border: 3px solid #11303C;
+	text-transform: uppercase;
+}
+
+.shopButton:hover {
+	color: #11303C;
+	background-color: #FFFFFF;
 }
 
 .column40 img {
 	position: relative;
 	float: right;
+	margin-top: 30px;
 	width: 200%;
+}
+
+.row2 {
+	padding-left: 60px;
+}
+
+.row2 .headerSection {
+	display: flex;
+	flex-direction: column;
+}
+
+.row2 .horizontalRule {
+	margin: 0 0 15px;
+	width: 85px;
+}
+
+.carousel {
+	margin: 20px 0;
+	width: 100%;
+	overflow: hidden;
+	padding-right: 30px;
+}
+
+.carousel .innerCarousel {
+	display: inline-flex;
+	overflow-x: auto;
+	width: 100%;
+}
+
+.carousel .cell {
+	margin: 0 20px;
+}
+
+.carousel .cell:first-of-type {
+	margin-left: 0;
+}
+
+.carousel .cell:last-of-type {
+	margin-right: 0;
+}
+
+.carousel .cellImage {
+	height: 150px;
+}
+
+.carousel .cellText {
+	color: #11303C;
+	font-size: 14px;
+	text-align: center;
+	text-transform: uppercase;
+}
+
+.buttonRow {
+	display: inline-flex;
+	justify-content: space-between;
+	padding-right: 30px;
+	width: 100%;
+	flex-wrap: wrap;
+}
+
+.overlaidImageText {
+	position: relative;
+}
+
+.overlayHeader {
+	position: absolute;
+	top: 5%;
+	left: 5%;
+}
+
+.row3 .horizontalRule {
+	margin: 0 0 15px;
+	width: 125px;
+}
+
+.row3 .column40 {
+	padding: 0 0 0 20px;
+}
+
+.column40 .responsiveRow1 {
+	height: 60%;
+}
+
+.column40 .responsiveRow2 {
+	height: 40%;
+	padding: 30px;
+}
+
+.row3 .column40 img {
+	height: 100%;
+	width: 100%;
+	margin-top: 0;
+}
+
+.row3 .table {
+	display: flex;
+	flex-direction: column;
+	margin-bottom: 0;
+}
+
+.table .table-row {
+	border-bottom: 1px solid #11303C;
+	padding: 20px 0;
+	cursor: pointer;
+}
+
+.table .table-row:first-of-type {
+	border-top: 1px solid #11303C;
+}
+
+.table .table-row:hover {
+	color: #0cc;
+}
+
+.column50 {
+	position: relative;
+	width: 50%;
+}
+
+.row4 {
+
 }
