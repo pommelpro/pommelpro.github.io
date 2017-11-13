@@ -142,6 +142,7 @@ h1 {
 	padding: 6px 42px;
 	border: 2px solid #11303C;
 	text-transform: uppercase;
+	cursor: pointer;
 }
 
 .shopButton:hover {
@@ -231,6 +232,11 @@ h1 {
 	text-transform: uppercase;
 	font-size: 14px;
 	font-weight: bold;
+	cursor: pointer;
+}
+
+.overlayLink:hover {
+	color: #0cc;
 }
 
 .row3 .horizontalRule {
@@ -362,9 +368,47 @@ h1 {
 
 .column20 span {
 	margin: 5px 0;
-	font-weight: bold;
+	cursor: pointer;
+}
+
+.column20 span:hover {
+	color: #0cc;
 }
 
 .inTheMedia {
 	margin-top: 25px;
+}
+
+.columnThird {
+	width: 33%;
+	text-align: center;
+	display: flex;
+	flex-direction: column;
+}
+
+.supportButtons {
+	display: inline-flex;
+	flex-wrap: wrap;
+	margin: 20px auto;
+	justify-content: center;
+}
+
+.support {
+	margin: 15px 30px;
+	display: inline-flex;
+	flex-direction: column;
+}
+
+.support img {
+	height: 30px;
+	width: 30px;
+	margin: auto;
+}
+
+.copyright {
+	background-color: #0cc;
+	color: #11303C;
+	text-transform: uppercase;
+  padding: 10px 0 10px 10%;
+	font-size: 12px;
 }
