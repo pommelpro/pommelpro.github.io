@@ -397,6 +397,7 @@ h1 {
 	margin: 15px 30px;
 	display: inline-flex;
 	flex-direction: column;
+	cursor: pointer;
 }
 
 .support img {
@@ -430,6 +431,7 @@ h1 {
 .socialMediaImages img {
 	height: 25px;
 	margin: 10px 25px;
+	cursor: pointer;
 }
 
 .socialMediaImages img:first-of-type {
