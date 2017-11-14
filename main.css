@@ -622,4 +622,43 @@ h1 {
 	.column50 img {
 		width: 100%;
 	}
+
+	.row4 {
+		margin-bottom: 20px;
+	}
+
+	.row5 {
+		padding: 30px 0;
+	}
+
+	.row5 .column50:last-of-type {
+		margin-top: 90px;
+		text-align: center;
+	}
+
+	.row5 .column50 img {
+		height: 42px;
+    width: 54px;
+	}
+
+	.row5 .shopButton {
+		width: 120px;
+    margin: 0 auto;
+    padding: 10px 0;
+	}
+
+	.storeLabel {
+		margin: 20px 0;
+	}
+
+	.emailInput {
+		display: flex;
+    flex-direction: column;
+	}
+
+	.emailInput .inputBox {
+		margin: 0 auto 10px auto;
+    width: 90%;
+	}
+
 }
