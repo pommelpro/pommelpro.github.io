@@ -603,6 +603,10 @@ h1 {
 		width: 63px;
 	}
 
+	.row3 {
+		margin-bottom: 0;
+	}
+
 	.responsiveRow1 {
 		display: none;
 	}
@@ -691,6 +695,10 @@ h1 {
     justify-content: space-evenly;
 	}
 
+	.support:hover {
+		color: #0cc;
+	}
+
 	.support img {
 		height: 45px;
     width: 50px;
@@ -716,6 +724,7 @@ h1 {
 	.socialMediaImages img {
 		height: 20px;
 		margin: 10px 0;
+		cursor: pointer;
 	}
 
 	.visit {
@@ -746,6 +755,11 @@ h1 {
 		display: flex;
 		flex-direction: column;
 		width: 33%;
+		cursor: pointer;
+	}
+
+	.city:hover {
+		color: #0cc;
 	}
 
 	.city img {
