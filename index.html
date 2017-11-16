@@ -9,6 +9,7 @@
 		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js" integrity="sha384-alpBpkh1PFOepccYVYDB4do5UnbKysX5WZXm3XxPqe5iKTfUKjNkCk9SaVuEZflJ" crossorigin="anonymous"></script>
 		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css" integrity="sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb" crossorigin="anonymous">
 		<link rel="stylesheet" href="main.css">
+		<script src="main.js"></script>
 	</head>
 	<body>
 		<div class="navbar desktop">
@@ -19,7 +20,7 @@
 						<input class="inputBox" placeholder="Search" type="text" />
 					</form>
 				</div>
-				<div style="display: inline-flex;">
+				<div class="logoDesktop" style="display: inline-flex;">
 					<img class="logo" src="assets/Logo.png" alt="Logo" />
 				</div>
 				<div style="white-space: nowrap;">
@@ -51,7 +52,7 @@
 			</div>
 		</div>
 		<div class="top mobile">
-			<div class="icons menu">
+			<div id="openCloseMenu" class="icons menu">
 				<img src="assets/Menu.png" alt="Menu" />
 				Menu
 			</div>
@@ -62,7 +63,7 @@
 			<div class="icons logo">
 				<span>T</span>
 			</div>
-			<div class="icons">
+			<div id="openCloseSearch" class="icons">
 				<img src="assets/SearchMobile.png" alt="Search" />
 					Search
 			</div>
@@ -70,6 +71,22 @@
 				<img src="assets/Cart.png" alt="Cart" />
 					Cart
 			</div>
+		</div>
+		<div id="mobileSearch" class="searchwrapper mobile hiddenToggle">
+			<form>
+				<input class="searchIcon" type="image" src="assets/searchGlass.png">
+				<input class="inputBox" placeholder="Search" type="text" />
+			</form>
+		</div>
+		<div id="mobileMenu" class="options mobile hiddenToggle">
+			<span>Shirts</span>
+			<span>Pants</span>
+			<span>Ties</span>
+			<span>Bow Ties</span>
+			<span>Pocket Squares</span>
+			<span>Socks & Underwear</span>
+			<span>Accessories</span>
+			<span>The Wedding Shop</span>
 		</div>
 		<div class="promo">
 			<div class="maincode">ALL SHIRTS SHIP FREE</div>
