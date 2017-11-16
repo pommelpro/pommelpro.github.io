@@ -20,6 +20,9 @@ window.onload = function() {
   document.getElementById("innerCarousel").addEventListener("touchstart", function(e) {
     fingerStartPosition = onTouchStart(e);
   })
+  document.getElementById("innerCarousel").addEventListener("touchmove", function(e) {
+    e.preventDefault();
+  })
   document.getElementById("innerCarousel").addEventListener("touchend", function(e) {
     onTouchEnd(e, fingerStartPosition);
   })
