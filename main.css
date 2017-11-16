@@ -164,12 +164,13 @@ h1 {
 }
 
 .row2 {
-	padding-left: 60px;
+
 }
 
 .row2 .headerSection {
 	display: flex;
 	flex-direction: column;
+	padding-left: 60px;
 }
 
 .row2 .horizontalRule {
@@ -178,16 +179,21 @@ h1 {
 }
 
 .carousel {
+	display: inline-flex;
 	margin: 20px 0;
-	width: 100%;
 	overflow: hidden;
-	padding-right: 30px;
+	width: 100%;
 }
 
 .carousel .innerCarousel {
 	display: inline-flex;
-	overflow-x: auto;
-	width: 100%;
+	overflow-x: hidden;
+	width: 100%%;
+	margin: 0 60px;
+}
+
+.carousel .innerCarousel::-webkit-scrollbar {
+    display: none;
 }
 
 .carousel .cell {
@@ -213,12 +219,28 @@ h1 {
 	text-transform: uppercase;
 }
 
+.carouselNav {
+	height: 50px;
+	margin: 0 15px;
+	position: absolute;
+	top: 30%;
+}
+
+.carouselNav.left {
+	left: 0;
+}
+
+.carouselNav.right {
+	right: 0;
+}
+
 .buttonRow {
 	display: inline-flex;
 	justify-content: space-between;
 	padding-right: 30px;
 	width: 100%;
 	flex-wrap: wrap;
+	padding: 0 60px;
 }
 
 .overlaidImageText {
