@@ -573,9 +573,10 @@ h1 {
 	}
 
 	.searchwrapper {
+		left: 0;
 		position: absolute;
+		top: 65px;
     width: 100%;
-    top: 65px;
 	}
 
 	.searchwrapper .searchIcon {
