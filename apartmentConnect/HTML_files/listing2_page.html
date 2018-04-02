@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset='utf-8' />
+    <title>2218 Maple Avenue</title>
+    <link href="../Bootstrap_files/css/bootstrap.css" rel="stylesheet"/>
+    <link rel="stylesheet" type"type/css" href="../CSS_files/global.css">
+    <link rel="stylesheet" type"type/css" href="../CSS_files/listing_page.css">
+    <link href='http://fonts.googleapis.com/css?family=Lato' rel='stylesheet' type='text/css'>
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+    <script type="text/javascript"
+      src="https://maps.googleapis.com/maps/api/js?sensor=false">
+    </script>
+    <!--<script src="scripts/jqueryinclude.min.js" ></script> -->
+    <script src="http://code.jquery.com/jquery-1.10.1.min.js"></script>
+    <script src="../JS_files/home_page.js" ></script>
+    
+
+    <script type="text/javascript">
+      $(document).ready( function () {
+		function isEmpty( el ) {
+			return !$.trim(el.html());
+		};
+	  
+
+        $("#watchlist-add").click(function() {
+			if (isEmpty($('#alert-wrapper'))) {
+				var alertBox = '<div class="row bg-success" id="watchlist-alert-box">'
+				var alertText = '<p class="text-center" id="watchlist-alert-text">This listing has been added your Watch List!</p>';
+				var alert = alertBox + alertText + '</div>';
+				$("#alert-wrapper").append(alert);
+					document.body.scrollTop = document.documentElement.scrollTop = 0;
+			}
+		});
+      });
+    </script>
+	<script type="text/javascript">
+      function initialize() {
+        var mapOptions = {
+          center: new google.maps.LatLng(42.058486, -87.684585),
+          zoom: 17 
+        };
+        var map = new google.maps.Map(document.getElementById("map-canvas"),
+            mapOptions);
+        
+        myLatlng = new google.maps.LatLng(42.058486, -87.684585);
+          marker = new google.maps.Marker({
+                          position: myLatlng,
+                          map: map,
+                        });
+        }
+        google.maps.event.addDomListener(window, 'load', initialize);
+      google.maps.event.addDomListener(window, 'load', initialize);
+    </script>
+  </head>
+
+  <body>
+    <div id="content">
+      <nav class="navbar navbar-default" role="navigation" id="main-nav">
+        <div class="navbar-header" id="inner-main-nav">
+          <div class="container navbar-inner">
+          <ul class="nav navbar-nav">
+            <li>
+              <a class="navbar-brand" id="logo" href="home_page.html">
+              <span class="glyphicon glyphicon-home"></span>
+              ApartmentConnect
+              </a>
+            </li>
+          </ul>
+          <ul class="nav navbar-nav pull-right">
+            <li><a href="browse_page.html">Search</a></li>
+            <li><a href="upload_page.html">Upload</a></li>
+            <li><a href='#'>Watch List</a></li>
+            <li><a href="#">Help</a></li>
+          </ul>
+          </div>
+        </div>
+      </nav>
+    
+
+  <div class="container" id="inner-container">
+        <div class="row" id="alert-wrapper">
+        </div>
+
+        <div class="row top-buffer"></div>
+
+        <div class="row" id="title-and-back-row">
+          <div class="col-md-9">
+            <h2>2218 Maple Avenue</h2>
+          </div>
+          <div class="col-md-3" id="back-btn">
+			<a href='browse_page.html'>
+				<button class="btn btn-success btn-block">
+				  Back to Results
+				</button>
+			</a>
+        </div>
+        </div> <!-- END ROW 1 -->
+
+        <div class="row">
+          <div class="col-md-6" id="description">
+            <p>
+              A beautiful two bedroom apartment overlooking the wonderful terraces of Maple Avenue.  Just a few blocks away from campus and close by to eateries Tomate and Rollin' 2 Go.  Get groceries at D&D finer food!  The complex is home to dozens of friendly students a great staff.  Washing machines are closeby and plentiful, as well as a very accessable Engineer! Cable and high speed internet are easily set up and of excellent quality.  For the North campus student, this apartment is a must.
+            </p>
+            <p>Features a spacious galley style kitchen complete with stove, oven, dishwasher, and sink.  Hardwood floors line the entire apartment.  The bedrooms are spacious and each has it's own heater and ceiling fan.  The apartment has 2 bedrooms, but can easily accommodate 3 or 4 tennants, making rent much cheaper.  Spacious living room with bay window style openings, great for parties and gatherings.  Plenty of light throughout.
+            </p>
+          </div>
+          <div class="col-md-6" id="img-box">
+            <img src="../img/2218_Maple.png" alt="apartment image" id="listing-image"/>
+          </div>
+        </div> <!-- END ROW 2-->
+
+        <div class="row top-buffer"></div>
+
+        <div class="row"><!-- ROW 3 -->
+          <div class="col-md-4" id="details">
+            <h3> Details </h3>
+            <dl class="dl-horizontal">
+              <dt>Bedrooms</dt>
+              <dd>2</dd>
+              <dt>Bathrooms</dt>
+              <dd>1</dt>
+              <dt>Rent</dt>
+              <dd>$850/mo</dd>
+              <dt>Size</dt>
+              <dd>950sq.ft.</dd>
+              <dt>Internet</dt>
+              <dd>Not Included</dd>
+              <dt>Cable</dt>
+              <dd>Not Included</dd>
+              <dt>Dishwasher</dt>
+              <dd>Included</dd>
+              <dt>Furniture</dt>
+              <dd>Not Included</dd>
+              <dt>Heat</dt>
+              <dd>Included</dd>
+              <dt>Air Conditioning</dt>
+              <dd>Included</dd>
+              <dt>Parking</dt>
+              <dd>Yes</dd>
+              <dt>Pets</dt>
+              <dd>Not allowed</dt>
+              <dt>Laundry</dt>
+              <dd>In complex</dt>
+            </dl>
+			
+			<a href='mailto:nicholasscoliard2016@u.northwestern.edu'>
+				<button type="button" class="btn btn-inverse btn-lg btn-block">
+				  Contact Seller
+				  <span class="glyphicon glyphicon-envelope"></span>
+				</button>
+			</a>
+				
+            <button type="button" class="btn btn-success btn-lg btn-block" 
+              id="watchlist-add">
+              Add to Watch List
+              <span class="glyphicon glyphicon-th-list"></span>
+            </button>
+          </div> 
+
+          <div class="col-md-8" id="map-holder">
+            <div id="map-canvas">
+            </div>
+          </div>
+       </div> <!-- END ROW 3 -->
+       <div class="row top-buffer"> </div>
+      </div> <!-- END OUTER CONTAINER -->
+    </div> <!-- END CONTENT-->
+    <div id="footer">
+      <div><span class="glyphicon glyphicon-copyright-mark"></span> 2014 ApartmentConnect</div>
+      <div>Jason Lustbladder, Jonah Ruffer, Nick Scoliard, Alex Kowalczuk</div>
+    </div>
+  </body>
+</html>

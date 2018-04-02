@@ -1,3 +1,3 @@
 # pommelpro.github.io
 
-To run this code, simply navigate to https://pommelpro.github.io/ in any browser on any device.
+This contains a collection of work I have done. To view running code please go to 'pommelpro.github.io'.

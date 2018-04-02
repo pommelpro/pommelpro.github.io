@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset='utf-8' />
+    <title>Browse Listings</title>
+    <link href="../Bootstrap_files/css/bootstrap.css" rel="stylesheet"/>
+    <link rel="stylesheet" type="text/css" href="../CSS_files/global.css">
+    <link rel="stylesheet" type="text/css" href="../CSS_files/browse_page.css">
+    <link href='http://fonts.googleapis.com/css?family=Lato' rel='stylesheet' type='text/css'>
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+    <script src="http://code.jquery.com/jquery-1.10.1.min.js"></script>
+    <script type="text/javascript" src="../JS_files/jquery-ui-1.10.4.custom.js"></script>
+    <script type="text/javascript"src="https://maps.googleapis.com/maps/api/js?sensor=false"></script>
+    <script tpye="text/javascript" src="../JS_files/browse_page.js" ></script>
+	<script>
+	$(document).ready( function() {
+		$('h3').click( function () {
+			if($('#toggle-icon').hasClass('glyphicon-chevron-right')) {
+				$('#toggle-icon').removeClass('glyphicon-chevron-right');
+				$('#toggle-icon').addClass('glyphicon-chevron-down');
+			}
+			else {
+				$('#toggle-icon').removeClass('glyphicon-chevron-down');
+				$('#toggle-icon').addClass('glyphicon-chevron-right');
+			}
+		});
+		
+		$('#search-btn').click( function () {
+			$('#toggle-icon').removeClass('glyphicon-chevron-right');
+			$('#toggle-icon').addClass('glyphicon-chevron-down');
+		});
+	});
+	</script>
+	
+  </head>
+
+  <body>
+	<div id= "content">
+		<nav class="navbar navbar-default" role="navigation" id="main-nav">
+		  <div class="navbar-header" id="inner-main-nav">
+			  <div class="container navbar-inner">
+				<ul class="nav navbar-nav">
+				  <li>
+				  	<a class="navbar-brand" id="logo" href="home_page.html">
+				  	<span class="glyphicon glyphicon-home"></span>
+				  	ApartmentConnect
+				  	</a>
+					</li>
+				</ul>
+				<ul class="nav navbar-nav pull-right">
+				  <li><a href="browse_page.html">Search</a></li>
+				  <li><a href="upload_page.html">Upload</a></li>
+				  <li><a href='#'>Watch List</a></li>
+				  <li><a href="#">Help</a></li>
+				</ul>
+			  </div>
+			</div>
+		</nav>
+
+		<div class='row-form'>
+			<!--<form> action='browse_page2.html'>-->
+				<div class="col-md-2" id="rentmin">
+					<label for="RentMin">Min Rent ($)*</label>
+					<input type="tex" class="form-control" id="RentMin" placeholder="Min">
+				</div>
+
+				<div class="col-md-2" id="rentmax">
+					<label for="RentMax">Max Rent ($)*</label>
+					<input type="text" class="form-control" id="RentMax" placeholder="Max">
+				</div>
+
+				<div class="col-xs-1" id="bedrooms">
+					<label for="Bedrooms">Bedrooms*</label>
+					<select class='form-control' id='Bedrooms'>
+						<option>1</option>
+						<option>2</option>
+						<option>3</option>
+						<option>4</option>
+						<option>5</option>
+						<option>6</option>
+						<option>7+</option>
+					</select>
+				</div>
+
+				<div class='col-md-2' id="neighborhoods">
+					<label for='Neighbor'>Neighborhood*</label>
+					<select class='form-control' id='Neighbor'>
+						<option> North Campus </option>
+						<option> South Campus </option>
+					</select>
+				</div>
+
+				<div class="col-md-2" id="parking">
+					<label for='Parking'>Parking*</label>
+					<select class='form-control' id='Parking'>
+						<option>Yes</option>
+						<option>No</option>
+					</select>
+				</div>
+
+				<div class='col-md-2' id="minsize">
+					<label for='SizeMin'>Min. Size</label>
+					<input type='text' class='form-control' id='SizeMin' placeholder='sq ft'>
+				</div>
+
+				<div class='col-md-1' id="search-btn">
+					<button class="btn btn-default">Search</button>
+				</div>
+			<!-- </form> -->
+		</div>
+		<div id="results-row">
+			<h3 id="results-header">
+				<span class="glyphicon glyphicon-chevron-right" id="toggle-icon"></span>
+				 Results
+			</h3>
+			<table class="table table-striped" id="results-table">
+				<tr>
+				<td></td>
+				<th> Address </th>
+				<th> Rent per Month </th>
+				<th>Bedrooms</th>
+				<th></th>
+			</tr>
+
+			<tr>
+				<td> 1 </td>
+				<td> 2131 Ridge Avenue, Evanston, IL </td>
+				<td> $900 </td>
+				<td>2</td>
+				<td> <a href='listing_page.html'>
+					<button type='button' class='btn btn-success'> Details </button></a>
+				</td>
+			</tr>
+
+			<tr>
+				<td> 2 </td>
+				<td> 2218 Maple Avenue, Evanston, IL </td>
+				<td> $850 </td>
+				<td>2</td>
+				<td> <a href='listing2_page.html'>
+					<button type='button' class='btn btn-success'> Details </button></a>
+				</td>
+			</tr>
+
+			<tr>
+				<td> 3 </td>
+				<td> 2315 Sheridan Road, Evanston, IL </td>
+				<td> $1125 </td>
+				<td>4</td>
+				<td>
+					<button type='button' class='btn btn-success'> Details </button>
+				</td>
+			</tr>
+
+			<tr>
+				<td> 4 </td>
+				<td> 200 Noyes Street, Evanston, IL </td>
+				<td> $690 </td>
+				<td>2</td>
+					<td>
+					<button type='button' class='btn btn-success'> Details </button>
+				</td>
+			</tr>
+
+			<tr>
+				<td> 5 </td>
+				<td> 3000 Sheridan Road, Evanston, IL </td>
+				<td> $1500 </td>
+				<td>3</td>
+				<td>
+					<button type='button' class='btn btn-success'> Details </button>
+				</td>
+			</tr>
+			</table>
+		</div>
+		<div id="map-canvas">
+		</div>
+	</div>
+	<div id="footer">
+		<div><span class="glyphicon glyphicon-copyright-mark"></span> 2014 ApartmentConnect</div>
+		<div>Jason Lustbladder, Jonah Ruffer, Nick Scoliard, Alex Kowalczuk</div>
+	</div>
+
+  </body>
+</html>

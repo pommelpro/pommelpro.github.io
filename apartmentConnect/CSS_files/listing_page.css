@@ -1,0 +1,56 @@
+#img-box {
+  border-left-width: 1px;
+  border-left-style: solid;
+  border-color: #d4d4d4;
+}
+
+#listing-image { 
+  height: 100%;
+  width: 100%;
+}
+
+.top-buffer {
+  margin-top:20px; 
+  margin-bottom: 20px;
+  border-top-width: 1px;
+  border-top-style: solid;
+  border-color: #d4d4d4;
+}
+
+#watchlist-alert-box { margin-top: 10px; }
+#watchlist-alert-text {
+   color: black; 
+   margin: 10px 0 10px 0;
+   font-size: 1.2em;
+ }
+
+
+
+#contact {
+  background-color: red;
+}
+#inner-container {
+  margin-left: 4%;
+  margin-right: 4%;
+  width: 92%;
+}
+
+#map-holder {
+  border-left-width: 1px;
+  border-left-style: solid;
+  border-color: #d4d4d4;
+}
+#map-canvas {
+  height: 500px;
+  width: 100%;
+}
+#title-and-back-row {
+  position: relative;
+}
+#back-btn {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  padding: 10px 0px 10px 90px;
+}
+

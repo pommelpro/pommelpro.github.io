@@ -1,0 +1,11 @@
+th:hover {
+	text-decoration: underline;
+}
+
+.searchBar {
+	margin: 20px 0;
+}
+
+.glyphicon {
+	margin-left: 5px;
+}

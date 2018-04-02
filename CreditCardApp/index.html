@@ -1,0 +1,318 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1 user-scalable=no" />
+		<title>Credit Card Application</title>
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+		<script src="js/bootstrap.min.js"></script>
+		<link href="css/bootstrap.min.css" rel="stylesheet">
+		<link rel="stylesheet" type="text/css" href="creditcard.css">
+		<script src="creditcard.js"></script>
+	</head>
+	<body>
+		<nav class="navbar navbar-static-top navbar-inverse">
+			<div class="container-fluid">
+				<div class="navbar-header">
+					<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+						<span class="sr-only">Toggle navigation</span>
+						<span class="icon-bar"></span>
+						<span class="icon-bar"></span>
+						<span class="icon-bar"></span>
+					</button>
+					<a class="navbar-brand">Credit Cards</a>
+				</div>
+				<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+					<ul class="nav navbar-nav">
+						 <li class="active"><a href="index.html">Apply</a></li>
+						 <li><a href="status.html">View Status</a></li>
+					</ul>
+					<ul class="nav navbar-nav navbar-right">
+						<li class="dropdown">
+							<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Account <span class="caret"></span></a>
+							<ul class="dropdown-menu">
+								<li><a href="status.html">View Status</a></li>
+								<li><a href="logout.html">Log Off</a></li>
+							</ul>
+						</li>
+						<li>
+							<a href="../index.html">
+								<span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+								<span class="glyphicon-class">Main Page</span>
+							</a>
+						</li>
+					</ul>
+				</div>
+			</div>
+		</nav>
+		<div class="container-fluid">
+			<h1 class="small-separate">Credit Card Application Form</h1>
+			<div id="errorAlert" class="alert alert-danger text-center" hidden="true" role="alert">Uh Oh! Looks like you forgot to fill out all of the required text fields.</div>
+			<div id="successAlert" class="alert alert-success text-center" hidden="true" role="alert">Success! Thank you for applying for this credit card.</div>
+		</div>
+		<div class="container-fluid">
+			<div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
+				<div class="panel panel-default panelHeading">
+					<div class="panel-heading" role="tab" id="headingOne">
+						<a id="topCollapsable" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+							<h4 class="panel-title">
+								Personal Information
+							</h4>
+						</a>
+					</div>
+					<div id="collapseOne" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingOne">
+						<div class="panel-body">
+							<form>
+								<div class="row form-group">
+									<div class="col-xs-12 col-md-6 small-separate firstName">
+										<input type="text" class="form-control" id="firstName" placeholder="First Name">
+									</div>
+									<div class="col-xs-12 col-md-6 middleName">
+										<input type="text" class="form-control" id="middleName" placeholder="Middle Name (optional)">
+									</div>
+								</div>
+								<div class="row form-group top-row">
+									<div class="col-xs-12 col-md-6 small-separate lastName">
+										<input type="text" class="form-control" id="lastName" placeholder="Last Name">
+									</div>
+									<div class="col-xs-12 col-md-6">
+										<select id="suffix" class="form-control"></select>
+									</div>
+								</div>
+							</form>
+						</div>
+					</div>
+				</div>
+				<div class="panel panel-default">
+					<div class="panel-heading" role="tab" id="headingTwo">
+						<a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+							<h4 class="panel-title">
+								Address
+							</h4>
+						</a>
+					</div>
+					<div id="collapseTwo" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingTwo">
+						<div class="panel-body">
+							<div class="row small-separate">
+								<div class="col-xs-12 col-md-12">
+									<h1 id="addressHeader"></h1>
+									<p class="help-block">Now we need some basic information.</p>
+								</div>
+							</div>
+							<div class="row">
+								<div class="col-xs-12 col-md-6">
+									<form>
+										<div class="row form-group">
+											<div class="col-xs-12 col-md-12">
+												<label for="yourAddress">Your Address</label>
+											</div>
+											<div class="col-xs-12 col-md-12 small-separate streetAddress">
+												<input type="text" class="form-control" id="streetAddress" placeholder="Street Address - Example: 123 Main St.">
+											</div>
+											<div class="col-xs-12 col-md-12 aptNumber">
+												<input type="text" class="form-control" id="aptNumber" placeholder="Apt/Suite/Floor - Example: 15B (optional)">
+											</div>
+										</div>
+										<div class="row form-group top-row">
+											<div class="col-xs-12 col-md-6 small-separate">
+												<div class="small-separate city">
+													<input type="text" class="form-control" id="city" placeholder="City">
+												</div>
+												<div class="states">
+													<select id="states" class="form-control states"></select>
+												</div>
+											</div>
+											<div class="col-xs-12 col-md-6 zip">
+												<input type="number" class="form-control" inputmode="numeric" pattern="[0-9]*" id="zip" min="10000" max="99999" placeholder="ZIP Code">
+											</div>
+										</div>
+									</form>
+								</div>
+								<div class="col-xs-12 col-md-6">
+									<form>
+										<div class="row form-group">
+											<div class="col-xs-12 col-md-12">
+												<label for="yourAddress">Date of Birth</label>
+												<div class="col-xs-12 col-md-12 small-separate">
+													<form class="form-inline">
+														<div class="form-group input-group">
+															<select id="monthDOB" class="form-control"></select>
+															<div class="input-group-addon">/</div>
+															<select id="dayDOB" class="form-control"></select>
+															<div class="input-group-addon">/</div>
+															<select id="yearDOB" class="form-control"></select>
+														</div>
+													</form>
+												</div>
+											</div>
+											<div class="col-xs-12 col-md-12">
+												<label for="employmentStatus">Employment Status</label>
+												<div class="col-xs-12 col-md-12 employmentStatus">
+													<select id="employmentStatus" class="form-control"></select>
+												</div>
+												<div class="col-xs-12 col-md-12">
+													<p class="help-block">
+														If you are a college student and have a job, select "College Student"
+													</p>
+												</div>
+											</div>
+											<div class="col-xs-12 col-md-6">
+												<label for="income">Total Annual Gross Income</label>
+												<div class="col-xs-12 col-md-12 small-separate">
+													<div class="col-xs-12 col-md-12 income input-group">
+														<div class="input-group-addon">$</div>
+														<input type="number" inputmode="numeric" pattern="[0-9]*" class="form-control" id="income" placeholder="Amount" data-container="body" data-toggle="popover" data-placement="top" data-trigger="focus" data-content="Examples include current or reasonably expected salary, wages, bonus pay, tips, commissions, and income from interest, dividends, retirement benefits and rental property. If you are 21 or over you may include another person's income that is available to you. A spouse/domestic partner is an example.">
+														<div class="input-group-addon">.00</div>
+													</div>
+													<div class="col-xs-12 col-md-12">
+														<p class="help-block">
+															You do not have to include alimony, child support, or separate maintenance income unless you want it considered as a basis for repayment
+														</p>
+													</div>
+												</div>
+											</div>
+											<div class="col-xs-12 col-md-6">
+												<label for="rent" class="noWrap">Monthly Housing/Rent Payment</label>
+												<div class="col-xs-12 col-md-12 small-separate">
+													<div class="col-xs-12 col-md-12 rent input-group">
+														<div class="input-group-addon">$</div>
+														<input type="number" inputmode="numeric" pattern="[0-9]*" class="form-control" id="rent" placeholder="Amount" data-container="body" data-toggle="popover" data-trigger="focus" data-placement="top" data-content="If you have no monthly housing payment, please enter &quot;0&quot;.">
+														<div class="input-group-addon">.00</div>
+													</div>
+												</div>
+											</div>
+										</div>
+									</form>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="panel panel-default">
+					<div class="panel-heading" role="tab" id="headingThree">
+						<a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+							<h4 class="panel-title">
+								Experience
+							</h4>
+						</a>
+					</div>
+					<div id="collapseThree" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingThree">
+						<div class="panel-body">
+							<div class="row small-separate">
+								<div class="col-xs-12 col-md-12">
+									<h1 id="experienceHeader"></h1>
+									<p class="help-block">We just need a bit more information.</p>
+								</div>
+							</div>
+							<div class="row form-group">
+								<div class="col-xs-12 col-md-6">
+									<div class="row form-group">
+										<div class="col-xs-12 col-md-12">
+											<label for="yourOccupation">Occupation</label>
+										</div>
+										<div class="col-xs-12 col-md-12 job small-separate">
+											<select id="job" class="form-control"></select>
+										</div>
+										<div class="col-xs-12 col-md-12 employerName">
+											<input type="text" class="form-control" id="employerName" placeholder="Employer name" data-container="body" data-toggle="popover" data-trigger="focus" data-placement="top" data-content="If you do not work for a company, type in self-employed as the employer name.">
+										</div>
+									</div>
+									<div class="row form-group">
+										<div class="col-xs-12 col-md-6">
+											<div class="col-xs-12 col-md-12">
+												<label for="yourEmployment">Length of Employment</label>
+											</div>
+											<div class="col-xs-4 col-md-6 yearsEmployment">
+												<input type="number" inputmode="numeric" pattern="[0-9]*" class="form-control" id="yearsEmployment" placeholder="XX" data-container="body" data-toggle="popover" data-trigger="focus" data-placement="top" data-content="Please round to whole year.">
+											</div>
+											<div class="col-xs-2 col-md-4">
+												<span class="years text-left">Years</span>
+											</div>
+										</div>
+										<div class="col-xs-12 col-md-6">
+											<div class="col-xs-12 col-md-12">
+												<label for="businessPhone">Business Phone (Optional)</label>
+											</div>
+											<div class="col-xs-12 col-md-12">
+												<input type="number" inputmode="numeric" pattern="[0-9]*" class="form-control" id="businessPhone" min="10000000000" max="99999999999" placeholder="XXX-XXX-XXXX">
+											</div>
+										</div>
+									</div>
+									<div class="row form-group">
+										<div class="col-xs-12 col-md-12">
+											<label for="education">Highest level of Education Achieved</label>
+										</div>
+										<div class="col-xs-12 col-md-12 education small-separate">
+											<select id="education" class="form-control"></select>
+										</div>
+									</div>
+								</div>
+								<div class="col-xs-12 col-md-6">
+									<div class="row form-group">
+										<div class="col-xs-12 col-md-5">
+											<div class="col-xs-12 col-md-12">
+												<label for="housing">Housing Status</label>
+											</div>
+											<div class="col-xs-12 col-md-12 home small-separate">
+												<select id="home" class="form-control"></select>
+											</div>
+										</div>
+										<div class="col-xs-12 col-md-7">
+											<div class="col-xs-12 col-md-12">
+												<label for="yourEmployment" class="noWrap">Length of Time at Current Residence</label>
+											</div>
+											<div class="col-xs-4 col-md-4 residenceNumber">
+												<input type="number" inputmode="numeric" pattern="[0-9]*" class="form-control" id="residenceNumber" placeholder="XX">
+											</div>
+											<div class="col-xs-8 col-md-8">
+												<span class="years text-left">
+													<select id="residenceUnit" class="form-control">
+														<option>Years</option>
+														<option>Months</option>
+													</select>
+												</span>
+											</div>
+										</div>
+									</div>
+									<div class="row form-group">
+										<div class="col-xs-12 col-md-12">
+											<label for="bank" class="noWrap">Do you have a Checking or Debit Account?</label>
+										</div>
+										<div class="col-xs-12 col-md-12 small-separate">
+											<label class="radio-inline">
+												<input type="radio" name="bankOption" id="yesBank" value="Yes"> Yes
+											</label>
+											<label class="radio-inline">
+												<input type="radio" name="bankOption" id="noBank" value="No"> No
+											</label>
+										</div>
+									</div>
+									<div class="row form-group">
+										<div class="col-xs-12 col-md-12">
+											<label for="savings">Do you have a Savings, IRA, or Money Market Account?</label>
+										</div>
+										<div class="col-xs-12 col-md-12 small-separate">
+											<label class="radio-inline">
+												<input type="radio" name="savingsOption" id="yesSavings" value="Yes"> Yes
+											</label>
+											<label class="radio-inline">
+												<input type="radio" name="savingsOption" id="noSavings" value="No"> No
+											</label>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+				<button type="button" class="btn btn-primary btn-lg btn-block submitBtn">Submit</button>
+			</div>
+		</div>
+		<nav class="navbar navbar-inverse navbar-static-bottom container-fluid navTextColor">
+			<div class="container">
+				Jonah Ruffer LLC <span class="glyphicon glyphicon-registration-mark" aria-hidden="true"></span>
+			</div>
+		</nav>
+	</body>
+</html>

@@ -1,0 +1,40 @@
+body {
+	background-attachment: fixed;
+	background-image: url('img/graybackground.jpg');
+	background-repeat: no-repeat;
+}
+.small-separate {
+	padding-bottom: 10px;
+}
+.top-row {
+	padding-top: 20px;
+}
+.slash {
+	font-size: 25px;
+}
+.years {
+	font-size: 20px;
+}
+.noWrap {
+	white-space: nowrap;
+}
+.navTextColor {
+	color: #9d9d9d;
+}
+.submitBtn {
+	margin: 10px 0;
+}
+.alert {
+	font-weight: bold;
+}
+.bottom-space {
+	margin-bottom:40px;
+}
+.statusForm {
+	background-color:white;
+	border-radius: 4px;
+	padding: 15px;
+}
+.navbar-inverse .navbar-brand {
+	color:white;
+}
